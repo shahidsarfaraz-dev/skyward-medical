@@ -1,0 +1,36 @@
+.trustBadge_with_content {
+	margin: 15px 0;
+}
+.trustBadge_contact_info {
+	text-align: center;
+	padding: 20px;
+	border: 2px solid;
+    margin-top:15px;
+    background-color: #F0E9E9;
+}
+.trustBadge_contact_faq {
+	margin-top: 20px;
+}
+.trustBadge_contact_faq > .trustBadge_contact_faq_title {
+	text-decoration: underline;
+}
+
+/* product page */
+.product-form__add-button {
+	text-transform: uppercase;
+}
+/* header contact info desktop version */
+.giraffly_announce_two > a {padding: 10px 20px !important;font-size: 25px !important;}
+
+
+/* responsive */
+ @media screen and (max-width: 575px){
+   .trustBadge_contact_info {padding: 10px;}
+   .giraffly_announce_div {margin: auto 10px !important;}
+   .giraffly_announce_first {font-size: 14px !important;}
+   .giraffly_announce_two > a {padding: 10px 20px !important;font-size: 14px !important;}
+ }
+
+@media screen and (max-width: 999px){
+  .hidden-pocket {display: none !important;}
+}

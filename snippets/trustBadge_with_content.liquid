@@ -1,0 +1,23 @@
+<div class="trustBadge_with_content">
+  {% if block.settings.trustBadge_img != blank %} 
+   <img src="{{ block.settings.trustBadge_img | img_url:'master' }}" alt="#"> 
+  {% else %}
+    <div class="payment-list" style="justify-content:center;">
+      {% for type in shop.enabled_payment_types %}
+        {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if block.settings.trustBadge_richtext != blank %}
+  <div class="trustBadge_contact_info">{{ block.settings.trustBadge_richtext }}</div>
+  {% endif %}
+
+  {% if block.settings.trustBadge_faq_title != blank %}
+  <div class="trustBadge_contact_faq">
+    <span class="trustBadge_contact_faq_title"><b>{{ block.settings.trustBadge_faq_title }}</b></span>
+    {{ block.settings.trustBadge_faq }}
+    </div>
+  {% endif %}
+  
+</div>

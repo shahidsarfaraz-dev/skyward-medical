@@ -1,0 +1,340 @@
+{%- if section.settings.desktop_navigation_layout == 'condensed' -%}
+  {%- assign is_condensed = true -%}
+{%- else -%}
+  {%- assign is_condensed = false -%}
+{%- endif -%}
+
+{%- assign downcase_title = mega_menu.title | downcase | strip -%}
+{%- assign mega_menu_block = nil -%}
+
+{%- for block in section.blocks -%}
+  {%- assign downcase_block_menu_item = block.settings.menu_item | downcase | strip -%}
+
+  {%- if downcase_block_menu_item == downcase_title -%}
+    {%- assign mega_menu_block = block -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div id="{{ index }}" class="mega-menu {% if is_floating %}mega-menu--floating{% endif %}" data-type="menu" aria-hidden="true" role="list" {{ mega_menu_block.shopify_attributes }}>
+  {%- capture mega_menu_inner -%}
+    {%- assign should_center = false -%}
+
+    {%- unless is_floating -%}
+      {%- assign should_center = true -%}
+    {%- endunless -%}
+
+    {%- assign has_two_images = false -%}
+
+    {%- if mega_menu_block.settings.image_1 != blank and mega_menu_block.settings.image_2 != blank -%}
+      {%- assign has_two_images = true -%}
+    {%- endif -%}
+
+    {%- assign mega_menu_classes = '' -%}
+
+    {%- if should_center and mega_menu.links.size <= 4 -%}
+      {%- if has_two_images -%}
+        {%- assign mega_menu_classes = 'mega-menu__inner--center' -%}
+      {%- else -%}
+        {%- assign mega_menu_classes = 'mega-menu__inner--center mega-menu__inner--large' -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    <div class="mega-menu__inner {{ mega_menu_classes }}">
+      {%- if mega_menu.links.size > 0 -%}
+        {%- capture mega_menu_columns -%}
+          {%- for link in mega_menu.links -%}
+            <div class="mega-menu__column">
+              <a href="{{ link.url }}" class="mega-menu__title heading">{{ link.title }}</a>
+
+              {%- if link.links.size > 0 -%}
+                <ul class="mega-menu__linklist" role="list">
+                  {%- for sub_link in link.links -%}
+                    <li class="mega-menu__item">
+                      <a href="{{ sub_link.url }}" class="mega-menu__link link">{{ sub_link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        {%- endcapture -%}
+
+        {%- if is_floating -%}
+          {%- comment -%}
+          IMPLEMENTATION NOTE: 230 is the size in pixel of a given column (it's 170 + 60 of margin). In order to avoid setting it in JS or
+                               having very complex HTML structure to achieve positioning, I used this trick.
+          {%- endcomment -%}
+          <div class="mega-menu__column-list" style="width: {{ 230 | times: mega_menu.links.size }}px">
+            {{- mega_menu_columns -}}
+          </div>
+        {%- else -%}
+          {{- mega_menu_columns -}}
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if mega_menu_block.settings.image_1 != blank -%}
+        <a href="{{ mega_menu_block.settings.image_1_link | default: '#' }}" class="mega-menu__promo">
+          <div class="mega-menu__image-wrapper">
+            <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: mega_menu_block.settings.image_1.aspect_ratio }}%">
+              <img class="lazyload image--fade-in" data-src="{{ mega_menu_block.settings.image_1 | img_url: '550x' }}" alt="{{ mega_menu_block.settings.image_1.alt | escape }}">
+            </div>
+          </div>
+
+          <span class="mega-menu__image-heading heading h4">{{ mega_menu_block.settings.image_1_heading | escape }}</span>
+          <p class="mega-menu__image-text">{{ mega_menu_block.settings.image_1_text | escape }}</p>
+        </a>
+      {%- endif -%}
+
+      {%- if mega_menu_block.settings.image_2 != blank -%}
+        <a href="{{ mega_menu_block.settings.image_2_link | default: '#' }}" class="mega-menu__promo">
+          <div class="mega-menu__image-wrapper">
+            <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: mega_menu_block.settings.image_2.aspect_ratio }}%">
+              <img class="lazyload image--fade-in" data-src="{{ mega_menu_block.settings.image_2 | img_url: '550x' }}" alt="{{ mega_menu_block.settings.image_2.alt | escape }}">
+            </div>
+          </div>
+
+          <span class="mega-menu__image-heading heading h4">{{ mega_menu_block.settings.image_2_heading | escape }}</span>
+          <p class="mega-menu__image-text">{{ mega_menu_block.settings.image_2_text | escape }}</p>
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endcapture -%}
+
+
+  
+  {%- if is_condensed -%}
+    {{- mega_menu_inner -}}
+  {%- else -%}
+    <div class="container">
+      {{- mega_menu_inner -}}
+    </div>
+  {%- endif -%}
+  <div class="main-container-areas">
+
+         <div class="custimzable-container">
+   
+    <div class="custimable-row">
+      <!-- FIRST COLUMNS -->
+      <div class="first-columns">
+        <div class="first-columns-head">
+            <img src="{{ mega_menu_block.settings.first-image | img_url:"master"}}" width="100%">
+            <h1 id="icon-heading">{{ mega_menu_block.settings.first-heading }}</h1>
+        </div>
+        <div class="first-columns-body">
+          <div class="first-body-head">
+          <span id="sub-heading">{{ mega_menu_block.settings.first-below-heading }}</span>
+          <img src="{{ mega_menu_block.settings.first-image-round | img_url:"master" }}" id="round-image">
+          </div>
+          <div class="first-body-content" id="content-areas">
+            {{ mega_menu_block.settings.first-content }}
+          </div>
+        </div>
+        <div class="first-columns-footer">
+        <a href="{{ mega_menu_block.settings.first-link}}" class="slideshow__button button">{{ mega_menu_block.settings.first-linktext }}</a>
+        </div>
+      </div>
+
+      <!-- SECOND COLUMNS -->
+       <div class="second-columns">
+        <div class="second-columns-head">
+            <img src="{{ mega_menu_block.settings.second-image | img_url:"master"}}" width="100%">
+            <h1 id="icon-heading">{{ mega_menu_block.settings.second-heading }}</h1>
+        </div>
+        <div class="second-columns-body">
+          <div class="second-body-head">
+          <span id="sub-heading">{{ mega_menu_block.settings.second-below-heading }}</span>
+          <img src="{{ mega_menu_block.settings.second-image-round | img_url:"master" }}" id="round-image">
+          </div>
+          <div class="second-body-content" id="content-areas">
+            {{ mega_menu_block.settings.second-content }}
+          </div>
+        </div>
+          <div class="second-columns-footer">
+        <a href="{{ mega_menu_block.settings.second-link}}" class="slideshow__button button">{{ mega_menu_block.settings.second-linktext }}</a>
+        </div>
+      </div>
+
+      <!-- THIRD COLUMNS -->
+       <div class="third-columns">
+        <div class="third-columns-head">
+            <img src="{{ mega_menu_block.settings.third-image | img_url:"master"}}" width="100%">
+            <h1 id="icon-heading">{{ mega_menu_block.settings.third-heading }}</h1>
+        </div>
+        <div class="third-columns-body">
+          <div class="third-body-head">
+          <span id="sub-heading">{{ mega_menu_block.settings.third-below-heading }}</span>
+          <img src="{{ mega_menu_block.settings.third-image-round | img_url:"master" }}" id="round-image">
+          </div>
+          <div class="third-body-content" id="content-areas">
+            {{ mega_menu_block.settings.third-content }}
+          </div>
+        </div>
+         <div class="third-columns-footer">
+        <a href="{{ mega_menu_block.settings.third-link}}" class="slideshow__button button">{{ mega_menu_block.settings.third-linktext }}</a>
+        </div>
+      </div>
+
+      <!-- FOURTH COLUMNS -->
+       <div class="fourth-columns">
+        <div class="fourth-columns-head">
+            <img src="{{ mega_menu_block.settings.fourth-image | img_url:"master"}}" width="100%">
+            <h1 id="icon-heading">{{ mega_menu_block.settings.fourth-heading }}</h1>
+        </div>
+        <div class="fourth-columns-body">
+          <div class="fourth-body-head">
+          <span id="sub-heading">{{ mega_menu_block.settings.fourth-below-heading }}</span>
+          <img src="{{ mega_menu_block.settings.fourth-image-round | img_url:"master" }}" id="round-image">
+          </div>
+          <div class="fourth-body-content" id="content-areas">
+            {{ mega_menu_block.settings.fourth-content }}
+          </div>
+        </div>
+          <div class="fourth-columns-footer">
+        <a href="{{ mega_menu_block.settings.fourth-link}}" class="slideshow__button button">{{ mega_menu_block.settings.fourth-linktext }}</a>
+        </div>
+      </div>
+
+
+      <!-- FIFTH COLUMNS -->
+      <div class="fifth-columns">
+        <div class="fifth-columns-head">
+            <img src="{{ mega_menu_block.settings.fifth-image | img_url:"master"}}" width="100%">
+            <h1 id="icon-heading">{{ mega_menu_block.settings.fifth-heading }}</h1>
+        </div>
+        <div class="fifth-columns-body">
+          <div class="fifth-body-head">
+          <span id="sub-heading">{{ mega_menu_block.settings.fifth-below-heading }}</span>
+          <img src="{{ mega_menu_block.settings.fifth-image-round | img_url:"master" }}" id="round-image">
+          </div>
+          <div class="fifth-body-content" id="content-areas">
+            {{ mega_menu_block.settings.fifth-content }}
+          </div>
+        </div>
+          <div class="fourth-columns-footer">
+        <a href="{{ mega_menu_block.settings.fifth-link}}" class="slideshow__button button">{{ mega_menu_block.settings.fifth-linktext }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+
+ 
+            
+</div>
+
+      <style>
+   li.nav-bar__item.nav-bar__item--static {
+    color: #1171ba;
+    font-weight: 600;
+    text-decoration: underline;
+}
+         .custimable-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
+    margin: 20px 20px;
+           color: black;
+           font-weight: 100;
+}
+         @media (max-width:749px)
+         {
+           .custimable-row {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-gap: 40px;
+    margin: 0px 20px;
+             color: black;
+             font-weight: 100;
+}
+         }
+   .first-columns-head img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+        .second-columns-head img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+        .third-columns-head img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+        .fourth-columns-head img {
+     width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+            .fifth-columns-head img {
+     width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+        .first-columns-head {
+    display: flex;
+    align-items: center;
+}
+        .second-columns-head {
+    display: flex;
+    align-items: center;
+}
+        .third-columns-head {
+    display: flex;
+    align-items: center;
+}
+        .fourth-columns-head {
+    display: flex;
+    align-items: center;
+}
+            .fifth-columns-head {
+    display: flex;
+    align-items: center;
+}
+        span#sub-heading {
+    text-align: center;
+    font-size: 15px;
+}
+  h1#icon-heading {
+    font-size: 15px;
+    padding-left: 15px;
+    line-height: normal;
+        font-weight: 700;
+}
+  .custimzable-container a.slideshow__button.button {
+    color: #ffffff;
+    background: orange;
+    margin-top: 20px;
+    width: 100%;
+}
+        .mega-menu__inner.mega-menu__inner--center.mega-menu__inner--large {
+    display: none;
+}
+  .main-container-areas {
+    padding: 0px 0px 40px;
+}
+  
+        div#content-areas {
+    margin-top: 10px;
+    font-size: 12px;
+}
+  
+        #round-image {
+    border-radius: 20px;
+    width: 100%;
+}
+        .nav-bar .mega-menu {
+    max-height:fit-content !important;
+        } 
+         .mega-menu {
+    position: absolute;
+    width: 100%;
+        }
+
+   div#content-areas a {
+    text-decoration: underline;
+    color: #1171ba;
+}
+       </style>

@@ -1,0 +1,88 @@
+  <section data-section-id="{{ section.id }}" data-section-type="announcement-bar" data-section-settings='{{ section_settings }}'>
+<!--     <div  class="announcement-bar"> -->
+    {%- if section.settings.show_announce -%}
+       <div style="background: {{ section.settings.bg_color }} !important;" class="m-bar m-red">
+          <a style="margin-left: 4px" href="mailto:{{ section.settings.email }}"  class="m-microphone"><i style="background:{{ section.settings.icon_color }}!important;" class="fa-solid fa-envelope"></i><span class="banner-email" style="color: {{ section.settings.textColor }}">{{ section.settings.email }}</span> </a>
+          <a class="m-microphone"><i style="background:{{ section.settings.icon_color }}!important;" class="fa-solid fa-truck"></i><span style="color: {{ section.settings.textColor }}; cursor: default">FREE SHIPPING</span> </a>
+<!--           <a class="m-content">Announcement Content</a> -->
+<!--             <a   class="m-content" href="#"><i style="background:{{ section.settings.icon_color }}!important;" class="fa-brands fa-facebook"></i></a>
+            <a   class="m-content" href="#"><i style="background:{{ section.settings.icon_color }}!important;" class="fa-brands fa-instagram"></i></a>
+            <a   class="m-content" href="#"><i style="background:{{ section.settings.icon_color }}!important;" class="fa-brands fa-yelp"></i></a> -->
+            
+          
+<!--          <a class="m-close" href="#"><i class="fa-solid fa-close"></i></a> -->
+           <a href="{{ section.settings.buttonUrl }}" style="background: {{  section.settings.buttonBackground }}!important;" class="m-close button button--primary mt-5">{{ section.settings.buttonName }}</a>
+      </div> 
+    {% endif %}
+<!--   </div>  -->
+</section>
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "settings": [
+     {
+      "type": "checkbox",
+      "id": "show_announce",
+      "label": "Show custom announcement",
+      "default": true
+    },
+    {
+    "id": "email",
+    "type": "text",
+    "label": "Enter Email"
+    },
+    {
+      "id": "telephone",
+      "type": "text",
+      "label": "Enter Phone"
+    },
+     {
+      "id": "bg_color",
+      "type": "color",
+      "label": "Background",
+       "default": "#FFFFFF"
+    },
+    {
+      "id": "icon_color",
+      "type": "color",
+      "label": "Icons background",
+       "default": "#89868d"
+    },
+    {
+      "id": "buttonBackground",
+      "type": "color",
+      "label": "Button background",
+       "default": "#89868d"
+    },
+     {
+      "id": "textColor",
+      "type": "color",
+      "label": "Text Color",
+       "default": "#ffffff"
+    },
+    {
+    "id": "buttonName",
+    "type": "text",
+    "label": "Button Name"
+    },
+     {
+    "id": "buttonUrl",
+    "type": "url",
+    "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+    "name": "Announcement Bar",
+    "category": "ADVANCED LAYOUT"
+    }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
