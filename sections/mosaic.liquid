@@ -3,7 +3,7 @@
     {%- for block in section.blocks -%}
       {%- capture block_capture -%}
         <div class="mosaic__item">
-          <a {% if block.settings.link %}href="{{ block.settings.link }}"{% endif %} id="block-{{ block.id }}" class="promo-block promo-block--{{ block.settings.content_position | replace: '_', '-' }} {% if block.settings.show_overlay %}promo-block--overlay{% endif %}" {{ block.shopify_attributes }}>
+          <a {% if block.settings.link %}href="{{ block.settings.link }}"{% endif %} id="block-{{ block.id }}" class="promo-block promo-block--{{ block.settings.content_position | replace: '_', '-' }} {% if block.settings.show_overlay %}promo-block--overlay{% endif %}" rel="nofollow noopener noreferrer" target="_blank" {{ block.shopify_attributes }}>
             {%- if block.settings.image -%}
               {%- capture bgset -%}{{ block.settings.image | img_url: '400x' }} 400w, {{ block.settings.image | img_url: '600x' }} 600w, {{ block.settings.image | img_url: '800x' }} 800w, {{ block.settings.image | img_url: '1000x' }} 1000w, {{ block.settings.image | img_url: '1200x' }} 1200w{%- endcapture -%}
             {%- endif -%}
