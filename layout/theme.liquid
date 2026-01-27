@@ -205,5 +205,66 @@
       <li id="a11y-new-window-message">{{ 'general.accessibility.new_window' | t }}</li>
     </ul>
     {{'body-content.js' | asset_url | script_tag }}
+
+   <script>
+(function () {
+  function applyAltText(img) {
+    if (!img || img.tagName !== "IMG") return;
+
+    if (!img.hasAttribute("alt") || img.getAttribute("alt").trim() === "") {
+      let altText = "Skyward Medical";
+
+      if (img.src) {
+        try {
+          const url = new URL(img.src);
+          const filename = url.pathname.split("/").pop();
+
+          if (filename && filename.includes(".")) {
+            altText = filename
+              .replace(/\.[^/.]+$/, "") // remove extension
+              .replace(/[-_]+/g, " ")    // replace dashes/underscores
+              .replace(/\s+/g, " ")      // normalize spaces
+              .trim();
+          }
+        } catch (e) {
+          // fallback stays "Skyward Medical"
+        }
+      }
+
+      img.setAttribute("alt", altText);
+    }
+  }
+
+  function scanImages(root = document) {
+    root.querySelectorAll("img").forEach(applyAltText);
+  }
+
+  // Initial run
+  document.addEventListener("DOMContentLoaded", function () {
+    scanImages();
+
+    // Observe for dynamically added images
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (node.nodeType !== 1) return;
+
+          if (node.tagName === "IMG") {
+            applyAltText(node);
+          } else if (node.querySelectorAll) {
+            node.querySelectorAll("img").forEach(applyAltText);
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
