@@ -11,6 +11,7 @@
   "sections": {
     "66a8e9d0-afcc-47d5-a774-7ea2fa7442cf": {
       "type": "banner",
+      "disabled": true,
       "settings": {
         "show_announce": false,
         "email": "support@skywardmedical.com",
@@ -26,6 +27,15 @@
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "custom_liquid_8VVTyQ": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<h3 style=\"font-size: 20px\"><strong>Main product categories</strong></h3>\n        <ul style=\"margin-bottom: 30px;\">\n          {% for collection in collections %}\n            {% unless collection.handle == 'frontpage' %}\n              <li><a href=\"{{ collection.url }}\">{{ collection.title }}</a></li>\n            {% endunless %}\n          {% endfor %}\n        </ul>\n      \n        <h3 style=\"font-size: 20px\"><strong>Popular products</strong></h3>\n        <ul style=\"margin-bottom: 30px;\">\n          {% for product in collections['all'].products limit: 50 %}\n            <li><a href=\"{{ product.url }}\">{{ product.title }}</a></li>\n          {% endfor %}\n        </ul>\n      \n        <h3 style=\"font-size: 20px\"><strong>Help / Policy pages</strong></h3>\n        <ul>\n          {% for p in pages %}\n            <li><a href=\"{{ p.url }}\">{{ p.title }}</a></li>\n          {% endfor %}\n        </ul>\n      \n        {% if blogs.size > 0 %}\n          <h3><strong>Blog</strong></h3>\n          {% for blog in blogs %}\n            <h4>{{ blog.title }}</h4>\n            <ul>\n              {% for article in blog.articles limit: 20 %}\n                <li><a href=\"{{ article.url }}\">{{ article.title }}</a></li>\n              {% endfor %}\n            </ul>\n          {% endfor %}\n        {% endif %}"
+      }
     },
     "13cb0245-6d6e-43ca-8dfc-aa115e87f53f": {
       "type": "text-with-icons",
@@ -79,6 +89,7 @@
   "order": [
     "66a8e9d0-afcc-47d5-a774-7ea2fa7442cf",
     "main",
+    "custom_liquid_8VVTyQ",
     "13cb0245-6d6e-43ca-8dfc-aa115e87f53f"
   ]
 }
