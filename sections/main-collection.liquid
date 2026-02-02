@@ -814,7 +814,7 @@
                     {%- render 'pagination'
                       , paginate: paginate -%}
                   {%- endif -%}
-
+                  {% if paginate.current_page == 1 %}
                   <div class="seo-text rte">
 
                     {{ collection.metafields.custom.seo_text_ }}
@@ -845,6 +845,7 @@
                       </script>
                     {% endif %}
                   </div>
+                  {% endif %}
 
                   <script type="application/json" data-collection-products-count>
                     {
