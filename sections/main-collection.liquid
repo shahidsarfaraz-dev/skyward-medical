@@ -531,7 +531,7 @@
                         {%- if section.settings.collapse_collection_description -%}
                           {%- assign allow_collapse_description = true -%}
                         {%- endif -%}
-
+                        {% if paginate.current_page == 1 %}
                         <div class="collection__description {% if allow_collapse_description %}expandable-content{% endif %}" aria-expanded="false">
                           <div class="rte">
                             {{ collection.description }}
@@ -547,6 +547,7 @@
                             </button>
                           {%- endif -%}
                         </div>
+                        {%- endif -%}
                       {%- endif -%}
                     </div>
                   </div>
