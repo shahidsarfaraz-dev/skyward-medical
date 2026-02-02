@@ -69,16 +69,16 @@
           </li>
 
           <li class="breadcrumb__item">
-            <a
+            <span
               class="breadcrumb__link link"
-              href="{{ collection.url }}"
+              {% comment %} href="{{ collection.url }}" {% endcomment %}
               aria-current="page">
               {%- if collection.handle == 'all' -%}
                 {{- 'collection.general.all_products' | t -}}
               {%- else -%}
                 {{- collection.title -}}
               {%- endif -%}
-            </a>
+            </span>
           </li>
         </ol>
       </nav>
