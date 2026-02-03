@@ -1,1 +1,145 @@
-{"sections":{"35990b4f-90b4-49b9-9959-d0ec43088107":{"type":"banner","settings":{"show_announce":true,"email":"support@skywardmedical.com","telephone":"FREE SHIPPING","bg_color":"#000000","icon_color":"#102c71","buttonBackground":"#026802","textColor":"#ffffff","buttonName":"FEBRUARY SALE","buttonUrl":"https:\/\/skywardmedical.com\/pages\/february-flash-sale"}},"main":{"type":"all-collections-page","settings":{}},"067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0":{"type":"mosaic","blocks":{"template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-0":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2023-01-06_143219_dcad9476-b0c3-4273-8851-56804b33abfb.jpg","show_overlay":true,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#ffffff","title":"Green Transporter Cheeta Golf Cart","content":"","content_position":"middle_center","button_background":"#1ba41b","button_text_color":"#f3f4f4","button_text":"Shop Now","link":"shopify:\/\/products\/green-transporter-cheeta-golf-all-terrain-mobility-scooter"}},"template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-1":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2023-01-06_225136.jpg","show_overlay":true,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#ffffff","title":"Pushpak 500S","content":"","content_position":"middle_left","button_background":"#1ba41b","button_text_color":"#f3f4f4","button_text":"Shop Now","link":"shopify:\/\/products\/pushpak-motors-pushpak"}},"template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-2":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2023-01-06_231720.jpg","show_overlay":true,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#ffffff","title":"AFIKIM Afiscooter S3 Scooter","content":"","content_position":"top_left","button_background":"#1ba41b","button_text_color":"#f3f4f4","button_text":"Shop Now","link":"shopify:\/\/products\/afikim-afiscooter-s3"}},"template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-3":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2023-01-06_143238.jpg","show_overlay":true,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#ffffff","title":"Green Transporter Q Runner","content":"","content_position":"top_center","button_background":"#1ba41b","button_text_color":"#f3f4f4","button_text":"Shop Now","link":"shopify:\/\/products\/green-transporter-q-runner-express-enclosed-mobility-scooter"}},"template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-4":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2023-01-06_224023.jpg","show_overlay":true,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#ffffff","title":"AFIKIM Afiscooter S4 Scooter","content":"","content_position":"top_left","button_background":"#1ba41b","button_text_color":"#f3f4f4","button_text":"Shop Now","link":"shopify:\/\/products\/afikim-afiscooter-s4-scooter"}}},"block_order":["template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-0","template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-1","template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-2","template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-3","template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-4"],"settings":{"section_size":"medium"}},"45e98be9-cef4-4ad5-b237-3c4e4781eeb9":{"type":"custom-liquid","settings":{"title":"","include_margins":true,"liquid":"<div class=\"product-bottom rte\">\n{{ page.metafields.custom.seo_text }}\n<\/div>"}}},"order":["35990b4f-90b4-49b9-9959-d0ec43088107","main","067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0","45e98be9-cef4-4ad5-b237-3c4e4781eeb9"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "35990b4f-90b4-49b9-9959-d0ec43088107": {
+      "type": "banner",
+      "settings": {
+        "show_announce": true,
+        "email": "support@skywardmedical.com",
+        "telephone": "FREE SHIPPING",
+        "bg_color": "#000000",
+        "icon_color": "#102c71",
+        "buttonBackground": "#026802",
+        "textColor": "#ffffff",
+        "buttonName": "FEBRUARY SALE",
+        "buttonUrl": "https://skywardmedical.com/pages/black-friday-sale"
+      }
+    },
+    "main": {
+      "type": "all-collections-page",
+      "settings": {}
+    },
+    "067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0": {
+      "type": "mosaic",
+      "blocks": {
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-01-06_143219_dcad9476-b0c3-4273-8851-56804b33abfb.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#ffffff",
+            "title": "Green Transporter Cheeta Golf Cart",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#1ba41b",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Shop Now",
+            "link": "shopify://products/green-transporter-cheeta-golf-all-terrain-mobility-scooter"
+          }
+        },
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-01-06_225136.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#ffffff",
+            "title": "Pushpak 500S",
+            "content": "",
+            "content_position": "middle_left",
+            "button_background": "#1ba41b",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Shop Now",
+            "link": "shopify://products/pushpak-motors-pushpak"
+          }
+        },
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-01-06_231720.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#ffffff",
+            "title": "AFIKIM Afiscooter S3 Scooter",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#1ba41b",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Shop Now",
+            "link": "shopify://products/afikim-afiscooter-s3"
+          }
+        },
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-01-06_143238.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#ffffff",
+            "title": "Green Transporter Q Runner",
+            "content": "",
+            "content_position": "top_center",
+            "button_background": "#1ba41b",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Shop Now",
+            "link": "shopify://products/green-transporter-q-runner-express-enclosed-mobility-scooter"
+          }
+        },
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-01-06_224023.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#ffffff",
+            "title": "AFIKIM Afiscooter S4 Scooter",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#1ba41b",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Shop Now",
+            "link": "shopify://products/afikim-afiscooter-s4-scooter"
+          }
+        }
+      },
+      "block_order": [
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-0",
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-1",
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-2",
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-3",
+        "template--15784227405962__067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0-1673068778026771dc-4"
+      ],
+      "settings": {
+        "section_size": "medium"
+      }
+    },
+    "45e98be9-cef4-4ad5-b237-3c4e4781eeb9": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div class=\"product-bottom rte\">\n{{ page.metafields.custom.seo_text }}\n</div>"
+      }
+    }
+  },
+  "order": [
+    "35990b4f-90b4-49b9-9959-d0ec43088107",
+    "main",
+    "067b1928-4b6f-4dbf-a46a-2a3fa4ea61e0",
+    "45e98be9-cef4-4ad5-b237-3c4e4781eeb9"
+  ]
+}
