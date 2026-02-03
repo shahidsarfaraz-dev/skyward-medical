@@ -56,16 +56,56 @@
                 {%- case media.media_type -%}
                   {%- when 'image' -%}
                     <div class="product-gallery__size-limiter" style="max-width: {{ media.width }}px">
-                      {%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000,1100,1200', image: media -%}{%- endcapture -%}
-                      {%- assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                      <div class="aspect-ratio"
+                            style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%;
+                                    position: relative; overflow: hidden;">
 
-                      <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
-                        <img class="product-gallery__image lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" data-zoom="{{ media | img_url: '1600x' }}" data-zoom-width="{{ media.width | at_most: 1600 }}" alt="{{ media_alt | escape }}">
+                          <img
+                            class="product-gallery__image image--fade-in lazyloaded"
+                            src="{{ media | image_url: width: 600, format: 'webp' }}"
+                            srcset="
+                              {{ media | image_url: width: 400, format: 'webp' }} 400w,
+                              {{ media | image_url: width: 500, format: 'webp' }} 500w,
+                              {{ media | image_url: width: 600, format: 'webp' }} 600w,
+                              {{ media | image_url: width: 700, format: 'webp' }} 700w,
+                              {{ media | image_url: width: 800, format: 'webp' }} 800w,
+                              {{ media | image_url: width: 900, format: 'webp' }} 900w,
+                              {{ media | image_url: width: 1000, format: 'webp' }} 1000w,
+                              {{ media | image_url: width: 1200, format: 'webp' }} 1200w,
+                              {{ media | image_url: width: 1600, format: 'webp' }} 1600w
+                            "
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 600px"
+                            alt="{{ media_alt | escape }}"
+                            width="{{ media.width }}"
+                            height="{{ media.height }}"
+                            data-zoom="{{ media | image_url: width: 1600 }}"
+                            data-zoom-width="1600"
+                            {%- if forloop.first -%}
+                              fetchpriority="high"
+                              loading="eager"
+                              {%- else -%}
+                              loading="lazy"
+                            {%- endif -%}
+                            decoding="async"
+                            style="
+                              position: absolute;
+                              inset: 0;
+                              width: 100%;
+                              height: 100%;
+                              object-fit: contain;
+                            "
+                          >
 
-                        <noscript>
-                          <img src="{{ media | img_url: '800x' }}" alt="{{ media_alt | escape }}">
-                        </noscript>
-                      </div>
+                          <noscript>
+                            <img
+                              src="{{ media | image_url: width: 800 }}"
+                              alt="{{ media_alt | escape }}"
+                              width="{{ media.width }}"
+                              height="{{ media.height }}"
+                            >
+                          </noscript>
+
+                        </div>
                     </div>
 
                   {%- when 'model' -%}
