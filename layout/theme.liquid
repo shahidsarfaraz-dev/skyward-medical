@@ -89,7 +89,8 @@
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
     
 
-    {% render 'microdata-schema' %}
+    {% comment %} {% render 'microdata-schema' %} {% endcomment %}
+     {%- render 'schema' -%}
 
     <script>
       // This allows to expose several variables to the global scope, to be used in scripts
