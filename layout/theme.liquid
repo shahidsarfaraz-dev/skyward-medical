@@ -48,6 +48,52 @@
     <meta name="robots" content="noindex, follow">
     {% endif %}
 
+    {% comment %} disturbed urls start xxxxxxxxxxxxxxxxxxxxxxxxxxxx {% endcomment %}
+    {% assign url = request.path %}
+
+    {% assign noindex = false %}
+
+    {%- comment -%} Brand About Pages {%- endcomment -%}
+    {% if url contains '/pages/about-' %}
+      {% assign noindex = true %}
+    {% endif %}
+
+    {%- comment -%} Warranty Pages {%- endcomment -%}
+    {% if url contains '-warranty' %}
+      {% assign noindex = true %}
+    {% endif %}
+
+    {%- comment -%} Utility / Promo Pages {%- endcomment -%}
+    {% if 
+      url == '/pages/all-collections'
+      or url == '/pages/christmas-offer'
+      or url == '/pages/fall-sale'
+      or url == '/pages/faq'
+      or url == '/pages/made-to-order-products'
+      or url == '/pages/mspa-technology'
+      or url == '/pages/shop-pay-installments-skyward-medical'
+    %}
+      {% assign noindex = true %}
+    {% endif %}
+
+    {%- comment -%} Repair / Replacement Products {%- endcomment -%}
+    {% if
+      url contains '/products/medical-repair'
+      or url contains '/products/product-repair'
+      or url contains '/products/product-replacement'
+      or url contains '/products/1-year-medical-devices'
+      or url contains '/products/2-year-medical-devices'
+      or url contains '/products/3-year-medical-devices'
+    %}
+      {% assign noindex = true %}
+    {% endif %}
+
+    {%- if noindex -%}
+    <meta name="robots" content="noindex, nofollow">
+    {%- endif -%}
+    {% comment %} disturbed urls end xxxxxxxxxxxxxxxxxxxxxxxxxxxx {% endcomment %}
+
+
     {% if product.metafields.global.canonical != blank %}
     <link rel="canonical" href="{{ product.metafields.global.canonical }}">
     {% else %}
