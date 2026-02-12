@@ -91,6 +91,11 @@
     {%- if noindex -%}
     <meta name="robots" content="noindex, nofollow">
     {%- endif -%}
+
+    {% if request.path == '/account/login' %}
+      <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+
     {% comment %} disturbed urls end xxxxxxxxxxxxxxxxxxxxxxxxxxxx {% endcomment %}
 
 
