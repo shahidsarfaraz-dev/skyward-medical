@@ -1,1 +1,257 @@
-{"sections":{"ad91ba94-88d8-446b-be07-0dcd4394f416":{"type":"banner","settings":{"show_announce":false,"email":"support@skywardmedical.com","telephone":"FREE SHIPPING","bg_color":"#1e2d7d","icon_color":"#102c71","buttonBackground":"#2091ff","textColor":"#ffffff","buttonName":"TRUSTED STORE [Learn More]","buttonUrl":"https:\/\/skywardmedical.com\/pages\/skyward-medical-is-a-google-trusted-store"}},"main":{"type":"main-product","blocks":{"product_meta":{"type":"product_meta","settings":{"show_vendor":false,"show_sku":true,"show_reviews_badge":false,"show_share_buttons":false}},"ymq_product_options_variants_option_AFr7nh":{"type":"shopify:\/\/apps\/ymq-product-options-variants\/blocks\/option\/86b91121-1f62-4e27-9812-b70a823eb918","settings":{"product":"{{product}}"}},"variant_selector":{"type":"variant_selector","settings":{"selector_mode":"block","color_mode":"color","show_quantity_selector":false,"show_taxes_included":false,"show_inventory_quantity":false,"low_inventory_threshold":0}},"7ef4136f-49dc-4aa4-ba22-a97b29304c71":{"type":"shopify:\/\/apps\/essential-trust-badges\/blocks\/app-block\/0ff65b25-07e1-408e-950f-f54dd3d1751b","settings":{"banner_display":"all","banner_id":""}},"text_tUf3rC":{"type":"text","settings":{"content":"<p><strong>✔ FREE Shipping & Professional Set-up!<\/strong><\/p><p><strong>✔<\/strong> <strong>Delivery Time:<\/strong> (6-14 Business Days)<\/p><p><strong>✔ Lowest Price Guaranteed <\/strong><\/p><p><strong>✔ Top Dolphin Bed Supplier<\/strong><\/p><p><strong>✔ Manufacturer's Warranty<\/strong><\/p>"}},"buy_buttons":{"type":"buy_buttons","settings":{"show_payment_button":false,"show_payment_button_fullwidth":true}},"trust_badge_with_content_U7UVKf":{"type":"trustBadge_with_content","settings":{"trustBadge_richtext":"","trustBadge_faq_title":"","trustBadge_faq":"<p>☑ type content<\/p>"}},"description":{"type":"description","settings":{"display_mode":"show_all"}}},"block_order":["product_meta","ymq_product_options_variants_option_AFr7nh","variant_selector","7ef4136f-49dc-4aa4-ba22-a97b29304c71","text_tUf3rC","buy_buttons","trust_badge_with_content_U7UVKf","description"],"settings":{"image_size":"medium","enable_video_looping":false,"enable_image_zoom":false,"zoom_effect":"outside","carousel_effect":"fade"}},"custom_liquid_8Dca3d":{"type":"custom-liquid","settings":{"title":"","include_margins":true,"liquid":"<div class=\"rte\">\n{% if product.metafields.custom.uses_pagecrafters.value == true %}{{ product.description}} {% endif %}\n<\/div>"}},"faq_HmWXLV":{"type":"faq","blocks":{"separator_EyHNiT":{"type":"separator","settings":{"title":"Dolphin Bed Frequently Asked Questions FAQs"}},"question_9r4KzK":{"type":"question","settings":{"title":"What is the Dolphin Bed System?","answer":"<p>The Dolphin Bed System is an advanced therapeutic mattress designed to redistribute pressure and promote healing by simulating the feeling of being immersed in a fluid medium.<\/p>"}},"question_679neg":{"type":"question","settings":{"title":"How does the Dolphin System work?","answer":"<p>It uses Fluid Immersion Simulation (FIS) technology to create a personalized immersion profile for each patient, minimizing tissue deformation and promoting near-normal blood flow.<\/p>"}},"question_MRPMVr":{"type":"question","settings":{"title":"Who can benefit from using the Dolphin Bed?","answer":"<p>The Dolphin Bed is ideal for patients with pressure ulcers, post-operative grafts or flaps, spinal cord injuries (with physician clearance), and those requiring pain management or advanced wound care.<\/p>"}},"question_MGigen":{"type":"question","settings":{"title":"How long does the battery last?","answer":"<p>The system has a 12-hour battery life, allowing therapy to continue during patient transport.<\/p>"}},"question_EJjKEG":{"type":"question","settings":{"title":"What conditions is the Dolphin System designed for?","answer":"<p>It is particularly effective for:<\/p><ul><li>Pressure ulcers (up to Stage IV)<\/li><li>Post-operative flaps and grafts<\/li><li>Chronic pain conditions<\/li><li>Stabilized spinal cord injuries<\/li><\/ul>"}},"question_bDqcJz":{"type":"question","settings":{"title":"Can the Dolphin System be used in various healthcare settings?","answer":"<p>Yes, it is designed for ICU, Med\/Surg, bariatric, homecare and other clinical environments.<\/p>"}},"question_ta3VwV":{"type":"question","settings":{"title":"How do I clean and maintain the system?","answer":"<p>The mattress and control unit should be cleaned according to the manufacturer’s guidelines, using approved cleaning agents to ensure durability and performance.<\/p>"}}},"block_order":["separator_EyHNiT","question_9r4KzK","question_679neg","question_MRPMVr","question_MGigen","question_EJjKEG","question_bDqcJz","question_ta3VwV"],"settings":{"show_contact_info":false,"contact_info_heading":"Any question?","contact_info_text":"<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.<\/p>","contact_1_icon":"bi-phone","contact_1_heading":"Customer support","contact_1_text":"<p>Enter your text here<\/p>","contact_2_icon":"bi-email","contact_2_heading":"Send a message","contact_2_text":"<p>Enter your text here<\/p>"}},"1715483660158cc418":{"type":"apps","blocks":{"fera_product_reviews_Kxfaxy":{"type":"shopify:\/\/apps\/fera\/blocks\/product_reviews\/2fbfcfa7-8a04-479f-89a8-0621fa099c51","settings":{"heading":"Product Reviews","layout":"list","star_color":"#ffda03","when_no_reviews":"show"}}},"block_order":["fera_product_reviews_Kxfaxy"],"settings":{"include_margins":true}},"1669343322767881e2":{"type":"apps","settings":{"include_margins":true}},"1d2d26bc-0af6-407a-916b-b128b3047c0c":{"type":"custom-liquid","settings":{"title":"","include_margins":true,"liquid":"<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n<\/div>"}},"product-recommendations":{"type":"product-recommendations","settings":{"heading":"You may also like","show_quick_buy":false}},"170370457993485f67":{"type":"apps","settings":{"include_margins":true}}},"order":["ad91ba94-88d8-446b-be07-0dcd4394f416","main","custom_liquid_8Dca3d","faq_HmWXLV","1715483660158cc418","1669343322767881e2","1d2d26bc-0af6-407a-916b-b128b3047c0c","product-recommendations","170370457993485f67"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ad91ba94-88d8-446b-be07-0dcd4394f416": {
+      "type": "banner",
+      "settings": {
+        "show_announce": false,
+        "email": "support@skywardmedical.com",
+        "telephone": "FREE SHIPPING",
+        "bg_color": "#1e2d7d",
+        "icon_color": "#102c71",
+        "buttonBackground": "#2091ff",
+        "textColor": "#ffffff",
+        "buttonName": "TRUSTED STORE [Learn More]",
+        "buttonUrl": "https://skywardmedical.com/pages/skyward-medical-is-a-google-trusted-store"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_reviews_badge": false,
+            "show_share_buttons": false
+          }
+        },
+        "ymq_product_options_variants_option_AFr7nh": {
+          "type": "shopify://apps/ymq-product-options-variants/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "color_mode": "color",
+            "show_quantity_selector": false,
+            "show_taxes_included": false,
+            "show_inventory_quantity": false,
+            "low_inventory_threshold": 0
+          }
+        },
+        "7ef4136f-49dc-4aa4-ba22-a97b29304c71": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "all",
+            "banner_id": ""
+          }
+        },
+        "text_tUf3rC": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>✔ FREE Shipping & Professional Set-up!</strong></p><p><strong>✔</strong> <strong>Delivery Time:</strong> (6-14 Business Days)</p><p><strong>✔ Lowest Price Guaranteed </strong></p><p><strong>✔ Top Dolphin Bed Supplier</strong></p><p><strong>✔ Manufacturer's Warranty</strong></p>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_payment_button_fullwidth": true
+          }
+        },
+        "trust_badge_with_content_U7UVKf": {
+          "type": "trustBadge_with_content",
+          "settings": {
+            "trustBadge_richtext": "",
+            "trustBadge_faq_title": "",
+            "trustBadge_faq": "<p>☑ type content</p>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "display_mode": "show_all"
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "ymq_product_options_variants_option_AFr7nh",
+        "variant_selector",
+        "7ef4136f-49dc-4aa4-ba22-a97b29304c71",
+        "text_tUf3rC",
+        "buy_buttons",
+        "trust_badge_with_content_U7UVKf",
+        "description"
+      ],
+      "settings": {
+        "image_size": "medium",
+        "enable_video_looping": false,
+        "enable_image_zoom": false,
+        "zoom_effect": "outside",
+        "carousel_effect": "fade"
+      }
+    },
+    "custom_liquid_8Dca3d": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div class=\"rte\">\n{% if product.metafields.custom.uses_pagecrafters.value == true %}{{ product.description}} {% endif %}\n</div>"
+      }
+    },
+    "faq_HmWXLV": {
+      "type": "faq",
+      "blocks": {
+        "separator_EyHNiT": {
+          "type": "separator",
+          "settings": {
+            "title": "Dolphin Bed Frequently Asked Questions FAQs"
+          }
+        },
+        "question_9r4KzK": {
+          "type": "question",
+          "settings": {
+            "title": "What is the Dolphin Bed System?",
+            "answer": "<p>The Dolphin Bed System is an advanced therapeutic mattress designed to redistribute pressure and promote healing by simulating the feeling of being immersed in a fluid medium.</p>"
+          }
+        },
+        "question_679neg": {
+          "type": "question",
+          "settings": {
+            "title": "How does the Dolphin System work?",
+            "answer": "<p>It uses Fluid Immersion Simulation (FIS) technology to create a personalized immersion profile for each patient, minimizing tissue deformation and promoting near-normal blood flow.</p>"
+          }
+        },
+        "question_MRPMVr": {
+          "type": "question",
+          "settings": {
+            "title": "Who can benefit from using the Dolphin Bed?",
+            "answer": "<p>The Dolphin Bed is ideal for patients with pressure ulcers, post-operative grafts or flaps, spinal cord injuries (with physician clearance), and those requiring pain management or advanced wound care.</p>"
+          }
+        },
+        "question_MGigen": {
+          "type": "question",
+          "settings": {
+            "title": "How long does the battery last?",
+            "answer": "<p>The system has a 12-hour battery life, allowing therapy to continue during patient transport.</p>"
+          }
+        },
+        "question_EJjKEG": {
+          "type": "question",
+          "settings": {
+            "title": "What conditions is the Dolphin System designed for?",
+            "answer": "<p>It is particularly effective for:</p><ul><li>Pressure ulcers (up to Stage IV)</li><li>Post-operative flaps and grafts</li><li>Chronic pain conditions</li><li>Stabilized spinal cord injuries</li></ul>"
+          }
+        },
+        "question_bDqcJz": {
+          "type": "question",
+          "settings": {
+            "title": "Can the Dolphin System be used in various healthcare settings?",
+            "answer": "<p>Yes, it is designed for ICU, Med/Surg, bariatric, homecare and other clinical environments.</p>"
+          }
+        },
+        "question_ta3VwV": {
+          "type": "question",
+          "settings": {
+            "title": "How do I clean and maintain the system?",
+            "answer": "<p>The mattress and control unit should be cleaned according to the manufacturer’s guidelines, using approved cleaning agents to ensure durability and performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "separator_EyHNiT",
+        "question_9r4KzK",
+        "question_679neg",
+        "question_MRPMVr",
+        "question_MGigen",
+        "question_EJjKEG",
+        "question_bDqcJz",
+        "question_ta3VwV"
+      ],
+      "settings": {
+        "show_contact_info": false,
+        "contact_info_heading": "Any question?",
+        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
+        "contact_1_icon": "bi-phone",
+        "contact_1_heading": "Customer support",
+        "contact_1_text": "<p>Enter your text here</p>",
+        "contact_2_icon": "bi-email",
+        "contact_2_heading": "Send a message",
+        "contact_2_text": "<p>Enter your text here</p>"
+      }
+    },
+    "1715483660158cc418": {
+      "type": "apps",
+      "blocks": {
+        "fera_product_reviews_Kxfaxy": {
+          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "disabled": true,
+          "settings": {
+            "heading": "Product Reviews",
+            "layout": "list",
+            "star_color": "#ffda03",
+            "when_no_reviews": "show"
+          }
+        }
+      },
+      "block_order": [
+        "fera_product_reviews_Kxfaxy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1669343322767881e2": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1d2d26bc-0af6-407a-916b-b128b3047c0c": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n</div>"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "show_quick_buy": false
+      }
+    },
+    "170370457993485f67": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "ad91ba94-88d8-446b-be07-0dcd4394f416",
+    "main",
+    "custom_liquid_8Dca3d",
+    "faq_HmWXLV",
+    "1715483660158cc418",
+    "1669343322767881e2",
+    "1d2d26bc-0af6-407a-916b-b128b3047c0c",
+    "product-recommendations",
+    "170370457993485f67"
+  ]
+}
