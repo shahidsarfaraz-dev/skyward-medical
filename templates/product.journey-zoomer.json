@@ -118,7 +118,6 @@
       "blocks": {
         "fera_product_reviews_Kxfaxy": {
           "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "disabled": true,
           "settings": {
             "heading": "Journey Zoomer Electric Wheelchair Reviews",
             "layout": "list",
