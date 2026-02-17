@@ -1,1 +1,175 @@
-{"sections":{"ad91ba94-88d8-446b-be07-0dcd4394f416":{"type":"banner","settings":{"show_announce":false,"email":"support@skywardmedical.com","telephone":"FREE SHIPPING","bg_color":"#1e2d7d","icon_color":"#102c71","buttonBackground":"#2091ff","textColor":"#ffffff","buttonName":"TRUSTED STORE [Learn More]","buttonUrl":"https:\/\/skywardmedical.com\/pages\/skyward-medical-is-a-google-trusted-store"}},"main":{"type":"main-product","blocks":{"product_meta":{"type":"product_meta","settings":{"show_vendor":false,"show_sku":true,"show_reviews_badge":false,"show_share_buttons":false}},"ymq_product_options_variants_option_8R4Htn":{"type":"shopify:\/\/apps\/ymq-product-options-variants\/blocks\/option\/86b91121-1f62-4e27-9812-b70a823eb918","settings":{"product":"{{product}}"}},"variant_selector":{"type":"variant_selector","settings":{"selector_mode":"block","color_mode":"color","show_quantity_selector":false,"show_taxes_included":false,"show_inventory_quantity":false,"low_inventory_threshold":0}},"7ef4136f-49dc-4aa4-ba22-a97b29304c71":{"type":"shopify:\/\/apps\/essential-trust-badges\/blocks\/app-block\/0ff65b25-07e1-408e-950f-f54dd3d1751b","settings":{"banner_display":"all","banner_id":""}},"text_tUf3rC":{"type":"text","settings":{"content":"<p><strong>✔<\/strong> <strong>FREE Shipping!<\/strong><\/p><p><strong>✔<\/strong> <strong>Delivery Window: <\/strong>Please allow at least 4 to 8 Business Days<\/p><p><strong>✔ Top AltiCare Supplier<\/strong><\/p><p><strong>✔ Manufacturer's Warranty<\/strong><\/p>"}},"buy_buttons":{"type":"buy_buttons","settings":{"show_payment_button":false,"show_payment_button_fullwidth":true}},"description":{"type":"description","settings":{"display_mode":"show_all"}},"trust_badge_with_content_U7UVKf":{"type":"trustBadge_with_content","settings":{"trustBadge_richtext":"","trustBadge_faq_title":"","trustBadge_faq":"<p>☑ type content<\/p>"}}},"block_order":["product_meta","ymq_product_options_variants_option_8R4Htn","variant_selector","7ef4136f-49dc-4aa4-ba22-a97b29304c71","text_tUf3rC","buy_buttons","description","trust_badge_with_content_U7UVKf"],"settings":{"image_size":"medium","enable_video_looping":false,"enable_image_zoom":true,"zoom_effect":"outside","carousel_effect":"fade"}},"faq_WLhQje":{"type":"faq","blocks":{"separator_KqeBTF":{"type":"separator","settings":{"title":"FREQUENTLY ASKED QUESTIONS"}},"separator_khN6Vy":{"type":"separator","settings":{"title":"General"}},"question_BnckWc":{"type":"question","settings":{"title":"Does this raised toilet seat fit all toilet sizes?","answer":"<p>The Elevated Comfort Raised Toilet Seat is designed to fit most standard toilets. However, always measure your toilet’s dimensions to ensure compatibility.<\/p>"}},"question_gKjTXL":{"type":"question","settings":{"title":"How stable is the raised toilet seat?","answer":"<p>The easy-to-install brackets and adjustable armrests make the toilet seat incredibly safe for regular use. However, you should regularly check to ensure the seat brackets are tightly secured.<\/p>"}},"question_zK49AR":{"type":"question","settings":{"title":"Is this raised toilet seat suitable for permanent installation?","answer":"<p>The raised seat is intended for temporary use and ideal for post-surgery recovery or when extra assistance is needed. It can be easily installed or removed as required.<\/p>"}},"question_QafhmW":{"type":"question","settings":{"title":"Will this interfere with the existing toilet lid?","answer":"<p>The original toilet seat lid must be removed before installing the AltiCare unit.<\/p>"}},"separator_YQJdeP":{"type":"separator","settings":{"title":"Requirements"}},"question_a6tCtN":{"type":"question","settings":{"title":"What is the weight capacity of the AltiCare Raised Toilet Lift?","answer":"<p>The lift is built to support up to 300 lbs, providing stability and safety for a wide range of users.<\/p>"}},"question_jLFwzm":{"type":"question","settings":{"title":"Does it need professional installation, or can I set it up myself?","answer":"<p>The product is designed for easy, tool-free assembly and installation. A detailed instruction guide is provided to help you set it up independently.<\/p>"}},"question_YtNTjr":{"type":"question","settings":{"title":"Can the AltiCare Raised Toilet Lift be adjusted for different users?","answer":"<p>While the seat height is fixed, the armrests are adjustable in width, allowing an inner width of either 16 or 18 inches to accommodate different user needs.<\/p>"}},"separator_WhanFa":{"type":"separator","settings":{"title":"Maintenance & Technical"}},"question_UjrxF3":{"type":"question","settings":{"title":"What should I do if the lift becomes loose or unstable?","answer":"<p>Regularly check that all screws and components are tightened securely. If any parts show signs of wear or damage, contact customer service for support or replacements.<\/p>"}},"question_YGqkQw":{"type":"question","settings":{"title":"How do I clean and maintain the lift?","answer":"<p>Wipe the lift down with a mild detergent or disinfectant using a soft cloth. Avoid abrasive cleaners to protect the material’s finish.<\/p>"}},"question_fEk8yr":{"type":"question","settings":{"title":"Does the lift require regular servicing?","answer":"<p>No regular servicing is required. However, it’s recommended to inspect the product periodically to ensure all components are secure and functioning correctly.<\/p>"}}},"block_order":["separator_KqeBTF","separator_khN6Vy","question_BnckWc","question_gKjTXL","question_zK49AR","question_QafhmW","separator_YQJdeP","question_a6tCtN","question_jLFwzm","question_YtNTjr","separator_WhanFa","question_UjrxF3","question_YGqkQw","question_fEk8yr"],"settings":{"show_contact_info":false,"contact_info_heading":"Any question?","contact_info_text":"<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.<\/p>","contact_1_icon":"bi-phone","contact_1_heading":"Customer support","contact_1_text":"<p>Enter your text here<\/p>","contact_2_icon":"bi-email","contact_2_heading":"Send a message","contact_2_text":"<p>Enter your text here<\/p>"}},"custom_liquid_9WigV4":{"type":"custom-liquid","settings":{"title":"","include_margins":true,"liquid":"<div class=\"rte\">\n{% if product.metafields.custom.uses_pagecrafters.value == true %}{{ product.description}} {% endif %}\n<\/div>"}},"1715483660158cc418":{"type":"apps","blocks":{"fera_product_reviews_Kxfaxy":{"type":"shopify:\/\/apps\/fera\/blocks\/product_reviews\/2fbfcfa7-8a04-479f-89a8-0621fa099c51","settings":{"heading":"Product Reviews","layout":"list","star_color":"#ffda03","when_no_reviews":"show"}}},"block_order":["fera_product_reviews_Kxfaxy"],"settings":{"include_margins":true}},"1669343322767881e2":{"type":"apps","settings":{"include_margins":true}},"1d2d26bc-0af6-407a-916b-b128b3047c0c":{"type":"custom-liquid","settings":{"title":"","include_margins":true,"liquid":"<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n<\/div>"}},"product-recommendations":{"type":"product-recommendations","settings":{"heading":"You may also like","show_quick_buy":false}},"170370457993485f67":{"type":"apps","settings":{"include_margins":true}}},"order":["ad91ba94-88d8-446b-be07-0dcd4394f416","main","faq_WLhQje","custom_liquid_9WigV4","1715483660158cc418","1669343322767881e2","1d2d26bc-0af6-407a-916b-b128b3047c0c","product-recommendations","170370457993485f67"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ad91ba94-88d8-446b-be07-0dcd4394f416": {
+      "type": "banner",
+      "settings": {
+        "show_announce": false,
+        "email": "support@skywardmedical.com",
+        "telephone": "FREE SHIPPING",
+        "bg_color": "#1e2d7d",
+        "icon_color": "#102c71",
+        "buttonBackground": "#2091ff",
+        "textColor": "#ffffff",
+        "buttonName": "TRUSTED STORE [Learn More]",
+        "buttonUrl": "https://skywardmedical.com/pages/skyward-medical-is-a-google-trusted-store"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_reviews_badge": false,
+            "show_share_buttons": false
+          }
+        },
+        "ymq_product_options_variants_option_8R4Htn": {
+          "type": "shopify://apps/ymq-product-options-variants/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "color_mode": "color",
+            "show_quantity_selector": false,
+            "show_taxes_included": false,
+            "show_inventory_quantity": false,
+            "low_inventory_threshold": 0
+          }
+        },
+        "7ef4136f-49dc-4aa4-ba22-a97b29304c71": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "all",
+            "banner_id": ""
+          }
+        },
+        "text_tUf3rC": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>✔</strong> <strong>FREE Shipping!</strong></p><p><strong>✔</strong> <strong>Delivery Window: </strong>Please allow at least 4 to 8 Business Days</p><p><strong>✔ Top AltiCare Supplier</strong></p><p><strong>✔ Manufacturer's Warranty</strong></p>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_payment_button_fullwidth": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "display_mode": "show_all"
+          }
+        },
+        "trust_badge_with_content_U7UVKf": {
+          "type": "trustBadge_with_content",
+          "settings": {
+            "trustBadge_richtext": "",
+            "trustBadge_faq_title": "",
+            "trustBadge_faq": "<p>☑ type content</p>"
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "ymq_product_options_variants_option_8R4Htn",
+        "variant_selector",
+        "7ef4136f-49dc-4aa4-ba22-a97b29304c71",
+        "text_tUf3rC",
+        "buy_buttons",
+        "description",
+        "trust_badge_with_content_U7UVKf"
+      ],
+      "settings": {
+        "image_size": "medium",
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "zoom_effect": "outside",
+        "carousel_effect": "fade"
+      }
+    },
+    "custom_liquid_9WigV4": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div class=\"rte\">\n{% if product.metafields.custom.uses_pagecrafters.value == true %}{{ product.description}} {% endif %}\n</div>"
+      }
+    },
+    "1715483660158cc418": {
+      "type": "apps",
+      "blocks": {
+        "fera_product_reviews_Kxfaxy": {
+          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "disabled": true,
+          "settings": {
+            "heading": "Product Reviews",
+            "layout": "list",
+            "star_color": "#ffda03",
+            "when_no_reviews": "show"
+          }
+        }
+      },
+      "block_order": [
+        "fera_product_reviews_Kxfaxy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1669343322767881e2": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1d2d26bc-0af6-407a-916b-b128b3047c0c": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n</div>"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "show_quick_buy": false
+      }
+    },
+    "170370457993485f67": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "ad91ba94-88d8-446b-be07-0dcd4394f416",
+    "main",
+    "custom_liquid_9WigV4",
+    "1715483660158cc418",
+    "1669343322767881e2",
+    "1d2d26bc-0af6-407a-916b-b128b3047c0c",
+    "product-recommendations",
+    "170370457993485f67"
+  ]
+}
