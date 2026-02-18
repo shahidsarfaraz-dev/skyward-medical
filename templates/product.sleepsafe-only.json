@@ -140,20 +140,6 @@
         "include_margins": true
       }
     },
-    "blog_posts_ExPXpC": {
-      "type": "blog-posts",
-      "settings": {
-        "blog": "news",
-        "blog_posts_count": 3,
-        "title": "Helpful Guides",
-        "link_title": "View all",
-        "show_category": false,
-        "show_author": false,
-        "show_date": false,
-        "show_excerpt": false,
-        "stack_mobile": false
-      }
-    },
     "1d2d26bc-0af6-407a-916b-b128b3047c0c": {
       "type": "custom-liquid",
       "settings": {
@@ -182,7 +168,6 @@
     "custom_liquid_xLtkQH",
     "171548385744573458",
     "1669343322767881e2",
-    "blog_posts_ExPXpC",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
     "product-recommendations",
     "170370457993485f67"
