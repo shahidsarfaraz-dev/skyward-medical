@@ -97,6 +97,16 @@
         "cycle_speed": 5
       }
     },
+    "rich_text_XyBkR7": {
+      "type": "rich-text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Our Story",
+        "content": "<h3>Skyward Medical was founded to make health and wellness simple, offering high-quality mobility, medical, and wellness products that help people live more comfortably and independently. </h3><h3>By creating an online marketplace with trusted suppliers, we provide a wide range of solutions—from mobility aids to home medical equipment—without the hassle of in-person shopping. Committed to convenience, quality, and care, we empower individuals and caregivers to improve well-being, making healthcare more accessible and stress-free—one smart solution at a time.</h3>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
     "newsletter_HpiFeL": {
       "type": "newsletter",
       "settings": {
@@ -104,16 +114,6 @@
         "content": "<p>Join our exclusive member list and be the first to receive all the latest news and product launches.</p>",
         "background": "#1e2d7d",
         "text": "#ffffff"
-      }
-    },
-    "rich_text_XyBkR7": {
-      "type": "rich-text",
-      "settings": {
-        "text_width": "narrow",
-        "title": "Our Story",
-        "content": "<h3>Health and wellness aren’t just about products; they’re about improving lives. That’s why Skyward Medical was founded—to create a seamless destination for high-quality mobility, medical, and wellness solutions that help people live more comfortably and independently.<br/><br/>When shopping for medical and mobility products, choices were once limited to local stores with restrictive selections. Skyward Medical saw a better way—an online marketplace where customers could easily find the right products without the hassle of in-person shopping. By partnering with trusted suppliers, we built a platform that offers a wide range of solutions, from mobility aids to home medical equipment.<br/><br/>Through a commitment to convenience, quality, and customer care, Skyward Medical ensures that people everywhere—whether recovering from an injury, managing a chronic condition, or simply seeking better daily comfort—can access the products they need.<br/><br/>Today, Skyward Medical continues to grow, driven by a mission to make healthcare more accessible and stress-free. With a focus on innovation and service, we empower individuals and caregivers to improve well-being—one smart solution at a time.</h3>",
-        "button_text": "",
-        "button_link": "shopify://collections/all"
       }
     }
   },
