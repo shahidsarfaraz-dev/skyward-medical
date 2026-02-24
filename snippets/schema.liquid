@@ -134,6 +134,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
   ]
 
   {%- elsif request.page_type == 'collection' and collection -%}
+    {% assign faq_html = collection.metafields.custom.seo_text_.value %}
 
 "@graph": [
 
@@ -168,6 +169,13 @@ GLOBAL JSON-LD SCHEMA (Single file)
     {%- endif -%}
     "isPartOf": { "@id": "{{ shop_url }}#website" },
     "about": { "@id": "{{ shop_url }}#organization" }
+    {% if faq_html contains 'Frequently Asked Questions' %}
+      ,
+    "hasPart": {
+      "@id": "{{ request.origin }}{{ request.path }}#faq"
+      } 
+    {%- endif -%}
+
   },
 
   {

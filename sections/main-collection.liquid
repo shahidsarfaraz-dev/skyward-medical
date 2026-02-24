@@ -829,6 +829,7 @@
                         {
                           "@context": "https://schema.org",
                           "@type": "FAQPage",
+                          "@id": "{{ request.origin }}{{ request.path }}#faq",
                           "mainEntity": [{% for block in faq_blocks offset: 1 %}
                               {% assign q_and_a = block | split: '</h3>' %}
                               {% assign question_raw = q_and_a[0] | split: '>' | last %}
