@@ -1,1 +1,41 @@
-{"sections":{"main":{"type":"main-blog-post","blocks":{"379e5b4c-ea8a-4f1f-b842-465c14017093":{"type":"featured_products","settings":{"title":"Best Selling Adjustable Beds","product_1":"flexabed-hi-low-adjustable-bed","product_2":"rize-tranquility-ii-adjustable-bed","product_3":"the-dawn-house-hi-low-adjustable-bed"}}},"block_order":["379e5b4c-ea8a-4f1f-b842-465c14017093"],"settings":{"show_category":true,"show_author":true,"show_date":true,"show_share_buttons":true,"show_tags":true,"show_gravatar":true}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog-post",
+      "blocks": {
+        "379e5b4c-ea8a-4f1f-b842-465c14017093": {
+          "type": "featured_products",
+          "settings": {
+            "title": "Best Selling Adjustable Beds",
+            "product_1": "flexabed-hi-low-adjustable-bed",
+            "product_2": "rize-home-tranquility-ii-adjustable-bed",
+            "product_3": "the-dawn-house-hi-low-adjustable-bed"
+          }
+        }
+      },
+      "block_order": [
+        "379e5b4c-ea8a-4f1f-b842-465c14017093"
+      ],
+      "settings": {
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_share_buttons": true,
+        "show_tags": true,
+        "show_gravatar": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
