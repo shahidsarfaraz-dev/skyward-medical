@@ -172,7 +172,7 @@
           "type": "collection",
           "settings": {
             "collection": "hospital-beds",
-            "image": "shopify://shop_images/Hospital_Beds.webp",
+            "image": "shopify://shop_images/Hospital_Beds-1.webp",
             "title": "",
             "link": ""
           }
@@ -181,7 +181,7 @@
           "type": "collection",
           "settings": {
             "collection": "hi-low-beds",
-            "image": "shopify://shop_images/Hi_Low_Beds.webp",
+            "image": "shopify://shop_images/Hi_Low_Beds-1.webp",
             "title": "",
             "link": ""
           }
@@ -309,7 +309,7 @@
           "type": "collection",
           "settings": {
             "collection": "enclosed-mobility-scooters",
-            "image": "shopify://shop_images/Enclosed_Mobility_Scooters.webp",
+            "image": "shopify://shop_images/Enclosed_Mobility_Scooters-1.webp",
             "title": "",
             "link": ""
           }
@@ -318,7 +318,7 @@
           "type": "collection",
           "settings": {
             "collection": "bath-and-shower-lifts",
-            "image": "shopify://shop_images/Bath_And_Shower_Lifts.webp",
+            "image": "shopify://shop_images/Bath_And_Shower_Lifts-1.webp",
             "title": "",
             "link": ""
           }
