@@ -229,70 +229,6 @@
         "show_collection_title": true
       }
     },
-    "collection_list_Jxg8XP": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_iMgCyT": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-manual-wheelchair-for-elderly",
-            "image": "shopify://shop_images/Manual_Wheelchairs.webp",
-            "title": "Manual Wheelchairs",
-            "link": ""
-          }
-        },
-        "collection_JaCwRB": {
-          "type": "collection",
-          "settings": {
-            "collection": "enclosed-mobility-scooters",
-            "image": "shopify://shop_images/Enclosed_Mobility_Scooters-1.webp",
-            "title": "",
-            "link": ""
-          }
-        },
-        "collection_VfHaqB": {
-          "type": "collection",
-          "settings": {
-            "collection": "bath-and-shower-lifts",
-            "image": "shopify://shop_images/Bath_And_Shower_Lifts-1.webp",
-            "title": "",
-            "link": ""
-          }
-        },
-        "collection_d4ahcz": {
-          "type": "collection",
-          "settings": {
-            "collection": "red-light-therapy",
-            "image": "shopify://shop_images/Red_Light_Therapy.webp",
-            "title": "",
-            "link": ""
-          }
-        },
-        "collection_36AH9N": {
-          "type": "collection",
-          "settings": {
-            "collection": "infrared-mats",
-            "image": "shopify://shop_images/Infrared_Mats.webp",
-            "title": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_iMgCyT",
-        "collection_JaCwRB",
-        "collection_VfHaqB",
-        "collection_d4ahcz",
-        "collection_36AH9N"
-      ],
-      "settings": {
-        "title": "",
-        "link_title": "",
-        "link": "shopify://collections",
-        "round_images": false,
-        "show_collection_title": true
-      }
-    },
     "collection_list_KxFQMc": {
       "type": "collection-list",
       "blocks": {
@@ -348,6 +284,70 @@
         "collection_k9n7AQ",
         "collection_cTDK9z",
         "collection_Hgzq4x"
+      ],
+      "settings": {
+        "title": "",
+        "link_title": "",
+        "link": "shopify://collections",
+        "round_images": false,
+        "show_collection_title": true
+      }
+    },
+    "collection_list_Jxg8XP": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_iMgCyT": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-manual-wheelchair-for-elderly",
+            "image": "shopify://shop_images/Manual_Wheelchairs.webp",
+            "title": "Manual Wheelchairs",
+            "link": ""
+          }
+        },
+        "collection_JaCwRB": {
+          "type": "collection",
+          "settings": {
+            "collection": "enclosed-mobility-scooters",
+            "image": "shopify://shop_images/Enclosed_Mobility_Scooters-1.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_VfHaqB": {
+          "type": "collection",
+          "settings": {
+            "collection": "bath-and-shower-lifts",
+            "image": "shopify://shop_images/Bath_And_Shower_Lifts-1.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_d4ahcz": {
+          "type": "collection",
+          "settings": {
+            "collection": "red-light-therapy",
+            "image": "shopify://shop_images/Red_Light_Therapy.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_36AH9N": {
+          "type": "collection",
+          "settings": {
+            "collection": "infrared-mats",
+            "image": "shopify://shop_images/Infrared_Mats.webp",
+            "title": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_iMgCyT",
+        "collection_JaCwRB",
+        "collection_VfHaqB",
+        "collection_d4ahcz",
+        "collection_36AH9N"
       ],
       "settings": {
         "title": "",
@@ -479,8 +479,8 @@
     "a47593a1-0954-40d1-b9a6-ac04d6db8754",
     "rich_text_JExAfn",
     "collection_list_kQArDi",
-    "collection_list_Jxg8XP",
     "collection_list_KxFQMc",
+    "collection_list_Jxg8XP",
     "rich_text_LEciaw",
     "mosaic_CVGUNh",
     "featured_collection_MBm7yy",
