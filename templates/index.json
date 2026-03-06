@@ -171,40 +171,40 @@
         "collection_nBDWHq": {
           "type": "collection",
           "settings": {
-            "collection": "adjustable-beds-for-seniors",
-            "image": "shopify://shop_images/Untitled_1aeee8f0-6d07-43ce-b0c7-ecddf7cfa266.png",
+            "collection": "hospital-beds",
+            "image": "shopify://shop_images/Hospital_Beds-1.webp",
             "link": ""
           }
         },
         "collection_nt3XNj": {
           "type": "collection",
           "settings": {
-            "collection": "shower-commode-chairs",
-            "image": "shopify://shop_images/Screenshot2025-03-09131332_f63bb7f0-1241-4393-9d85-329786e0d5db.jpg",
-            "link": "shopify://collections/shower-commode-chairs"
+            "collection": "hi-low-beds",
+            "image": "shopify://shop_images/Hi_Low_Beds-1.webp",
+            "link": ""
           }
         },
         "collection_bdc7rd": {
           "type": "collection",
           "settings": {
-            "collection": "special-needs-changing-tables-and-shower-stretchers",
-            "image": "shopify://shop_images/Screenshot_2025-09-26_105306.jpg",
-            "link": "https://skywardmedical.com/collections/special-needs-changing-tables-and-shower-stretchers"
+            "collection": "rotating-adjustable-beds",
+            "image": "shopify://shop_images/Rotating_Adjustable_Beds.webp",
+            "link": ""
           }
         },
         "collection_8A3NGL": {
           "type": "collection",
           "settings": {
-            "collection": "fall-recovery-lifts",
-            "image": "shopify://shop_images/Screenshot_2025-03-09_133810.jpg",
+            "collection": "adjustable-beds-for-seniors",
+            "image": "shopify://shop_images/Adjustable_Beds_For_Seniors.webp",
             "link": ""
           }
         },
         "collection_T9KpWc": {
           "type": "collection",
           "settings": {
-            "collection": "power-chairs",
-            "image": "shopify://shop_images/Screenshot_2025-03-09_134013.jpg",
+            "collection": "best-pediatric-safety-beds-for-special-needs",
+            "image": "shopify://shop_images/Pediatric_Safety_Beds_For_Special_Needs.webp",
             "link": ""
           }
         }
