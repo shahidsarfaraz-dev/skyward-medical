@@ -230,41 +230,40 @@
         "collection_WRW7Ye": {
           "type": "collection",
           "settings": {
-            "collection": "beach-wheelchairs",
-            "image": "shopify://shop_images/dune-buster2.webp",
+            "collection": "air-mattress-for-hospital-bed",
+            "image": "shopify://shop_images/Hospital_Bed_Mattresses.webp",
             "link": ""
           }
         },
         "collection_6CMbKN": {
           "type": "collection",
-          "disabled": true,
           "settings": {
-            "collection": "airline-friendly-mobility-scooters",
-            "image": "shopify://shop_images/Screenshot_2024-05-04_141251.jpg",
+            "collection": "lift-chairs",
+            "image": "shopify://shop_images/Lift_Chairs.webp",
             "link": ""
           }
         },
         "collection_k9n7AQ": {
           "type": "collection",
           "settings": {
-            "collection": "lightweight-electric-wheelchairs",
-            "image": "shopify://shop_images/Screenshot_2024-05-02_140523.jpg",
+            "collection": "lift-for-elderly",
+            "image": "shopify://shop_images/Lifts_for_Elderly.webp",
             "link": ""
           }
         },
         "collection_cTDK9z": {
           "type": "collection",
           "settings": {
-            "collection": "red-light-therapy",
-            "image": "shopify://shop_images/Screenshot_2025-03-09_134207.jpg",
+            "collection": "patient-transfer-chairs",
+            "image": "shopify://shop_images/Patient_Transfer_Chairs.webp",
             "link": ""
           }
         },
         "collection_Hgzq4x": {
           "type": "collection",
           "settings": {
-            "collection": "standing-frames",
-            "image": "shopify://shop_images/MI1A9419-416x295.jpg",
+            "collection": "electric-wheelchairs",
+            "image": "shopify://shop_images/Electric_Wheelchairs.webp",
             "link": ""
           }
         }
@@ -290,40 +289,40 @@
         "collection_iMgCyT": {
           "type": "collection",
           "settings": {
-            "collection": "massage-chairs",
-            "image": "shopify://shop_images/Infinity_Riage4D_Lifestyle_Female_Black_highres_1050x700_88f75694-6678-4590-b12c-25fd91d3b442.webp",
+            "collection": "best-manual-wheelchair-for-elderly",
+            "image": "shopify://shop_images/Manual_Wheelchairs.webp",
             "link": ""
           }
         },
         "collection_JaCwRB": {
           "type": "collection",
           "settings": {
-            "collection": "outdoor-hot-tubs",
-            "image": "shopify://shop_images/Screenshot_2024-05-04_140456.jpg",
+            "collection": "enclosed-mobility-scooters",
+            "image": "shopify://shop_images/Enclosed_Mobility_Scooters-1.webp",
             "link": ""
           }
         },
         "collection_VfHaqB": {
           "type": "collection",
           "settings": {
-            "collection": "recreational-mobility-scooters",
-            "image": "shopify://shop_images/Screenshot_2024-05-04_135848.jpg",
+            "collection": "bath-and-shower-lifts",
+            "image": "shopify://shop_images/Bath_And_Shower_Lifts-1.webp",
             "link": ""
           }
         },
         "collection_d4ahcz": {
           "type": "collection",
           "settings": {
-            "collection": "backyard-saunas",
-            "image": "shopify://shop_images/Screenshot_2024-05-04_140251.jpg",
+            "collection": "red-light-therapy",
+            "image": "shopify://shop_images/Red_Light_Therapy.webp",
             "link": ""
           }
         },
         "collection_36AH9N": {
           "type": "collection",
           "settings": {
-            "collection": "float-pools",
-            "image": "shopify://shop_images/Screenshot_2024-05-04_141445.jpg",
+            "collection": "infrared-mats",
+            "image": "shopify://shop_images/Infrared_Mats.webp",
             "link": ""
           }
         }
