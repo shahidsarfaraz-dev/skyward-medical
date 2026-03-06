@@ -173,6 +173,7 @@
           "settings": {
             "collection": "hospital-beds",
             "image": "shopify://shop_images/Hospital_Beds-1.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -181,6 +182,7 @@
           "settings": {
             "collection": "hi-low-beds",
             "image": "shopify://shop_images/Hi_Low_Beds-1.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -189,6 +191,7 @@
           "settings": {
             "collection": "rotating-adjustable-beds",
             "image": "shopify://shop_images/Rotating_Adjustable_Beds.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -197,6 +200,7 @@
           "settings": {
             "collection": "adjustable-beds-for-seniors",
             "image": "shopify://shop_images/Adjustable_Beds_For_Seniors.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -205,6 +209,7 @@
           "settings": {
             "collection": "best-pediatric-safety-beds-for-special-needs",
             "image": "shopify://shop_images/Pediatric_Safety_Beds_For_Special_Needs.webp",
+            "title": "Pediatric Safety Beds",
             "link": ""
           }
         }
@@ -224,65 +229,6 @@
         "show_collection_title": true
       }
     },
-    "collection_list_KxFQMc": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_WRW7Ye": {
-          "type": "collection",
-          "settings": {
-            "collection": "air-mattress-for-hospital-bed",
-            "image": "shopify://shop_images/Hospital_Bed_Mattresses.webp",
-            "link": ""
-          }
-        },
-        "collection_6CMbKN": {
-          "type": "collection",
-          "settings": {
-            "collection": "lift-chairs",
-            "image": "shopify://shop_images/Lift_Chairs.webp",
-            "link": ""
-          }
-        },
-        "collection_k9n7AQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "lift-for-elderly",
-            "image": "shopify://shop_images/Lifts_for_Elderly.webp",
-            "link": ""
-          }
-        },
-        "collection_cTDK9z": {
-          "type": "collection",
-          "settings": {
-            "collection": "patient-transfer-chairs",
-            "image": "shopify://shop_images/Patient_Transfer_Chairs.webp",
-            "link": ""
-          }
-        },
-        "collection_Hgzq4x": {
-          "type": "collection",
-          "settings": {
-            "collection": "electric-wheelchairs",
-            "image": "shopify://shop_images/Electric_Wheelchairs.webp",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_WRW7Ye",
-        "collection_6CMbKN",
-        "collection_k9n7AQ",
-        "collection_cTDK9z",
-        "collection_Hgzq4x"
-      ],
-      "settings": {
-        "title": "",
-        "link_title": "",
-        "link": "shopify://collections",
-        "round_images": false,
-        "show_collection_title": true
-      }
-    },
     "collection_list_Jxg8XP": {
       "type": "collection-list",
       "blocks": {
@@ -291,6 +237,7 @@
           "settings": {
             "collection": "best-manual-wheelchair-for-elderly",
             "image": "shopify://shop_images/Manual_Wheelchairs.webp",
+            "title": "Manual Wheelchairs",
             "link": ""
           }
         },
@@ -299,6 +246,7 @@
           "settings": {
             "collection": "enclosed-mobility-scooters",
             "image": "shopify://shop_images/Enclosed_Mobility_Scooters-1.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -307,6 +255,7 @@
           "settings": {
             "collection": "bath-and-shower-lifts",
             "image": "shopify://shop_images/Bath_And_Shower_Lifts-1.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -315,6 +264,7 @@
           "settings": {
             "collection": "red-light-therapy",
             "image": "shopify://shop_images/Red_Light_Therapy.webp",
+            "title": "",
             "link": ""
           }
         },
@@ -323,6 +273,7 @@
           "settings": {
             "collection": "infrared-mats",
             "image": "shopify://shop_images/Infrared_Mats.webp",
+            "title": "",
             "link": ""
           }
         }
@@ -333,6 +284,70 @@
         "collection_VfHaqB",
         "collection_d4ahcz",
         "collection_36AH9N"
+      ],
+      "settings": {
+        "title": "",
+        "link_title": "",
+        "link": "shopify://collections",
+        "round_images": false,
+        "show_collection_title": true
+      }
+    },
+    "collection_list_KxFQMc": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_WRW7Ye": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-mattress-for-hospital-bed",
+            "image": "shopify://shop_images/Hospital_Bed_Mattresses.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_6CMbKN": {
+          "type": "collection",
+          "settings": {
+            "collection": "lift-chairs",
+            "image": "shopify://shop_images/Lift_Chairs.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_k9n7AQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "lift-for-elderly",
+            "image": "shopify://shop_images/Lifts_for_Elderly.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_cTDK9z": {
+          "type": "collection",
+          "settings": {
+            "collection": "patient-transfer-chairs",
+            "image": "shopify://shop_images/Patient_Transfer_Chairs.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "collection_Hgzq4x": {
+          "type": "collection",
+          "settings": {
+            "collection": "electric-wheelchairs",
+            "image": "shopify://shop_images/Electric_Wheelchairs.webp",
+            "title": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_WRW7Ye",
+        "collection_6CMbKN",
+        "collection_k9n7AQ",
+        "collection_cTDK9z",
+        "collection_Hgzq4x"
       ],
       "settings": {
         "title": "",
