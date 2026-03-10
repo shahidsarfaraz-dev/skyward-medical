@@ -835,10 +835,10 @@
                               {% assign question_raw = q_and_a[0] | split: '>' | last %}
                               {
                                 "@type": "Question",
-                                "name": "{{ question_raw | strip_html | strip | escape }}",
+                                "name": {{ question_raw | strip_html | strip | escape | json }},
                                 "acceptedAnswer": {
                                   "@type": "Answer",
-                                  "text": "{{ q_and_a[1] | strip_html | strip | escape }}"
+                                  "text": {{ q_and_a[1] | strip_html | strip | escape | json }}
                                 }
                               }{% unless forloop.last %},{% endunless %}
                             {% endfor %}]
