@@ -44,7 +44,53 @@
                     </div>
                   </div>
                 {%- endunless -%}
-
+              {%- when 'dlinks' -%}
+                <div>
+                  {%- assign menu = linklists[block.settings.menu] -%}
+  
+                  {%- unless menu.empty? -%}
+                    <div class="footer__block-item footer__block-item--links" {{ block.shopify_attributes }}>
+                      <button class="footer__title heading h6" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
+                        <span>{{ menu.title }}</span>
+                        <span class="plus-button"></span>
+                      </button>
+  
+                      <div id="block-{{ block.id }}" class="footer__collapsible">
+                        <div class="footer__collapsible-content">
+                          <ul class="footer__linklist list--unstyled" role="list">
+                            {%- for link in menu.links -%}
+                              <li>
+                                <a href="{{ link.url }}" class="footer__link-item link">{{ link.title }}</a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endunless -%}
+                  {%- assign menu2 = linklists[block.settings.menu2] -%}
+  
+                  {%- unless menu2.empty? -%}
+                    <div class="footer__block-item footer__block-item--links" {{ block.shopify_attributes }}>
+                      <button class="footer__title heading h6" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
+                        <span>{{ menu2.title }}</span>
+                        <span class="plus-button"></span>
+                      </button>
+  
+                      <div id="block-{{ block.id }}" class="footer__collapsible">
+                        <div class="footer__collapsible-content">
+                          <ul class="footer__linklist list--unstyled" role="list">
+                            {%- for link in menu2.links -%}
+                              <li>
+                                <a href="{{ link.url }}" class="footer__link-item link">{{ link.title }}</a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endunless -%}
+                </div>
               {%- when 'newsletter' -%}
                 <div class="footer__block-item footer__block-item--newsletter" {{ block.shopify_attributes }}>
                   <p class="footer__title heading h6">{{ block.settings.title | escape }}</p>
@@ -306,6 +352,24 @@
           "type": "link_list",
           "id": "menu",
           "label": "Menu",
+          "info": "This menu won't show dropdown items."
+        }
+      ]
+    },
+    {
+      "type": "dlinks",
+      "name": "Double Links",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "This menu won't show dropdown items."
+        },
+        {
+          "type": "link_list",
+          "id": "menu2",
+          "label": "Menu 2",
           "info": "This menu won't show dropdown items."
         }
       ]
