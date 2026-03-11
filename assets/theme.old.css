@@ -5604,7 +5604,7 @@ select option {
   }
 
   .footer__block-item--links {
-    max-width: 240px;
+    max-width: 300px;
   }
 
   .footer__aside {
