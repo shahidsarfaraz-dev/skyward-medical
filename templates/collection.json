@@ -47,9 +47,51 @@
         "buttonName": "TRUSTED STORE [Learn More]",
         "buttonUrl": "https://skywardmedical.com/pages/skyward-medical-is-a-google-trusted-store"
       }
+    },
+    "177324376169c965c8": {
+      "type": "apps",
+      "blocks": {
+        "seo_related_links_related_collections_ix8Anq": {
+          "type": "shopify://apps/seo-related-links/blocks/related-collections/64d767fd-fb20-4330-9738-550ae4cfe054",
+          "settings": {
+            "title": "Related Collections",
+            "main_menu_list": "main-menu",
+            "display_siblings": true,
+            "exclusions": "all",
+            "layout": "horizontal-left",
+            "display_type": "button",
+            "content_align": "left",
+            "image_aspect_ratio": 1,
+            "image_border_radius": 0,
+            "image_position": "center top",
+            "image_width": 100,
+            "slides_per_view_mobile": 2.5,
+            "slides_per_view_desktop": 6,
+            "use_slider_on": "both",
+            "display_arrows": "below",
+            "text_color": "#212121",
+            "background_color": "#E1E1E1",
+            "border_color": "#E1E1E1",
+            "overlay_color": "#212121",
+            "overlay_opacity": 20,
+            "visually_hide_on": "none",
+            "padding_top": 32,
+            "custom_css": "",
+            "custom_js": "",
+            "page_width_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "seo_related_links_related_collections_ix8Anq"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
+    "177324376169c965c8",
     "main",
     "recently-viewed-products",
     "fb274d43-c848-4be7-81f7-62a831a2b444"
