@@ -173,10 +173,11 @@
               "menu": "footer"
             }
           },
-          "fcd57d1b-bdf0-4faf-8d29-e09195172f4d": {
-            "type": "links",
+          "dlinks_98DCfr": {
+            "type": "dlinks",
             "settings": {
-              "menu": "top-quality-store"
+              "menu": "top-quality-store",
+              "menu2": "top-categories"
             }
           },
           "4db2e0db-9468-4c5f-b152-2c11d2cabb37": {
@@ -190,7 +191,7 @@
         "block_order": [
           "text_bcKfk7",
           "footer-1",
-          "fcd57d1b-bdf0-4faf-8d29-e09195172f4d",
+          "dlinks_98DCfr",
           "4db2e0db-9468-4c5f-b152-2c11d2cabb37"
         ],
         "settings": {
