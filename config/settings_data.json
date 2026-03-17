@@ -167,17 +167,22 @@
               "content": "<p>We strive to offer our loyal customers quality wellness, mobility, and medical equipment from reputable manufacturers at affordable prices.</p>"
             }
           },
+          "links_m8FwBP": {
+            "type": "links",
+            "settings": {
+              "menu": "top-categories"
+            }
+          },
           "footer-1": {
             "type": "links",
             "settings": {
               "menu": "footer"
             }
           },
-          "dlinks_98DCfr": {
-            "type": "dlinks",
+          "links_zWjRXy": {
+            "type": "links",
             "settings": {
-              "menu": "top-quality-store",
-              "menu2": "top-categories"
+              "menu": "top-quality-store"
             }
           },
           "4db2e0db-9468-4c5f-b152-2c11d2cabb37": {
@@ -190,8 +195,9 @@
         },
         "block_order": [
           "text_bcKfk7",
+          "links_m8FwBP",
           "footer-1",
-          "dlinks_98DCfr",
+          "links_zWjRXy",
           "4db2e0db-9468-4c5f-b152-2c11d2cabb37"
         ],
         "settings": {
