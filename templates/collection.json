@@ -16,7 +16,7 @@
           "type": "shopify://apps/seo-related-links/blocks/related-collections/64d767fd-fb20-4330-9738-550ae4cfe054",
           "settings": {
             "title": "",
-            "main_menu_list": "main-menu",
+            "main_menu_list": "new-navigation-preview",
             "display_siblings": true,
             "exclusions": "all",
             "layout": "horizontal-left",
