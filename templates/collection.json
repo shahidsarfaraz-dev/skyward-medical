@@ -17,7 +17,7 @@
           "settings": {
             "title": "",
             "main_menu_list": "new-navigation-preview",
-            "display_siblings": true,
+            "display_siblings": false,
             "exclusions": "all",
             "layout": "horizontal-left",
             "display_type": "image-text-below",
