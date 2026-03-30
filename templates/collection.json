@@ -21,13 +21,13 @@
         "seo_related_links_related_collections_WzKDQ6": {
           "type": "shopify://apps/seo-related-links/blocks/related-collections/64d767fd-fb20-4330-9738-550ae4cfe054",
           "settings": {
-            "title": "Related Collections",
+            "title": "",
             "main_menu_list": "main-menu",
             "display_siblings": true,
             "exclusions": "all",
             "layout": "horizontal-left",
             "display_type": "image-text-below",
-            "content_align": "left",
+            "content_align": "center",
             "image_aspect_ratio": 1,
             "image_border_radius": 0,
             "image_position": "center top",
