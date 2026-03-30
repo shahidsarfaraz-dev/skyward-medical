@@ -25,7 +25,7 @@
             "main_menu_list": "main-menu",
             "display_siblings": true,
             "exclusions": "all",
-            "layout": "horizontal-center",
+            "layout": "horizontal-left",
             "display_type": "image-text-below",
             "content_align": "center",
             "image_aspect_ratio": 0,
@@ -42,7 +42,7 @@
             "overlay_color": "#212121",
             "overlay_opacity": 20,
             "visually_hide_on": "none",
-            "padding_top": 32,
+            "padding_top": 24,
             "custom_css": "",
             "custom_js": "",
             "page_width_class": ""
