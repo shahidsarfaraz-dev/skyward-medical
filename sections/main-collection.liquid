@@ -62,128 +62,95 @@
     <div class="page__sub-header">
       <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
         <ol class="breadcrumb__list" role="list">
-  <li class="breadcrumb__item">
-    <a class="breadcrumb__link link" href="{{ routes.root_url }}">
-      {{ 'general.breadcrumb.home' | t }}
-    </a>
-    {%- render 'icon', icon: 'arrow-right' -%}
-  </li>
 
-  {%- assign menu_links = linklists['new-navigation-preview'].links -%}
-  {%- assign current_collection_path = '/collections/' | append: collection.handle -%}
-  {%- assign breadcrumb_found = false -%}
+<li class="breadcrumb__item">
+<a class="breadcrumb__link link" href="{{ routes.root_url }}">
+{{ 'general.breadcrumb.home' | t }}
+</a>
+{%- render 'icon', icon: 'arrow-right' -%}
+</li>
 
-  {%- for level1 in menu_links -%}
-    {%- if level1.links != blank -%}
-      {%- for level2 in level1.links -%}
+{% assign menu_links = linklists['new-navigation-preview'].links %}
+{% assign current_collection = '/collections/' | append: collection.handle %}
+{% assign found = false %}
 
-        {%- assign level2_match = false -%}
-        {%- if level2.url == current_collection_path or level2.url contains current_collection_path -%}
-          {%- assign level2_match = true -%}
-        {%- endif -%}
+{% for level1 in menu_links %}
 
-        {%- if level2_match -%}
-          <li class="breadcrumb__item">
-            {%- if level1.url != blank and level1.url != '#' -%}
-              <a class="breadcrumb__link link" href="{{ level1.url }}">{{ level1.title }}</a>
-            {%- else -%}
-              {{ level1.title }}
-            {%- endif -%}
-            {%- render 'icon', icon: 'arrow-right' -%}
-          </li>
+  {% for level2 in level1.links %}
 
-          <li class="breadcrumb__item">
-            <span class="breadcrumb__link link" aria-current="page">
-              {{ level2.title }}
-            </span>
-          </li>
+    {% if level2.url == current_collection or level2.url contains current_collection %}
 
-          {%- assign breadcrumb_found = true -%}
-          {%- break -%}
-        {%- endif -%}
+      {% unless level1.url == '#' %}
+      <li class="breadcrumb__item">
+        <a class="breadcrumb__link link" href="{{ level1.url }}">
+        {{ level1.title }}
+        </a>
+        {%- render 'icon', icon: 'arrow-right' -%}
+      </li>
+      {% endunless %}
 
-        {%- if level2.links != blank -%}
-          {%- for level3 in level2.links -%}
-
-            {%- assign level3_match = false -%}
-            {%- if level3.url == current_collection_path or level3.url contains current_collection_path -%}
-              {%- assign level3_match = true -%}
-            {%- endif -%}
-
-            {%- if level3_match -%}
-              <li class="breadcrumb__item">
-                {%- if level1.url != blank and level1.url != '#' -%}
-                  <a class="breadcrumb__link link" href="{{ level1.url }}">{{ level1.title }}</a>
-                {%- else -%}
-                  {{ level1.title }}
-                {%- endif -%}
-                {%- render 'icon', icon: 'arrow-right' -%}
-              </li>
-
-              <li class="breadcrumb__item">
-                {%- if level2.url != blank and level2.url != '#' -%}
-                  <a class="breadcrumb__link link" href="{{ level2.url }}">{{ level2.title }}</a>
-                {%- else -%}
-                  {{ level2.title }}
-                {%- endif -%}
-                {%- render 'icon', icon: 'arrow-right' -%}
-              </li>
-
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__link link" aria-current="page">
-                  {{ level3.title }}
-                </span>
-              </li>
-
-              {%- assign breadcrumb_found = true -%}
-              {%- break -%}
-            {%- endif -%}
-
-          {%- endfor -%}
-        {%- endif -%}
-
-        {%- if breadcrumb_found -%}
-          {%- break -%}
-        {%- endif -%}
-
-      {%- endfor -%}
-    {%- endif -%}
-
-    {%- if breadcrumb_found -%}
-      {%- break -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  {%- unless breadcrumb_found -%}
-    {%- for level1 in menu_links -%}
-      {%- assign level1_match = false -%}
-      {%- if level1.url == current_collection_path or level1.url contains current_collection_path -%}
-        {%- assign level1_match = true -%}
-      {%- endif -%}
-
-      {%- if level1_match -%}
-        <li class="breadcrumb__item">
-          <span class="breadcrumb__link link" aria-current="page">
-            {{ level1.title }}
-          </span>
-        </li>
-        {%- assign breadcrumb_found = true -%}
-        {%- break -%}
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endunless -%}
-
-  {%- unless breadcrumb_found -%}
-    <li class="breadcrumb__item">
+      <li class="breadcrumb__item">
       <span class="breadcrumb__link link" aria-current="page">
-        {%- if collection.handle == 'all' -%}
-          {{- 'collection.general.all_products' | t -}}
-        {%- else -%}
-          {{- collection.title -}}
-        {%- endif -%}
+      {{ level2.title }}
       </span>
-    </li>
-  {%- endunless -%}
+      </li>
+
+      {% assign found = true %}
+      {% break %}
+
+    {% endif %}
+
+
+    {% for level3 in level2.links %}
+
+      {% if level3.url == current_collection or level3.url contains current_collection %}
+
+        {% unless level1.url == '#' %}
+        <li class="breadcrumb__item">
+        <a class="breadcrumb__link link" href="{{ level1.url }}">
+        {{ level1.title }}
+        </a>
+        {%- render 'icon', icon: 'arrow-right' -%}
+        </li>
+        {% endunless %}
+
+        <li class="breadcrumb__item">
+        <a class="breadcrumb__link link" href="{{ level2.url }}">
+        {{ level2.title }}
+        </a>
+        {%- render 'icon', icon: 'arrow-right' -%}
+        </li>
+
+        <li class="breadcrumb__item">
+        <span class="breadcrumb__link link" aria-current="page">
+        {{ level3.title }}
+        </span>
+        </li>
+
+        {% assign found = true %}
+        {% break %}
+
+      {% endif %}
+
+    {% endfor %}
+
+    {% if found %}{% break %}{% endif %}
+
+  {% endfor %}
+
+  {% if found %}{% break %}{% endif %}
+
+{% endfor %}
+
+
+{% unless found %}
+<li class="breadcrumb__item">
+<span class="breadcrumb__link link" aria-current="page">
+{{ collection.title }}
+</span>
+</li>
+{% endunless %}
+
 </ol>
       </nav>
     </div>
