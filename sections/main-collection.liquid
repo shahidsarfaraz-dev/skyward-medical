@@ -13,6 +13,11 @@
       padding: 0 20px;
     }
   }
+  @media(max-width: 992px) {
+    .custom-container {
+      padding: 20px 20px 0;
+    }
+  }
 {% endstyle %}
 
 {%- assign color_label = 'color,colour,couleur,cor,colore,farbe,색,色,カラー,färg,farve,szín,barva' | split: ',' -%}
@@ -63,106 +68,171 @@
       <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
         <ol class="breadcrumb__list" role="list">
 
-<li class="breadcrumb__item">
-<a class="breadcrumb__link link" href="{{ routes.root_url }}">
-{{ 'general.breadcrumb.home' | t }}
-</a>
-{%- render 'icon', icon: 'arrow-right' -%}
-</li>
+          <li class="breadcrumb__item">
+            <a class="breadcrumb__link link" href="{{ routes.root_url }}">
+              {{ 'general.breadcrumb.home' | t }}
+            </a>
+            {%- render 'icon'
+              , icon: 'arrow-right' -%}
+          </li>
 
-{% assign menu_links = linklists['new-navigation-preview'].links %}
-{% assign current_collection = '/collections/' | append: collection.handle %}
-{% assign found = false %}
+          {% assign menu_links = linklists['new-navigation-preview'].links %}
+          {% assign current_collection = '/collections/' | append: collection.handle %}
+          {% assign found = false %}
 
-{% for level1 in menu_links %}
+          {% for level1 in menu_links %}
 
-  {% for level2 in level1.links %}
+            {% for level2 in level1.links %}
 
-    {% if level2.url == current_collection or level2.url contains current_collection %}
+              {% if level2.url == current_collection or level2.url contains current_collection %}
 
-      {% unless level1.url == '#' %}
-      <li class="breadcrumb__item">
-        <a class="breadcrumb__link link" href="{{ level1.url }}">
-        {{ level1.title }}
-        </a>
-        {%- render 'icon', icon: 'arrow-right' -%}
-      </li>
-      {% endunless %}
+                {% unless level1.url == '#' %}
+                  <li class="breadcrumb__item">
+                    <a class="breadcrumb__link link" href="{{ level1.url }}">
+                      {{ level1.title }}
+                    </a>
+                    {%- render 'icon'
+                      , icon: 'arrow-right' -%}
+                  </li>
+                {% endunless %}
 
-      <li class="breadcrumb__item">
-      <span class="breadcrumb__link link" aria-current="page">
-      {{ level2.title }}
-      </span>
-      </li>
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__link link" aria-current="page">
+                    {{ level2.title }}
+                  </span>
+                </li>
 
-      {% assign found = true %}
-      {% break %}
+                {% assign found = true %}
+                {% break %}
 
-    {% endif %}
-
-
-    {% for level3 in level2.links %}
-
-      {% if level3.url == current_collection or level3.url contains current_collection %}
-
-        {% unless level1.url == '#' %}
-        <li class="breadcrumb__item">
-        <a class="breadcrumb__link link" href="{{ level1.url }}">
-        {{ level1.title }}
-        </a>
-        {%- render 'icon', icon: 'arrow-right' -%}
-        </li>
-        {% endunless %}
-
-        <li class="breadcrumb__item">
-        <a class="breadcrumb__link link" href="{{ level2.url }}">
-        {{ level2.title }}
-        </a>
-        {%- render 'icon', icon: 'arrow-right' -%}
-        </li>
-
-        <li class="breadcrumb__item">
-        <span class="breadcrumb__link link" aria-current="page">
-        {{ level3.title }}
-        </span>
-        </li>
-
-        {% assign found = true %}
-        {% break %}
-
-      {% endif %}
-
-    {% endfor %}
-
-    {% if found %}{% break %}{% endif %}
-
-  {% endfor %}
-
-  {% if found %}{% break %}{% endif %}
-
-{% endfor %}
+              {% endif %}
 
 
-{% unless found %}
-<li class="breadcrumb__item">
-<span class="breadcrumb__link link" aria-current="page">
-{{ collection.title }}
-</span>
-</li>
-{% endunless %}
+              {% for level3 in level2.links %}
 
-</ol>
+                {% if level3.url == current_collection or level3.url contains current_collection %}
+
+                  {% unless level1.url == '#' %}
+                    <li class="breadcrumb__item">
+                      <a class="breadcrumb__link link" href="{{ level1.url }}">
+                        {{ level1.title }}
+                      </a>
+                      {%- render 'icon'
+                        , icon: 'arrow-right' -%}
+                    </li>
+                  {% endunless %}
+
+                  <li class="breadcrumb__item">
+                    <a class="breadcrumb__link link" href="{{ level2.url }}">
+                      {{ level2.title }}
+                    </a>
+                    {%- render 'icon'
+                      , icon: 'arrow-right' -%}
+                  </li>
+
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__link link" aria-current="page">
+                      {{ level3.title }}
+                    </span>
+                  </li>
+
+                  {% assign found = true %}
+                  {% break %}
+
+                {% endif %}
+
+              {% endfor %}
+
+              {% if found %}
+                {% break %}{% endif %}
+
+            {% endfor %}
+
+            {% if found %}
+              {% break %}{% endif %}
+
+          {% endfor %}
+
+
+          {% unless found %}
+            <li class="breadcrumb__item">
+              <span class="breadcrumb__link link" aria-current="page">
+                {{ collection.title }}
+              </span>
+            </li>
+          {% endunless %}
+
+        </ol>
       </nav>
     </div>
+    <div class="custom-container">
 
-    <div
+    
+    {%- paginate collection.products by items_per_page -%}
+                    <div class="collection__header-inner">
+                      <div class="collection__meta">
+                        {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 and collection.template_suffix == 'brand' -%}
+                          <div class="collection__brand-logo-wrapper hidden-lap-and-up">
+                            <div class="collection__brand-logo-image lazyload image--fade-in" data-bg="{{ collection.image | img_url: '250x' }}"></div>
+                          </div>
+                        {%- endif -%}
+
+                        <div class="collection__meta-inner">
+                          <h1 class="collection__title heading h1">
+                            {%- if collection.handle == 'all' -%}
+                              {{- 'collection.general.all_products' | t -}}
+                            {%- else -%}
+                              {{- collection.title -}}
+                            {%- endif -%}
+                          </h1>
+
+                          {%- assign offset = paginate.current_offset | plus: 1 -%}
+                          {%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
+
+                          <p class="collection__products-count collection__products-count-total text--small hidden-lap-and-up">{{ 'collection.general.products_count' | t: count: collection.products_count }}</p>
+                          <p class="collection__products-count collection__products-count-showing text--small hidden-pocket hidden-desk">{{ 'collection.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</p>
+                        </div>
+                      </div>
+
+                      {%- if collection.description != blank -%}
+                        {%- assign allow_collapse_description = false -%}
+
+                        {%- if section.settings.collapse_collection_description -%}
+                          {%- assign allow_collapse_description = true -%}
+                        {%- endif -%}
+                        {% if paginate.current_page == 1 %}
+                          <div class="collection__description {% if allow_collapse_description %}expandable-content{% endif %}" aria-expanded="false">
+                            <div class="rte">
+                              {{ collection.description }}
+                            </div>
+
+                            {%- if allow_collapse_description -%}
+                              <button class="expandable-content__toggle">
+                                <span class="expandable-content__toggle-icon"></span>
+                                <span
+                                  class="expandable-content__toggle-text"
+                                  data-view-more="{{ 'collection.general.view_more' | t | escape }}"
+                                  data-view-less="{{ 'collection.general.view_less' | t | escape }}">{{- 'collection.general.view_more' | t -}}</span>
+                              </button>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                    {%- endpaginate -%}
+    {% render 'collection-family-slider'
+      ,
+ menu_handle: 'new-navigation-preview'
+    %}
+</div>
+      <div
       {% if has_filters %}
       class="layout"
       {% endif %}>
-      {%- comment -%}
+      {%- comment -%} 
         --------------------------------------------------------------------------------------
         FILTER BAR (DESKTOP)
-        --------------------------------------------------------------------------------------
+        -------------------------------------------------------------------------------------- 
       {%- endcomment -%}
 
       {%- if has_filters -%}
@@ -280,6 +350,7 @@
 
                         <label for="{{ filter_value.param_name }}-{{ filter_value.value }}" class="collection__active-filter-item">
                           <span class="collection__active-filter-cross">{% render 'icon'
+ 
 , icon: 'close' %}</span>
                           {{- filter_value.label -}}
                         </label>
@@ -291,12 +362,14 @@
                         data-action="clear-filters"
                         data-url="{{ filter.url_to_remove | escape }}">
                         <span class="collection__active-filter-cross">{% render 'icon'
+ 
 , icon: 'close' %}</span>
                         {{- filter.min_value.value | default: 0 | money_without_trailing_zeros }} - {{ filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -}}
                       </button>
                     {%- elsif filter.type == 'boolean' and filter.true_value.active -%}
                       <label for="{{ filter.param_name }}" class="collection__active-filter-item">
                         <span class="collection__active-filter-cross">{% render 'icon'
+ 
 , icon: 'close' %}</span>
                         {{- filter.label -}}
                       </label>
@@ -541,10 +614,10 @@
               {%- endif -%}
             {%- endunless -%}
 
-            {%- comment -%}
+            {%- comment -%} 
               --------------------------------------------------------------------------------------
               TOP PART (COLLECTION INFO + TOOLBAR)
-              --------------------------------------------------------------------------------------
+              -------------------------------------------------------------------------------------- 
             {%- endcomment -%}
 
             {%- if collection.all_products_count == 0 -%}
@@ -558,71 +631,6 @@
               </div>
             {%- else -%}
               <div class="card {% if collection.products_count == 0 %}clearfix{% endif %}">
-                <header class="card__header {% unless collection.template_suffix == 'brand' %}card__header--tight{% endunless %}">
-                  {%- comment -%}
-                    IMPLEMENTATION NOTE: unfortunately I was forced to add a lot of extra div (collection__meta, collection__meta-inner, collection__header-inner,...)
-                    to be able to accommodate with the brand related layout which make things more complicated...
-                  {%- endcomment -%}
-
-                  <div class="collection__header {% if collection.template_suffix == 'brand' %}collection__header--brand{% endif %}">
-                    {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 and collection.template_suffix == 'brand' -%}
-                      <div class="collection__brand-logo-wrapper hidden-pocket">
-                        <div class="collection__brand-logo-image lazyload image--fade-in" data-bg="{{ collection.image | img_url: '250x' }}"></div>
-                      </div>
-                    {%- endif -%}
-
-                    <div class="collection__header-inner">
-                      <div class="collection__meta">
-                        {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 and collection.template_suffix == 'brand' -%}
-                          <div class="collection__brand-logo-wrapper hidden-lap-and-up">
-                            <div class="collection__brand-logo-image lazyload image--fade-in" data-bg="{{ collection.image | img_url: '250x' }}"></div>
-                          </div>
-                        {%- endif -%}
-
-                        <div class="collection__meta-inner">
-                          <h1 class="collection__title heading h1">
-                            {%- if collection.handle == 'all' -%}
-                              {{- 'collection.general.all_products' | t -}}
-                            {%- else -%}
-                              {{- collection.title -}}
-                            {%- endif -%}
-                          </h1>
-
-                          {%- assign offset = paginate.current_offset | plus: 1 -%}
-                          {%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
-
-                          <p class="collection__products-count collection__products-count-total text--small hidden-lap-and-up">{{ 'collection.general.products_count' | t: count: collection.products_count }}</p>
-                          <p class="collection__products-count collection__products-count-showing text--small hidden-pocket hidden-desk">{{ 'collection.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</p>
-                        </div>
-                      </div>
-
-                      {%- if collection.description != blank -%}
-                        {%- assign allow_collapse_description = false -%}
-
-                        {%- if section.settings.collapse_collection_description -%}
-                          {%- assign allow_collapse_description = true -%}
-                        {%- endif -%}
-                        {% if paginate.current_page == 1 %}
-                        <div class="collection__description {% if allow_collapse_description %}expandable-content{% endif %}" aria-expanded="false">
-                          <div class="rte">
-                            {{ collection.description }}
-                          </div>
-
-                          {%- if allow_collapse_description -%}
-                            <button class="expandable-content__toggle">
-                              <span class="expandable-content__toggle-icon"></span>
-                              <span
-                                class="expandable-content__toggle-text"
-                                data-view-more="{{ 'collection.general.view_more' | t | escape }}"
-                                data-view-less="{{ 'collection.general.view_less' | t | escape }}">{{- 'collection.general.view_more' | t -}}</span>
-                            </button>
-                          {%- endif -%}
-                        </div>
-                        {%- endif -%}
-                      {%- endif -%}
-                    </div>
-                  </div>
-                </header>
 
                 <div class="collection__dynamic-part">
                   <div class="collection__toolbar {% if collection.description != blank or collection.template_suffix == 'brand' %}collection__toolbar--bordered{% endif %}">
@@ -634,6 +642,7 @@
                         aria-expanded="false"
                         aria-controls="mobile-collection-filters">
                         <span class="collection__filter-icon {% if active_filters_count > 0 %}collection__filter-icon--active{% endif %}">{%- render 'icon'
+ 
 , icon: 'filter' -%}</span>
                         {{ 'collection.filter.title' | t }}{% if active_filters_count > 0 %}&nbsp;({{ active_filters_count }}){% endif %}
                       </button>
@@ -674,6 +683,7 @@
                                 data-action="close-value-picker"
                                 aria-controls="display-by-selector"
                                 aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon'
+ 
 , icon: 'close' %}</button>
                             </header>
 
@@ -741,6 +751,7 @@
                                 data-action="close-value-picker"
                                 aria-controls="sort-by-selector"
                                 aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon'
+ 
 , icon: 'close' %}</button>
                             </header>
 
@@ -768,6 +779,7 @@
                           aria-label="{{ 'collection.layout.grid' | t }}"
                           data-action="change-layout"
                           data-layout-mode="grid">{% render 'icon'
+ 
 , icon: 'grid' %}</button>
                         <button
                           type="button"
@@ -775,6 +787,7 @@
                           aria-label="{{ 'collection.layout.list' | t }}"
                           data-action="change-layout"
                           data-layout-mode="list">{% render 'icon'
+ 
 , icon: 'list' %}</button>
                       {%- else -%}
                         <button
@@ -783,6 +796,7 @@
                           aria-label="{{ 'collection.layout.list' | t }}"
                           data-action="change-layout"
                           data-layout-mode="list">{% render 'icon'
+ 
 , icon: 'list' %}</button>
                         <button
                           type="button"
@@ -790,15 +804,16 @@
                           aria-label="{{ 'collection.layout.grid' | t }}"
                           data-action="change-layout"
                           data-layout-mode="grid">{% render 'icon'
+ 
 , icon: 'grid' %}</button>
                       {%- endif -%}
                     </div>
                   </div>
 
-                  {%- comment -%}
+                  {%- comment -%} 
                     --------------------------------------------------------------------------------------
                     MOBILE FILTERS
-                    --------------------------------------------------------------------------------------
+                    -------------------------------------------------------------------------------------- 
                   {%- endcomment -%}
 
                   {%- if has_filters and active_filters_count > 0 -%}
@@ -812,6 +827,7 @@
                                 data-action="clear-filters"
                                 data-url="{{ active_filter_value.url_to_remove | escape }}">
                                 <span class="collection__mobile-active-filter-cross">{% render 'icon'
+ 
 , icon: 'close' %}</span>
                                 {{- active_filter_value.label -}}
                               </button>
@@ -822,6 +838,7 @@
                               data-action="clear-filters"
                               data-url="{{ filter.url_to_remove | escape }}">
                               <span class="collection__mobile-active-filter-cross">{% render 'icon'
+ 
 , icon: 'close' %}</span>
                               {{- filter.min_value.value | default: 0 | money_without_trailing_zeros }} - {{ filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -}}
                             </button>
@@ -831,6 +848,7 @@
                               data-action="clear-filters"
                               data-url="{{ filter.url_to_remove | escape }}">
                               <span class="collection__mobile-active-filter-cross">{% render 'icon'
+ 
 , icon: 'close' %}</span>
                               {{- filter.label -}}
                             </button>
@@ -849,10 +867,10 @@
                     </div>
                   {%- endif -%}
 
-                  {%- comment -%}
+                  {%- comment -%} 
                     --------------------------------------------------------------------------------------
                     COLLECTION PRODUCTS
-                    --------------------------------------------------------------------------------------
+                    -------------------------------------------------------------------------------------- 
                   {%- endcomment -%}
 
                   {%- if collection.products_count == 0 -%}
@@ -886,23 +904,22 @@
                       , paginate: paginate -%}
                   {%- endif -%}
                   {% if paginate.current_page == 1 %}
-                  <div class="seo-text rte">
+                    <div class="seo-text rte">
 
-                    {{ collection.metafields.custom.seo_text_ }}
+                      {{ collection.metafields.custom.seo_text_ }}
 
-                    {% assign faq_html = collection.metafields.custom.seo_text_.value %}
+                      {% assign faq_html = collection.metafields.custom.seo_text_.value %}
 
-                    {% if faq_html contains 'Frequently Asked Questions' %}
-                      {% assign faq_section = faq_html | split: 'Frequently Asked Questions (FAQs)</h2>' | last %}
-                      {% assign faq_blocks = faq_section | split: '<h3' %}
+                      {% if faq_html contains 'Frequently Asked Questions' %}
+                        {% assign faq_section = faq_html | split: 'Frequently Asked Questions (FAQs)</h2>' | last %}
+                        {% assign faq_blocks = faq_section | split: '<h3' %}
 
-                      <script type="application/ld+json">
-                        {
-                          "@context": "https://schema.org",
-                          "@type": "FAQPage",
-                          "@id": "{{ request.origin }}{{ request.path }}#faq",
-                          "mainEntity": [{% for block in faq_blocks offset: 1 %}
-                              {% assign q_and_a = block | split: '</h3>' %}
+                        <script type="application/ld+json">
+                          {
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "@id": "{{ request.origin }} {{ request.path }} #faq",
+                            "mainEntity": [{% for block in faq_blocks offset: 1 %}{% assign q_and_a = block | split: '</h3>' %}
                               {% assign question_raw = q_and_a[0] | split: '>' | last %}
                               {
                                 "@type": "Question",
@@ -914,9 +931,9 @@
                               }{% unless forloop.last %},{% endunless %}
                             {% endfor %}]
                         }
-                      </script>
-                    {% endif %}
-                  </div>
+                        </script>
+                      {% endif %}
+                    </div>
                   {% endif %}
 
                   <script type="application/json" data-collection-products-count>
@@ -1305,10 +1322,10 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%}
+  {%- comment -%} 
     --------------------------------------------------------------------------------------
     QUICK VIEW CONTAINER
-    --------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------- 
   {%- endcomment -%}
 
   <div
