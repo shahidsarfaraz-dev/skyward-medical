@@ -13,7 +13,7 @@
       "type": "main-collection",
       "settings": {
         "show_collection_image": false,
-        "collapse_collection_description": false,
+        "collapse_collection_description": true,
         "collection_image_size": "small",
         "products_per_row": "4",
         "default_products_per_page": 48,
