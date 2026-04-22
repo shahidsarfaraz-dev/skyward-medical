@@ -192,7 +192,7 @@
 
 
       {%- paginate collection.products by items_per_page -%}
-        <div class="collection__header-inner">
+        <div class="collection__header-inner" style="margin-bottom: 16px;">
           <div class="collection__meta">
             {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 and collection.template_suffix == 'brand' -%}
               <div class="collection__brand-logo-wrapper hidden-lap-and-up">
