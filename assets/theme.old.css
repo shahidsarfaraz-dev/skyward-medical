@@ -3527,7 +3527,7 @@ img.lazyload[data-sizes=auto] {
   }
 
   .collection__toolbar--bordered {
-    /* margin-top: 30px; */
+    margin-top: 30px;
     box-shadow: 0 1px var(--border-color), 0 -1px var(--border-color);
   }
 
