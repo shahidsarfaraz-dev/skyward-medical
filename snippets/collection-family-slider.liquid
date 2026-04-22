@@ -1,11 +1,9 @@
-{% liquid
-  assign menu_links = linklists[menu_handle].links
-  assign current_collection = '/collections/' | append: collection.handle
+{% assign menu_links = linklists[menu_handle].links %}
+{% assign current_collection = '/collections/' | append: collection.handle %}
 
-  assign found = false
-  assign slider_items = blank
-  assign visible_count = 0
-%}
+{% assign found = false %}
+{% assign slider_items = blank %}
+{% assign visible_count = 0 %}
 
 {% if collection and menu_links.size > 0 %}
 
@@ -21,36 +19,33 @@
 
       {% if level2.url == current_collection or level2.url contains current_collection %}
 
-        {% assign level1_is_grouping = false %}
-        {% assign level1_handle = level1.url | split: '/collections/' | last | split: '?' | first | split: '/' | first %}
-        {% assign level1_collection = collections[level1_handle] %}
+  {% if level2.links.size > 0 %}
+    {% assign slider_items = level2.links %}
+  {% else %}
+    {% assign slider_items = blank %}
+  {% endif %}
 
-        {% if level1.url == '#' or level1.url == blank or level1_collection == blank %}
-          {% assign level1_is_grouping = true %}
-        {% endif %}
+  {% assign found = true %}
+  {% break %}
 
-        {% if level1_is_grouping %}
-          {% assign slider_items = level2.links %}
-        {% else %}
-          {% assign slider_items = level1.links %}
-        {% endif %}
-
-        {% assign found = true %}
-        {% break %}
-      {% endif %}
+{% endif %}
 
       {% for level3 in level2.links %}
+
         {% if level3.url == current_collection or level3.url contains current_collection %}
           {% assign slider_items = level2.links %}
           {% assign found = true %}
           {% break %}
         {% endif %}
+
       {% endfor %}
 
       {% if found %}{% break %}{% endif %}
+
     {% endfor %}
 
     {% if found %}{% break %}{% endif %}
+
   {% endfor %}
 
 {% endif %}
@@ -59,54 +54,39 @@
 
   {% capture slider_cards %}
     {% for item in slider_items %}
-      {% assign item_handle = item.url | split: '/collections/' | last | split: '?' | first | split: '/' | first %}
-      {% assign item_collection = collections[item_handle] %}
 
-      {% if item_collection != blank %}
-        {% unless item.url == current_collection or item.url contains current_collection %}
-          {% assign visible_count = visible_count | plus: 1 %}
+  {% assign item_handle = item.url | split: '/collections/' | last | split: '?' | first | split: '/' | first %}
+  {% assign item_collection = collections[item_handle] %}
 
-          <a href="{{ item_collection.url }}" class="collection-family-slider__card">
-            <div class="collection-family-slider__image-wrap">
-              {% if item_collection.featured_image %}
-                {{
-                  item_collection.featured_image
-                  | image_url: width: 700
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'collection-family-slider__image',
-                    alt: item_collection.title
-                }}
-              {% elsif item_collection.image %}
-                {{
-                  item_collection.image
-                  | image_url: width: 700
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'collection-family-slider__image',
-                    alt: item_collection.title
-                }}
-              {% elsif item_collection.products.first.featured_image %}
-                {{
-                  item_collection.products.first.featured_image
-                  | image_url: width: 700
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'collection-family-slider__image',
-                    alt: item_collection.title
-                }}
-              {% else %}
-                {{ 'collection-1' | placeholder_svg_tag: 'collection-family-slider__image collection-family-slider__image--placeholder' }}
-              {% endif %}
-            </div>
+  {% if item_collection != blank %}
 
-            <div class="collection-family-slider__content">
-              <h3 class="collection-family-slider__title">{{ item_collection.title }}</h3>
-            </div>
-          </a>
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
+    {% assign current_handle = collection.handle %}
+
+    {% unless item_handle == current_handle %}
+
+      {% assign visible_count = visible_count | plus: 1 %}
+
+      <a href="{{ item_collection.url }}" class="collection-family-slider__card">
+
+        <div class="collection-family-slider__image-wrap">
+          {% if item_collection.featured_image %}
+            {{ item_collection.featured_image | image_url: width: 700 | image_tag }}
+          {% elsif item_collection.products.first.featured_image %}
+            {{ item_collection.products.first.featured_image | image_url: width: 700 | image_tag }}
+          {% endif %}
+        </div>
+
+        <div class="collection-family-slider__content">
+          <h3 class="collection-family-slider__title">{{ item_collection.title }}</h3>
+        </div>
+
+      </a>
+
+    {% endunless %}
+
+  {% endif %}
+
+{% endfor %}
   {% endcapture %}
 
   {% if visible_count > 0 %}
