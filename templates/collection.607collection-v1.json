@@ -12,7 +12,7 @@
     "main": {
       "type": "main-collection-607",
       "settings": {
-        "show_collection_image": true,
+        "show_collection_image": false,
         "collapse_collection_description": true,
         "collection_image_size": "small",
         "products_per_row": "4",
