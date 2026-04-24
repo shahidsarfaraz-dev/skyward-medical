@@ -118,6 +118,7 @@
       "blocks": {
         "fera_product_reviews_Kxfaxy": {
           "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
+          "disabled": true,
           "settings": {
             "heading": "Product Reviews",
             "layout": "list",
@@ -129,12 +130,6 @@
       "block_order": [
         "fera_product_reviews_Kxfaxy"
       ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1669343322767881e2": {
-      "type": "apps",
       "settings": {
         "include_margins": true
       }
@@ -166,7 +161,6 @@
     "main",
     "custom_liquid_8Dca3d",
     "1715483660158cc418",
-    "1669343322767881e2",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
     "product-recommendations",
     "170370457993485f67"
