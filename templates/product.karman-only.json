@@ -42,7 +42,7 @@
           }
         },
         "ymq_product_options_variants_option_Frwdzr": {
-          "type": "shopify://apps/ymq-product-options-variants/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
+          "type": "shopify://apps/ymq-product-options/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
           "settings": {
             "product": "{{product}}"
           }
@@ -113,27 +113,6 @@
         "liquid": "<div class=\"rte\">\n{% if product.metafields.custom.uses_pagecrafters.value == true %}{{ product.description}} {% endif %}\n</div>"
       }
     },
-    "1715483660158cc418": {
-      "type": "apps",
-      "blocks": {
-        "fera_product_reviews_Kxfaxy": {
-          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "disabled": true,
-          "settings": {
-            "heading": "Product Reviews",
-            "layout": "list",
-            "star_color": "#ffda03",
-            "when_no_reviews": "show"
-          }
-        }
-      },
-      "block_order": [
-        "fera_product_reviews_Kxfaxy"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "1669343322767881e2": {
       "type": "apps",
       "settings": {
@@ -166,7 +145,6 @@
     "ad91ba94-88d8-446b-be07-0dcd4394f416",
     "main",
     "custom_liquid_9WigV4",
-    "1715483660158cc418",
     "1669343322767881e2",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
     "product-recommendations",
