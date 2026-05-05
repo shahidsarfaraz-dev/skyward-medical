@@ -4,8 +4,41 @@
 {% assign found = false %}
 {% assign slider_items = blank %}
 {% assign visible_count = 0 %}
+{% assign pause_slider = false %}
+{% assign paused_parent_handle = 'hospital-beds' %}
 
 {% if collection and menu_links.size > 0 %}
+  {% for level1 in menu_links %}
+    {% assign level1_handle = level1.url | split: '/collections/' | last | split: '?' | first | split: '/' | first %}
+
+    {% if level1_handle == paused_parent_handle %}
+      {% if level1.url == current_collection or level1.url contains current_collection %}
+        {% assign pause_slider = true %}
+        {% break %}
+      {% endif %}
+
+      {% for level2 in level1.links %}
+        {% if level2.url == current_collection or level2.url contains current_collection %}
+          {% assign pause_slider = true %}
+          {% break %}
+        {% endif %}
+
+        {% for level3 in level2.links %}
+          {% if level3.url == current_collection or level3.url contains current_collection %}
+            {% assign pause_slider = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        {% if pause_slider %}{% break %}{% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if pause_slider %}{% break %}{% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if collection and menu_links.size > 0 and pause_slider == false %}
 
   {% for level1 in menu_links %}
 
@@ -198,7 +231,7 @@
           cursor: pointer;
           box-shadow: 0 4px 12px rgba(0,0,0,.12);
         }
-        .collection-family-slider-wrapper:hover .collection-family-slider__arrow {
+        .collection-family-slider-wrapper.is-overflowing:hover .collection-family-slider__arrow {
           display: flex;
         }
 
@@ -246,6 +279,15 @@
 
         if (!track) return;
 
+        function updateArrowVisibility() {
+          var isOverflowing = track.scrollWidth > track.clientWidth + 1;
+
+          wrapper.classList.toggle('is-overflowing', isOverflowing);
+
+          if (prevBtn) prevBtn.hidden = !isOverflowing;
+          if (nextBtn) nextBtn.hidden = !isOverflowing;
+        }
+
         function getScrollAmount() {
           var firstCard = track.querySelector('.collection-family-slider__card');
           if (!firstCard) return 300;
@@ -271,6 +313,15 @@
               behavior: 'smooth'
             });
           });
+        }
+
+        updateArrowVisibility();
+
+        window.addEventListener('resize', updateArrowVisibility);
+
+        if (window.ResizeObserver) {
+          var resizeObserver = new ResizeObserver(updateArrowVisibility);
+          resizeObserver.observe(track);
         }
       })();
     </script>
