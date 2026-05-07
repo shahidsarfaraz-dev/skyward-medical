@@ -136,7 +136,7 @@
           "a.mega-menu__title.heading {font-size: 25px;}"
         ],
         "settings": {
-          "enable_sticky_header": true,
+          "enable_sticky_header": false,
           "logo": "shopify://shop_images/sky_blue_dd34166b-0a8c-4604-8cba-9f70cbb1a3a9.png",
           "logo_max_width": 160,
           "mobile_logo_max_width": 90,
