@@ -55,6 +55,11 @@
   {% capture slider_cards %}
     {% for item in slider_items %}
 
+  {%- comment -%} Fix: Exclude Mattresses category from slider {%- endcomment -%}
+  {% if item.title contains 'Mattress' %}
+    {% continue %}
+  {% endif %}
+
   {% assign item_handle = item.url | split: '/collections/' | last | split: '?' | first | split: '/' | first %}
   {% assign item_collection = collections[item_handle] %}
 
@@ -91,9 +96,10 @@
 
   {% if visible_count > 0 %}
     <div class="collection-family-slider-wrapper" id="collection-family-slider-{{ section.id | default: 'snippet' }}">
+      
       <button
         type="button"
-        class="collection-family-slider__arrow collection-family-slider__arrow--prev"
+        class="collection-family-slider__arrow collection-family-slider__arrow--prev is-hidden"
         aria-label="Previous"
         data-slider-prev
       >
@@ -108,7 +114,7 @@
 
       <button
         type="button"
-        class="collection-family-slider__arrow collection-family-slider__arrow--next"
+        class="collection-family-slider__arrow collection-family-slider__arrow--next is-hidden"
         aria-label="Next"
         data-slider-next
       >
@@ -116,6 +122,7 @@
           <path d="m8.5 19 7-7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+
     </div>
 
     <style>
@@ -157,18 +164,17 @@
       .collection-family-slider__image-wrap {
         aspect-ratio: 1 / 1;
         overflow: hidden;
+        background-color: #ffffff; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .collection-family-slider__image {
+      .collection-family-slider__image-wrap img {
         width: 100%;
         height: 100%;
         display: block;
-        object-fit: contain;
-      }
-
-      .collection-family-slider__image--placeholder {
-        width: 100%;
-        height: 100%;
+        object-fit: contain !important;
       }
 
       .collection-family-slider__content {
@@ -181,26 +187,35 @@
         line-height: 1.4;
         text-align: center;
       }
+
+      /* Smart Arrows CSS */
       .collection-family-slider__arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 2;
-          width: 42px;
-          height: 42px;
-          border: 0;
-          border-radius: 50%;
-          background: #fff;
-          color: #111;
-          display: none;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          box-shadow: 0 4px 12px rgba(0,0,0,.12);
-        }
-        .collection-family-slider-wrapper:hover .collection-family-slider__arrow {
-          display: flex;
-        }
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        background: #fff;
+        color: #111;
+        display: none; /* Hidden by default until hover */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,.12);
+      }
+      
+      /* Only show arrows on hover IF they don't have the .is-hidden class */
+      .collection-family-slider-wrapper:hover .collection-family-slider__arrow:not(.is-hidden) {
+        display: flex;
+      }
+
+      /* Force hide when JS determines scrolling isn't needed */
+      .collection-family-slider__arrow.is-hidden {
+        display: none !important;
+      }
 
       .collection-family-slider__arrow--prev {
         left: -14px;
@@ -214,9 +229,8 @@
         .collection-family-slider {
           grid-auto-columns: calc((100% - 16px) / 4);
         }
-
         .collection-family-slider__arrow {
-          display: none;
+          display: none !important;
         }
       }
 
@@ -224,11 +238,9 @@
         .collection-family-slider {
           grid-auto-columns: 40%;
         }
-
         .collection-family-slider__content {
           padding: 12px;
         }
-
         .collection-family-slider__title {
           font-size: 15px;
         }
@@ -246,10 +258,35 @@
 
         if (!track) return;
 
+        // Smart Arrow Logic
+        function updateArrows() {
+          // Check if slider contents are wider than the container
+          var isScrollable = track.scrollWidth > track.clientWidth;
+          
+          if (!isScrollable) {
+            if (prevBtn) prevBtn.classList.add('is-hidden');
+            if (nextBtn) nextBtn.classList.add('is-hidden');
+            return;
+          }
+
+          // If scrollable, check start/end positions
+          var isAtStart = track.scrollLeft <= 0;
+          var isAtEnd = Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth;
+
+          if (prevBtn) {
+            if (isAtStart) prevBtn.classList.add('is-hidden');
+            else prevBtn.classList.remove('is-hidden');
+          }
+
+          if (nextBtn) {
+            if (isAtEnd) nextBtn.classList.add('is-hidden');
+            else nextBtn.classList.remove('is-hidden');
+          }
+        }
+
         function getScrollAmount() {
           var firstCard = track.querySelector('.collection-family-slider__card');
           if (!firstCard) return 300;
-
           var styles = window.getComputedStyle(track);
           var gap = parseInt(styles.columnGap || styles.gap || 16, 10);
           return firstCard.offsetWidth + gap;
@@ -257,21 +294,23 @@
 
         if (prevBtn) {
           prevBtn.addEventListener('click', function() {
-            track.scrollBy({
-              left: -getScrollAmount(),
-              behavior: 'smooth'
-            });
+            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
           });
         }
 
         if (nextBtn) {
           nextBtn.addEventListener('click', function() {
-            track.scrollBy({
-              left: getScrollAmount(),
-              behavior: 'smooth'
-            });
+            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
           });
         }
+
+        // Run checks on load, scroll, and window resize
+        updateArrows();
+        track.addEventListener('scroll', updateArrows);
+        window.addEventListener('resize', updateArrows);
+        
+        // Failsafe: Run once more after images load to ensure correct widths
+        window.addEventListener('load', updateArrows);
       })();
     </script>
   {% endif %}
