@@ -45,11 +45,11 @@
         "text_tUf3rC": {
           "type": "text",
           "settings": {
-            "content": "<p>✔️ Free Shipping via FedEx </p><p>✔️ Please Allow 7-12 Business Days for Delivery</p><p>✔️ Made to Order, Compressed to Ship</p><p>✔️ Free Removal of Old Mattress</p><p>✔️ Manufacturer's Warranty</p>"
+            "content": "<p>✔️ Free Shipping via FedEx </p><p>✔️ Please Allow 7-12 Business Days for Delivery</p><p>✔️ Made to Order, Compressed to Ship</p><p>✔️ Manufacturer's Warranty</p>"
           }
         },
         "ymq_product_options_variants_option_fbXw3F": {
-          "type": "shopify://apps/ymq-product-options-variants/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
+          "type": "shopify://apps/ymq-product-options/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
           "settings": {
             "product": "{{product}}"
           }
