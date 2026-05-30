@@ -370,23 +370,6 @@
     "mosaic_CVGUNh": {
       "type": "mosaic",
       "blocks": {
-        "item_qhprUR": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Business-Insider-logo_0d154e1d-4a53-451e-96a4-8863a36fb6ab.png",
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "",
-            "content": "",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "",
-            "link": "https://markets.businessinsider.com/news/stocks/skyward-medical-transforms-the-homecare-industry-1033429950"
-          }
-        },
         "item_NbhQXw": {
           "type": "item",
           "settings": {
@@ -423,7 +406,6 @@
         }
       },
       "block_order": [
-        "item_qhprUR",
         "item_NbhQXw",
         "item_gfViW7"
       ],
