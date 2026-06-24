@@ -167,58 +167,6 @@
         "heading": "You may also like",
         "show_quick_buy": false
       }
-    },
-    "170370457993485f67": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1782324362e33a1261": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_w33Y8b": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_w33Y8b"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "17823244949864123b": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1782324496c39f064c": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_BBRiem": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_BBRiem"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -228,10 +176,6 @@
     "1715483807c17594ed",
     "1669343322767881e2",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
-    "product-recommendations",
-    "170370457993485f67",
-    "1782324362e33a1261",
-    "17823244949864123b",
-    "1782324496c39f064c"
+    "product-recommendations"
   ]
 }
