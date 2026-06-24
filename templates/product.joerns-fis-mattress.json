@@ -116,6 +116,15 @@
     "1715483660158cc418": {
       "type": "apps",
       "blocks": {
+        "judge_me_reviews_review_widget_7Jiibk": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        },
         "fera_product_reviews_Kxfaxy": {
           "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
           "disabled": true,
@@ -128,6 +137,7 @@
         }
       },
       "block_order": [
+        "judge_me_reviews_review_widget_7Jiibk",
         "fera_product_reviews_Kxfaxy"
       ],
       "settings": {
