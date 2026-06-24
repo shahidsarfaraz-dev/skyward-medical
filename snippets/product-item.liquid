@@ -180,7 +180,11 @@
 
       <a href="{{ filtered_variant.url | default: product.url }}" class="product-item__title text--strong link">{{ product.title }}</a>
       <div data-fera-widget='product_collection_rating' data-fera-id='fwid_37Q8cru' data-product-id='{{ product.id }}'></div>
-    
+    <!-- Start of Judge.me code -->
+      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+      <!-- End of Judge.me code -->
    {% comment %}
 <!-- Stamped - Begin badge -->
 <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}" data-product-type="{{ product.type }}" style="display: block;"></span>
