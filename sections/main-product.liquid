@@ -40,13 +40,78 @@ top: 20px;
               <a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
             </li>
 
-            <li class="breadcrumb__item">
-              {%- if collection -%}
-                <a class="breadcrumb__link link" href="{{ collection.url }}">{{ collection.title }}</a> {%- render 'icon', icon: 'arrow-right' -%}
-              {%- else -%}
-                <a class="breadcrumb__link link" href="{{ routes.all_products_collection_url }}">{{- 'collection.general.all_products' | t -}}</a> {%- render 'icon', icon: 'arrow-right' -%}
-              {%- endif -%}
+            {% assign collection_breadcrumbs = pages['prc-products-breadcrumbs-do-not-delete'].metafields.prc.product_breadcrumbs_collections.value %}
+            {% if collection_breadcrumbs %}
+              {% liquid
+              for condition in collection_breadcrumbs
+              assign apply_this_one = true
+              assign prc_collections = condition.collections
+              assign prc_breadcrumbs = condition.breadcrumbs
+              
+              for item in prc_collections
+              
+              assign prc_product_collection_handles = ""
+              for col in product.collections
+              assign prc_product_collection_handles = prc_product_collection_handles | append: col.handle | append: ","
+              endfor
+              assign prc_product_collection_handles = prc_product_collection_handles | split: ","
+              
+              unless prc_product_collection_handles contains item
+              assign apply_this_one = false
+              break
+              endunless
+              
+              endfor
+              
+              if apply_this_one == true
+              assign collection_breadcrumbs = prc_breadcrumbs
+              break
+            else
+            assign collection_breadcrumbs = false
+            endif
+            
+          endfor
+          %}
+          
+          {% if collection_breadcrumbs != false %}
+            {% liquid
+            capture temp
+            assign collection_breadcrumbs = collection_breadcrumbs | reverse
+            for item in collection_breadcrumbs
+            assign p_item = collections[item]
+            echo p_item.title
+            echo '|'
+            echo p_item.url
+            echo '>=<'
+            endfor
+            endcapture
+            
+            assign crumbs = temp | split: '>=<' | reverse
+            %}
+            {% for crumb in crumbs %}
+              {% assign temp = crumb | split: '|' %}
+              {% assign title = temp[0] %}
+              {% assign url = temp[1] %}
+              <li class="breadcrumb__item">
+              <a class="breadcrumb__link link" href="{{ url }}">{{ title }}</a> {%- render 'icon', icon: 'arrow-right' -%}
             </li>
+          {% endfor %}
+
+
+        {% endif %}
+      {% elsif product.type != blank %}
+        {% assign collection_handle = product.type | handle %}
+        {% if collection_handle != blank %}
+          {% capture url %}/collections/{{ collection_handle }}{% endcapture %}
+            <li class="breadcrumb__item">
+          <a class="breadcrumb__link link" href="{{ url }}">{{ product.type }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+          </li>
+        {% endif %}
+      {%- else -%}
+      <li class="breadcrumb__item">
+        <a class="breadcrumb__link link" href="{{ routes.all_products_collection_url }}">{{- 'collection.general.all_products' | t -}}</a> {%- render 'icon', icon: 'arrow-right' -%}
+        </li>
+      {% endif %}
 
             <li class="breadcrumb__item">
               <span class="breadcrumb__link" aria-current="page">{{ product.title | truncate: 40 }}</span>
