@@ -189,7 +189,7 @@
             "type": "text",
             "settings": {
               "title": "Contact",
-              "content": "<p>(855) 244-4712</p><p>Monday-Saturday (9AM-5PM CST)</p><p>support@skywardmedical.com</p><p>6615 Prairie Flower Trail Dallas, TX 75227</p>"
+              "content": "<p>(855) 244-4712</p><p>Monday-Saturday (9AM-5PM CST)</p><p>support@skywardmedical.com</p><p>11133 Shady Trail Dallas, TX 75229</p>"
             }
           }
         },
@@ -308,11 +308,6 @@
         "disabled": false,
         "settings": {}
       },
-      "4275615285897611771": {
-        "type": "shopify://apps/fera/blocks/embed/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-        "disabled": false,
-        "settings": {}
-      },
       "8678217409362241721": {
         "type": "shopify://apps/page-crafter/blocks/themeHelper/c7fa68e7-4f4a-4103-9713-6b7a7105dbcc",
         "disabled": false,
@@ -322,14 +317,14 @@
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!",
           "button_color": "#2491eb",
           "secondary_color": "#f3f5f6",
           "ternary_color": "#6a6a6a",
           "button_icon": "chat_bubble",
           "button_text": "live_chat",
           "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+          "button_vertical_position": "lowest"
         }
       },
       "59977313812939921782": {
