@@ -1,0 +1,129 @@
+{%- comment -%}
+  PRC house Collection / Product FAQ section.
+  Source of truth: metafield custom.faqs (type: json)
+    = [ { "question": "...", "answer": "..." }, ... ]
+  Reads the collection first, falls back to the product. Renders nothing when empty.
+  Accordion uses native <details>/<summary> with the question as a real <h3> inside
+  the summary (valid HTML, keyboard accessible, no JS). Styled with the theme tokens.
+  Emits ONE FAQPage JSON-LD from the SAME metafield, and auto-suppresses it if the store
+  already emits a collection FAQPage from a legacy custom.seo_text_ FAQ, so a page never
+  carries two FAQPage nodes. Turn emit_schema off to silence the schema entirely.
+  House rules: questions are H3, section title is H2, no !important.
+
+  WHY <details> and not the theme's toggle-collapsible button: the Warehouse collapsible JS
+  resolves the panel with button.parentNode.querySelector('#'+ariaControls), so the trigger
+  and the panel must share a parent. Wrapping the trigger in the required <h3> breaks that
+  (icon flips, panel never opens). <details>/<summary> sidesteps it and still allows the <h3>.
+{%- endcomment -%}
+
+{%- if collection -%}
+  {%- assign faqs = collection.metafields.custom.faqs.value -%}
+{%- else -%}
+  {%- assign faqs = product.metafields.custom.faqs.value -%}
+{%- endif -%}
+
+{%- comment -%} Guard: do not emit a second FAQPage if a legacy seo_text_ FAQ already does. {%- endcomment -%}
+{%- assign legacy_faq = false -%}
+{%- if collection and collection.metafields.custom.seo_text_.value contains 'Frequently Asked Questions' -%}
+  {%- assign legacy_faq = true -%}
+{%- endif -%}
+
+{%- if faqs != blank -%}
+  <section class="prc-faq container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="prc-faq__title heading h2">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="prc-faq__list">
+      {%- for item in faqs -%}
+        {%- if item.question != blank -%}
+          <details class="prc-faq__item">
+            <summary class="prc-faq__summary">
+              <h3 class="prc-faq__question heading h4">{{ item.question | escape }}</h3>
+              <span class="prc-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="prc-faq__answer rte">
+              {{ item.answer }}
+            </div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+
+  {%- if section.settings.emit_schema and legacy_faq == false -%}
+    {%- assign emitted = false -%}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ request.origin }}{{ request.path }}#faq",
+  "mainEntity": [
+    {%- for item in faqs -%}
+      {%- if item.question != blank -%}
+        {%- if emitted -%},{%- endif -%}
+    {
+      "@type": "Question",
+      "name": {{ item.question | strip_html | json }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.answer | strip_html | json }}
+      }
+    }
+        {%- assign emitted = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+    </script>
+  {%- endif -%}
+
+  <style>
+    .prc-faq-section { background: var(--secondary-background); margin-top: -2rem; }
+    .prc-faq { padding-top: 2rem; padding-bottom: 2rem; }
+    .prc-faq__title { margin-bottom: 1.25rem; }
+    .prc-faq__item { border-bottom: 1px solid var(--border-color); }
+    .prc-faq__summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; padding: 1.1rem 0; }
+    .prc-faq__summary::-webkit-details-marker { display: none; }
+    .prc-faq__summary:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; }
+    .prc-faq__question { margin: 0; }
+    .prc-faq__answer { padding: 0 0 1.25rem; max-width: 70ch; }
+    .prc-faq__icon { position: relative; flex: 0 0 auto; width: 15px; height: 15px; color: var(--heading-color); }
+    .prc-faq__icon::before,
+    .prc-faq__icon::after { content: ""; position: absolute; background: currentColor; }
+    .prc-faq__icon::before { top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-50%); }
+    .prc-faq__icon::after { left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); transition: opacity .2s ease; }
+    .prc-faq__item[open] .prc-faq__icon::after { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) { .prc-faq__icon::after { transition: none; } }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection FAQ",
+  "tag": "section",
+  "class": "prc-faq-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Reads FAQ content from the collection (or product) metafield custom.faqs. Stays hidden until that metafield has content. The title renders as an H2 and each question as an H3."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "checkbox",
+      "id": "emit_schema",
+      "label": "Output FAQ schema (JSON-LD)",
+      "info": "Leave on. It auto-suppresses if a legacy FAQ already outputs schema on the page, so there is never a duplicate FAQPage.",
+      "default": true
+    }
+  ],
+  "presets": [
+    { "name": "Collection FAQ" }
+  ]
+}
+{% endschema %}

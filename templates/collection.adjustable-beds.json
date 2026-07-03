@@ -83,6 +83,10 @@
         "buttonName": "TRUSTED STORE [Learn More]",
         "buttonUrl": "https://skywardmedical.com/pages/skyward-medical-is-a-google-trusted-store"
       }
+    },
+    "collection_faq": {
+      "type": "collection-faq",
+      "settings": {}
     }
   },
   "order": [
@@ -90,6 +94,7 @@
     "1704311544a9493f5a",
     "d243965e-a348-4074-b51c-3caeb4c156d9",
     "b63518b7-6680-47f2-83ed-91b201dfd1a2",
+    "collection_faq",
     "recently-viewed-products",
     "fb274d43-c848-4be7-81f7-62a831a2b444"
   ]
