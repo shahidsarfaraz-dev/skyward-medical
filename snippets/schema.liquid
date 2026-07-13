@@ -49,11 +49,47 @@ GLOBAL JSON-LD SCHEMA (Single file)
 }
 </script>
 
-{%- comment -%} 2) Page-specific schema via if/elsif (single output, no conflicts) {%- endcomment -%}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
+{%- comment -%}
+  2) Page-specific schema.
 
+  The body is CAPTURED first and the <script> is only emitted if a branch actually
+  matched. Previously the script opened unconditionally, so any page type without a
+  branch (article, page, blog, search, cart, 404) rendered:
+
+      { "@context": "https://schema.org", }
+
+  a dangling comma with no members, which Google reports as "Missing '}' or object
+  member name" (Unparsable structured data). Capturing first makes that impossible
+  for any page type, now or in future.
+{%- endcomment -%}
+
+{%- assign logo_url = 'https://skywardmedical.com/cdn/shop/files/sky_blue_dd34166b-0a8c-4604-8cba-9f70cbb1a3a9.png' -%}
+
+{%- comment -%} Reusable Organization node for the page types added below. {%- endcomment -%}
+{%- capture org_node -%}
+  {
+    "@type": "Organization",
+    "@id": "{{ shop_url }}#organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop_url | json }},
+    "logo": {
+      "@type": "ImageObject",
+      "@id": "{{ shop_url }}#logo",
+      "url": {{ logo_url | json }},
+      "contentUrl": {{ logo_url | json }}
+    }
+    {%- if has_social -%}
+    ,
+    "sameAs": [
+      {%- for s in socials_arr -%}
+        {%- if s != blank -%}{{ s | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+      {%- endfor -%}
+    ]
+    {%- endif -%}
+  }
+{%- endcapture -%}
+
+{%- capture page_schema -%}
   {%- if request.page_type == 'index' -%}
 
   "@graph": [
@@ -96,42 +132,12 @@ GLOBAL JSON-LD SCHEMA (Single file)
     }
   ]
 
-  {%- elsif request.page_type == 'product' and product -%}
-
-  "@type": "BreadcrumbList",
-  "@id": "{{ shop_url }}{{ product.url }}#breadcrumb",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ shop_url }}"
-    }
-    {%- assign primary_collection = collection | default: product.collections.first -%}
-    {%- if primary_collection -%}
-    ,
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": {{ primary_collection.title | json }},
-      "item": {{ shop_url | append: primary_collection.url | json }}
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": {{ product.title | json }},
-      "item": {{ shop_url | append: product.url | json }}
-    }
-    {%- else -%}
-    ,
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": {{ product.title | json }},
-      "item": {{ shop_url | append: product.url | json }}
-    }
-    {%- endif -%}
-  ]
+  {%- comment -%}
+    NOTE: product pages are intentionally NOT handled here. The dedicated product
+    block further down already emits @graph[BreadcrumbList, Product]. This branch
+    used to emit a SECOND BreadcrumbList with the exact same @id
+    ({{ shop_url }}{{ product.url }}#breadcrumb), duplicating that node. Removed.
+  {%- endcomment -%}
 
   {%- elsif request.page_type == 'collection' and collection -%}
     {% assign faq_html = collection.metafields.custom.seo_text_.value %}
@@ -199,9 +205,117 @@ GLOBAL JSON-LD SCHEMA (Single file)
     ]
   }
 ]
+
+  {%- comment -%} Blog article: BlogPosting + breadcrumb. These pages previously had
+     NO valid schema at all, only the broken block. {%- endcomment -%}
+  {%- elsif request.page_type == 'article' and article -%}
+    {%- assign art_modified = article.updated_at | default: article.published_at -%}
+
+"@graph": [
+
+  {{ org_node }},
+
+  {
+    "@type": "BlogPosting",
+    "@id": "{{ shop_url }}{{ article.url }}#article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ shop_url }}{{ article.url }}" },
+    "headline": {{ article.title | json }},
+    "url": {{ shop_url | append: article.url | json }},
+    "datePublished": {{ article.published_at | date: "%Y-%m-%dT%H:%M:%S%z" | json }},
+    "dateModified": {{ art_modified | date: "%Y-%m-%dT%H:%M:%S%z" | json }},
+    {%- if article.excerpt_or_content != blank -%}
+    "description": {{ article.excerpt_or_content | strip_html | strip_newlines | truncate: 300 | json }},
+    {%- endif -%}
+    {%- if article.image -%}
+    "image": {{ article.image | image_url: width: 1200 | prepend: 'https:' | json }},
+    {%- endif -%}
+    {%- if article.author != blank -%}
+    "author": { "@type": "Person", "name": {{ article.author | json }} },
+    {%- endif -%}
+    "publisher": { "@id": "{{ shop_url }}#organization" },
+    "isPartOf": { "@id": "{{ shop_url }}#website" }
+  },
+
+  {
+    "@type": "BreadcrumbList",
+    "@id": "{{ shop_url }}{{ article.url }}#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop_url | json }} },
+      { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ shop_url | append: blog.url | json }} },
+      { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ shop_url | append: article.url | json }} }
+    ]
+  }
+]
+
+  {%- comment -%} Standard page (/pages/*): WebPage + breadcrumb. {%- endcomment -%}
+  {%- elsif request.page_type == 'page' and page -%}
+
+"@graph": [
+
+  {{ org_node }},
+
+  {
+    "@type": "WebPage",
+    "@id": "{{ shop_url }}{{ page.url }}#webpage",
+    "url": {{ shop_url | append: page.url | json }},
+    "name": {{ page.title | json }},
+    {%- if page.content != blank -%}
+    "description": {{ page.content | strip_html | strip_newlines | truncate: 300 | json }},
+    {%- endif -%}
+    "isPartOf": { "@id": "{{ shop_url }}#website" },
+    "about": { "@id": "{{ shop_url }}#organization" }
+  },
+
+  {
+    "@type": "BreadcrumbList",
+    "@id": "{{ shop_url }}{{ page.url }}#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop_url | json }} },
+      { "@type": "ListItem", "position": 2, "name": {{ page.title | json }}, "item": {{ shop_url | append: page.url | json }} }
+    ]
+  }
+]
+
+  {%- comment -%} Blog index (/blogs/news): Blog + breadcrumb. {%- endcomment -%}
+  {%- elsif request.page_type == 'blog' and blog -%}
+
+"@graph": [
+
+  {{ org_node }},
+
+  {
+    "@type": "Blog",
+    "@id": "{{ shop_url }}{{ blog.url }}#blog",
+    "url": {{ shop_url | append: blog.url | json }},
+    "name": {{ blog.title | json }},
+    "isPartOf": { "@id": "{{ shop_url }}#website" },
+    "publisher": { "@id": "{{ shop_url }}#organization" }
+  },
+
+  {
+    "@type": "BreadcrumbList",
+    "@id": "{{ shop_url }}{{ blog.url }}#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop_url | json }} },
+      { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ shop_url | append: blog.url | json }} }
+    ]
+  }
+]
+
   {%- endif -%}
+{%- endcapture -%}
+
+{%- comment -%} Only emit the script if a branch produced a body. No branch match now
+   means NO script tag, instead of an unparsable empty object. {%- endcomment -%}
+{%- assign page_schema_check = page_schema | strip -%}
+{%- if page_schema_check != blank -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  {{ page_schema }}
 }
 </script>
+{%- endif -%}
 
 {%- if request.page_type == 'product' and product -%}
 {%- assign shop_url = shop.url -%}
@@ -296,7 +410,14 @@ GLOBAL JSON-LD SCHEMA (Single file)
         }{%- unless forloop.last -%},{%- endunless -%}
         {%- endfor -%}
       ]
-      {%- if product.metafields.reviews.rating.value != blank and product.metafields.reviews.rating_count.value != blank -%}
+      {%- comment -%}
+        reviewCount must be a POSITIVE integer. The guard used to be `!= blank`, but
+        0 is not blank in Liquid, so zero-review products emitted "reviewCount": 0 and
+        Google rejected them ("Value in property reviewCount must be positive").
+        `> 0` omits aggregateRating entirely when there are no reviews, which is the
+        same guard microdata-schema.liquid already uses correctly.
+      {%- endcomment -%}
+      {%- if product.metafields.reviews.rating.value != blank and product.metafields.reviews.rating_count.value > 0 -%}
       ,
       "aggregateRating": {
         "@type": "AggregateRating",
