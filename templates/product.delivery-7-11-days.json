@@ -133,21 +133,6 @@
     },
     "1715483807c17594ed": {
       "type": "apps",
-      "blocks": {
-        "fera_product_reviews_X8RMJx": {
-          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "disabled": true,
-          "settings": {
-            "heading": "Product Reviews",
-            "layout": "list",
-            "star_color": "#ffda03",
-            "when_no_reviews": "show"
-          }
-        }
-      },
-      "block_order": [
-        "fera_product_reviews_X8RMJx"
-      ],
       "settings": {
         "include_margins": true
       }
@@ -168,7 +153,6 @@
       "block_order": [
         "judge_me_reviews_review_widget_YKDHL3"
       ],
-      "disabled": true,
       "settings": {
         "include_margins": true
       }
