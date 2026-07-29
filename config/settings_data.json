@@ -37,7 +37,7 @@
     "product_label_1_background": "#0a730a",
     "product_label_2_background": "#03fc03",
     "product_star_color": "#ffbd00",
-    "base_text_font_size": 20,
+    "base_text_font_size": 17,
     "heading_font": "montserrat_n5",
     "text_font": "inter_n4",
     "underline_links": true,
