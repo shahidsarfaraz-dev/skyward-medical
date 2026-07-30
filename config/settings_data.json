@@ -328,12 +328,12 @@
         "disabled": false,
         "settings": {
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!",
-          "show_featured_products": true,
+          "show_featured_products": false,
           "featured_products": [
             "flexabed-hi-low-adjustable-bed"
           ],
-          "background_color": "#FFFFFF",
-          "font_color": "#131A22",
+          "background_color": "#ffffff",
+          "font_color": "#131a22",
           "agent_invert_activator_colors": true,
           "button_color": "#ff6600",
           "secondary_color": "#131a22",
