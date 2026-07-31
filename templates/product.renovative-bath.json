@@ -35,6 +35,12 @@
             "show_share_buttons": false
           }
         },
+        "text_tUf3rC": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>✓</strong> Free Shipping</p><p><strong>✓ </strong>Please Allow 4 Weeks for Delivery</p><p><strong>✓</strong> Top Renovative Bath Supplier</p><p><strong>✓</strong> Manufacturer's Warranty</p>"
+          }
+        },
         "ymq_product_options_variants_option_h4UBXi": {
           "type": "shopify://apps/ymq-product-options/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
           "settings": {
@@ -50,12 +56,6 @@
             "show_taxes_included": false,
             "show_inventory_quantity": false,
             "low_inventory_threshold": 0
-          }
-        },
-        "text_tUf3rC": {
-          "type": "text",
-          "settings": {
-            "content": "<p><strong>✔</strong> <strong>FREE Delivery </strong>(Please allow at least 4 weeks)</p><p><strong>✔ Made-to-Order</strong></p><p><strong>✔ Top Renovative Bath Supplier</strong></p><p><strong>✔ Manufacturer's Warranty</strong></p>"
           }
         },
         "buy_buttons": {
@@ -89,9 +89,9 @@
       },
       "block_order": [
         "product_meta",
+        "text_tUf3rC",
         "ymq_product_options_variants_option_h4UBXi",
         "variant_selector",
-        "text_tUf3rC",
         "buy_buttons",
         "7ef4136f-49dc-4aa4-ba22-a97b29304c71",
         "description",
@@ -115,21 +115,6 @@
     },
     "1715483660158cc418": {
       "type": "apps",
-      "blocks": {
-        "fera_product_reviews_Kxfaxy": {
-          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "disabled": true,
-          "settings": {
-            "heading": "Product Reviews",
-            "layout": "list",
-            "star_color": "#ffda03",
-            "when_no_reviews": "show"
-          }
-        }
-      },
-      "block_order": [
-        "fera_product_reviews_Kxfaxy"
-      ],
       "settings": {
         "include_margins": true
       }
