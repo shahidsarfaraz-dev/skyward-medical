@@ -38,7 +38,7 @@
         "text_tUf3rC": {
           "type": "text",
           "settings": {
-            "content": "<p>✔️ Free Shipping</p><p>✔️ Please Allow 7-12 Business Days for Delivery</p><p>✔️ Reduce Pressure, Boost Comfort</p><p>✔️ Manufacturer's Warranty</p>"
+            "content": "<p><strong>✓</strong> Free Shipping</p><p><strong>✓</strong> Please Allow 7-12 Business Days for Delivery</p><p><strong>✓</strong> Reduce Pressure, Boost Comfort</p><p><strong>✓</strong> Manufacturer's Warranty</p>"
           }
         },
         "ymq_product_options_variants_option_EATizp": {
@@ -115,21 +115,6 @@
     },
     "1715483660158cc418": {
       "type": "apps",
-      "blocks": {
-        "fera_product_reviews_Kxfaxy": {
-          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "disabled": true,
-          "settings": {
-            "heading": "Flexabed Hi Low Bed Reviews",
-            "layout": "list",
-            "star_color": "#ffda03",
-            "when_no_reviews": "show"
-          }
-        }
-      },
-      "block_order": [
-        "fera_product_reviews_Kxfaxy"
-      ],
       "settings": {
         "include_margins": true
       }
