@@ -38,7 +38,7 @@
         "text_tUf3rC": {
           "type": "text",
           "settings": {
-            "content": "<p> ✔️ Free Shipping</p><p>✔️ Delivery Window: 7-15 Business Days</p><p>✔️ Elevate Your Sleep Experience</p><p>✔️ Peace of Mind with a 5-Year Manufacturer’s Warranty</p>"
+            "content": "<p> <strong>✓</strong> Free Shipping</p><p><strong>✓</strong> Delivery Window: 7-15 Business Days</p><p><strong>✓</strong> Elevate Your Sleep Experience</p><p><strong>✓</strong> Peace of Mind with a 5-Year Manufacturer’s Warranty</p>"
           }
         },
         "ymq_product_options_variants_option_8yP3AL": {
@@ -115,21 +115,6 @@
     },
     "1715483660158cc418": {
       "type": "apps",
-      "blocks": {
-        "fera_product_reviews_Kxfaxy": {
-          "type": "shopify://apps/fera/blocks/product_reviews/2fbfcfa7-8a04-479f-89a8-0621fa099c51",
-          "disabled": true,
-          "settings": {
-            "heading": "The Dawn House Bed Reviews",
-            "layout": "list",
-            "star_color": "#ffda03",
-            "when_no_reviews": "show"
-          }
-        }
-      },
-      "block_order": [
-        "fera_product_reviews_Kxfaxy"
-      ],
       "settings": {
         "include_margins": true
       }
