@@ -113,87 +113,6 @@
         "liquid": "<div class=\"rte\">\n{% if product.metafields.custom.uses_pagecrafters.value == true %}{{ product.description}} {% endif %}\n</div>"
       }
     },
-    "faq_HmWXLV": {
-      "type": "faq",
-      "blocks": {
-        "separator_EyHNiT": {
-          "type": "separator",
-          "settings": {
-            "title": "Dolphin Bed Frequently Asked Questions FAQs"
-          }
-        },
-        "question_9r4KzK": {
-          "type": "question",
-          "settings": {
-            "title": "What is the Dolphin Bed System?",
-            "answer": "<p>The Dolphin Bed System is an advanced therapeutic mattress designed to redistribute pressure and promote healing by simulating the feeling of being immersed in a fluid medium.</p>"
-          }
-        },
-        "question_679neg": {
-          "type": "question",
-          "settings": {
-            "title": "How does the Dolphin System work?",
-            "answer": "<p>It uses Fluid Immersion Simulation (FIS) technology to create a personalized immersion profile for each patient, minimizing tissue deformation and promoting near-normal blood flow.</p>"
-          }
-        },
-        "question_MRPMVr": {
-          "type": "question",
-          "settings": {
-            "title": "Who can benefit from using the Dolphin Bed?",
-            "answer": "<p>The Dolphin Bed is ideal for patients with pressure ulcers, post-operative grafts or flaps, spinal cord injuries (with physician clearance), and those requiring pain management or advanced wound care.</p>"
-          }
-        },
-        "question_MGigen": {
-          "type": "question",
-          "settings": {
-            "title": "How long does the battery last?",
-            "answer": "<p>The system has a 12-hour battery life, allowing therapy to continue during patient transport.</p>"
-          }
-        },
-        "question_EJjKEG": {
-          "type": "question",
-          "settings": {
-            "title": "What conditions is the Dolphin System designed for?",
-            "answer": "<p>It is particularly effective for:</p><ul><li>Pressure ulcers (up to Stage IV)</li><li>Post-operative flaps and grafts</li><li>Chronic pain conditions</li><li>Stabilized spinal cord injuries</li></ul>"
-          }
-        },
-        "question_bDqcJz": {
-          "type": "question",
-          "settings": {
-            "title": "Can the Dolphin System be used in various healthcare settings?",
-            "answer": "<p>Yes, it is designed for ICU, Med/Surg, bariatric, homecare and other clinical environments.</p>"
-          }
-        },
-        "question_ta3VwV": {
-          "type": "question",
-          "settings": {
-            "title": "How do I clean and maintain the system?",
-            "answer": "<p>The mattress and control unit should be cleaned according to the manufacturer’s guidelines, using approved cleaning agents to ensure durability and performance.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "separator_EyHNiT",
-        "question_9r4KzK",
-        "question_679neg",
-        "question_MRPMVr",
-        "question_MGigen",
-        "question_EJjKEG",
-        "question_bDqcJz",
-        "question_ta3VwV"
-      ],
-      "settings": {
-        "show_contact_info": false,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p>Enter your text here</p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p>Enter your text here</p>"
-      }
-    },
     "1715483660158cc418": {
       "type": "apps",
       "settings": {
@@ -246,7 +165,6 @@
     "ad91ba94-88d8-446b-be07-0dcd4394f416",
     "main",
     "custom_liquid_8Dca3d",
-    "faq_HmWXLV",
     "1715483660158cc418",
     "1669343322767881e2",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
