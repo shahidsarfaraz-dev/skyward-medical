@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "chip_expert": {
+          "type": "trust_chip",
+          "settings": { "icon": "expert", "label": "Expert Help", "phone": "(855) 244-4712" }
+        },
+        "chip_financing": {
+          "type": "trust_chip",
+          "settings": { "icon": "financing", "label": "Financing Available", "url": "/pages/shop-pay-installments-skyward-medical" }
+        },
+        "chip_shipping": {
+          "type": "trust_chip",
+          "settings": { "icon": "shipping", "label": "Free Shipping" }
+        },
+        "chip_assembly": {
+          "type": "trust_chip",
+          "settings": { "icon": "assembly", "label": "White Glove Assembly", "url": "/pages/nationwide-delivery-and-services" }
+        }
+      },
+      "block_order": ["chip_expert", "chip_financing", "chip_shipping", "chip_assembly"],
+      "settings": {
+        "show_collection_image": false,
+        "collapse_collection_description": false,
+        "collection_image_size": "small",
+        "products_per_row": "3",
+        "default_products_per_page": 24,
+        "default_view_layout": "grid",
+        "show_quick_buy": "list",
+        "show_quick_view": "list",
+        "quick_links": "",
+        "quick_links_show_products_count": true,
+        "show_filters": true,
+        "show_filter_color_swatch": true,
+        "open_group_filters_mode": "all_open",
+        "enable_redesign_layout": true
+      }
+    },
+    "how_to_choose": {
+      "type": "collection-how-to-choose",
+      "settings": {}
+    },
+    "collection_faq": {
+      "type": "collection-faq",
+      "settings": { "heading": "Frequently Asked Questions", "columns": "2" }
+    },
+    "guides": {
+      "type": "collection-guides",
+      "settings": { "heading": "Helpful Guides & Resources", "view_all_label": "View All Guides", "view_all_link": "/blogs/news" }
+    },
+    "help_cta": {
+      "type": "collection-help-cta",
+      "settings": { "heading": "Need Help Choosing the Right Hospital Bed?", "phone": "(855) 244-4712", "contact_label": "Contact Support", "contact_link": "/pages/contact" }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "settings": { "title": "Recently viewed", "show_quick_buy": false }
+    },
+    "fb274d43-c848-4be7-81f7-62a831a2b444": {
+      "type": "banner",
+      "settings": {
+        "show_announce": false,
+        "email": "support@skywardmedical.com",
+        "telephone": "FREE SHIPPING",
+        "bg_color": "#1e2d7d",
+        "icon_color": "#102c71",
+        "buttonBackground": "#2091ff",
+        "textColor": "#ffffff",
+        "buttonName": "TRUSTED STORE [Learn More]",
+        "buttonUrl": "https://skywardmedical.com/pages/skyward-medical-is-a-google-trusted-store"
+      }
+    }
+  },
+  "order": ["main", "how_to_choose", "collection_faq", "guides", "recently-viewed-products", "help_cta", "fb274d43-c848-4be7-81f7-62a831a2b444"]
+}
