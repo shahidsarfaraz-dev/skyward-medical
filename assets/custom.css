@@ -1,1 +1,1069 @@
 .trustBadge_with_content{margin:15px 0}.trustBadge_contact_info{text-align:center;padding:20px;border:2px solid;margin-top:15px;background-color:#f0e9e9}.trustBadge_contact_faq{margin-top:20px}.trustBadge_contact_faq>.trustBadge_contact_faq_title{text-decoration:underline}.product-form__add-button{text-transform:uppercase}.giraffly_announce_two>a{padding:10px 20px!important;font-size:25px!important}@media screen and (max-width:575px){.trustBadge_contact_info{padding:10px}.giraffly_announce_div{margin:auto 10px!important}.giraffly_announce_first{font-size:14px!important}.giraffly_announce_two>a{padding:10px 20px!important;font-size:14px!important}}@media screen and (max-width:999px){.hidden-pocket{display:none!important}}
+
+/* ==========================================================================
+   Skyward collection redesign (option 3)
+   Every rule is scoped to .collection--redesign so the other collection
+   templates are untouched. Fonts inherit the store's Montserrat / Inter
+   through the theme font variables; no mockup fonts are imported.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Content width: the mockup sections are ~1280 wide with clear side margins,
+   not the store's full 1480 container. Constrain the redesign sections so they
+   are not full-width, kept consistent across sections so nothing misaligns.
+   The FAQ stays narrower (1080) on its own rule.
+   -------------------------------------------------------------------------- */
+.collection--redesign .container,
+.prc-howto .container,
+.prc-guides .container,
+.prc-help-cta .container {
+  max-width: 1300px;
+}
+
+/* The store's page background is grey; on the redesign collection page make the
+   content area white so no grey band shows through any gap between sections. */
+main:has(.collection--redesign) {
+  background: var(--secondary-background);
+}
+
+/* --------------------------------------------------------------------------
+   Section 1: hero card + trust chips
+   Reuses the theme's real H1 and description inside a gradient card, then
+   appends the merchant-configured trust chips.
+   -------------------------------------------------------------------------- */
+.collection--redesign .collection__header-inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e4ebf1;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #f4f7fb 0%, #eef3f8 46%, #e7eef6 100%);
+  padding: 20px 26px 16px;
+}
+
+/* subtle diagonal hatch on the right, fading in from the middle */
+.collection--redesign .collection__header-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 44%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: repeating-linear-gradient(115deg, rgba(51, 89, 127, 0.06) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%);
+          mask-image: linear-gradient(90deg, transparent, #000 60%);
+}
+
+/* keep all real content above the hatch */
+.collection--redesign .collection__header-inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* H1 stays Montserrat (store heading font); only the scale and colour match the mockup */
+.collection--redesign .collection__title.heading {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: #16263a;
+  margin: 0 0 10px;
+}
+
+/* description */
+.collection--redesign .promo-description-wrapper {
+  margin: 0 0 16px;
+}
+.collection--redesign .promo-description-wrapper .rte {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #4a5a6b;
+  max-width: 620px;
+}
+
+/* trust chips */
+.collection--redesign .prc-trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.collection--redesign .prc-trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dde5ee;
+  border-radius: 20px;
+  padding: 6px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #33455a;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.collection--redesign .prc-trust-chip svg {
+  flex: none;
+  color: #5a7186;
+}
+.collection--redesign a.prc-trust-chip:hover {
+  background: #fff;
+  border-color: #c7d3e0;
+  color: #33455a;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection--redesign a.prc-trust-chip {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .collection--redesign .collection__header-inner {
+    padding: 16px 16px 14px;
+    border-radius: 10px;
+  }
+  .collection--redesign .collection__header-inner::after {
+    width: 60%;
+  }
+  .collection--redesign .collection__title.heading {
+    font-size: 23px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section 2: product cards
+   Framed white cards with a hover lift, a "best for" line, and a single
+   View Details action (store orange, outline that fills on hover). The old
+   quick-buy / quick-view are suppressed on the redesign card in Liquid.
+   -------------------------------------------------------------------------- */
+.collection--redesign .product-list--collection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  overflow: visible;
+}
+.collection--redesign .product-list--collection > .product-item {
+  width: auto;
+}
+@media (max-width: 1000px) {
+  .collection--redesign .product-list--collection {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .collection--redesign .product-list--collection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.collection--redesign .product-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.collection--redesign .product-item:hover {
+  box-shadow: 0 6px 18px rgba(16, 20, 23, 0.12);
+  border-color: #d3dde6;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection--redesign .product-item {
+    transition: box-shadow 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+  }
+  .collection--redesign .product-item:hover {
+    transform: translateY(-2px);
+  }
+}
+.collection--redesign .product-item__image-wrapper {
+  display: block;
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid #eaeff3;
+}
+.collection--redesign .prc-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #eef2f6;
+  color: #33597f;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.collection--redesign .product-item__info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px 14px;
+}
+.collection--redesign .product-item__info-inner {
+  flex: 1 1 auto;
+}
+.collection--redesign .product-item__title {
+  display: block;
+  min-height: 37px;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #16263a;
+}
+.collection--redesign .product-item__price-list .price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #16263a;
+}
+
+/* best-for line (auto-hidden until the metafield is populated) */
+.collection--redesign .prc-best-for {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #56697a;
+}
+.collection--redesign .prc-best-for svg {
+  flex: none;
+  margin-top: 2px;
+  color: #33597f;
+}
+
+/* View Details */
+.collection--redesign .prc-view-details {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 9px 12px;
+  border: 1.5px solid #e3d2c7;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--primary-button-background);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.collection--redesign .prc-view-details:hover {
+  background: var(--primary-button-background);
+  border-color: var(--primary-button-background);
+  color: #fff;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection--redesign .prc-view-details {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section 3: How to Choose (intro column + bed-type helper grid)
+   Its own section on the redesign template, so it is scoped to .prc-howto.
+   -------------------------------------------------------------------------- */
+.prc-howto {
+  padding-top: 30px;
+  background: var(--secondary-background);
+}
+.prc-howto__panel {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  background: #eef2f6;
+  border: 1px solid #dfe6ec;
+  border-radius: 14px;
+  padding: 24px 26px;
+}
+.prc-howto__intro {
+  flex: 0 0 32%;
+  max-width: 100%;
+}
+.prc-howto__heading.heading {
+  font-size: 23px;
+  color: #16263a;
+  line-height: 1.14;
+  margin: 0 0 10px;
+}
+.prc-howto__text {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4a5a6b;
+}
+.prc-howto__text p {
+  margin: 0;
+}
+.prc-howto__cta {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 7px;
+  background: var(--primary-button-background);
+  color: var(--primary-button-text-color, #ffffff);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .prc-howto__cta {
+    transition: filter 0.15s ease;
+  }
+}
+.prc-howto__cta:hover {
+  filter: brightness(0.93);
+}
+
+/* 1px gap over a divider-colored background gives hairline dividers at any column count */
+.prc-howto__grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+}
+/* The column count is chosen in Liquid from the item count so a row is never left
+   with an orphan cell. Each count keeps its own divider rhythm, which avoids
+   overriding one set of nth-child rules with another. */
+.prc-howto__grid--3col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.prc-howto__grid--2col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.prc-howto__item {
+  display: flex;
+  gap: 11px;
+  padding: 12px 20px;
+  border-right: 1px solid #dbe3ea;
+  border-bottom: 1px solid #dbe3ea;
+}
+.prc-howto__grid--3col .prc-howto__item:nth-child(3n) {
+  border-right: none;
+  padding-right: 0;
+}
+.prc-howto__grid--3col .prc-howto__item:nth-child(3n + 1) {
+  padding-left: 0;
+}
+.prc-howto__grid--3col .prc-howto__item:nth-last-child(-n + 3) {
+  border-bottom: none;
+}
+.prc-howto__grid--2col .prc-howto__item:nth-child(2n) {
+  border-right: none;
+  padding-right: 0;
+}
+.prc-howto__grid--2col .prc-howto__item:nth-child(2n + 1) {
+  padding-left: 0;
+}
+.prc-howto__grid--2col .prc-howto__item:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+.prc-howto__icon {
+  flex: none;
+  line-height: 0;
+}
+.prc-howto__icon svg {
+  color: #33597f;
+}
+.prc-howto__item-title {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #16263a;
+}
+.prc-howto__item-desc {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: #5a6b7b;
+}
+
+@media (max-width: 1000px) {
+  /* Below 1000px the panel stacks (intro on top) and the bed-type grid becomes
+     a single-column, top-to-bottom scannable list with hairline row dividers. */
+  .prc-howto__panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 22px 22px;
+  }
+  .prc-howto__intro {
+    flex: none;
+  }
+  .prc-howto__text {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  .prc-howto__cta {
+    padding: 13px 22px;
+    font-size: 14px;
+  }
+  .prc-howto__grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+  /* 3-class selector clears the desktop nth-child border/padding rules without !important */
+  .prc-howto__panel .prc-howto__grid .prc-howto__item {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 15px 2px;
+    border-right: none;
+    border-bottom: 1px solid #dbe3ea;
+  }
+  .prc-howto__panel .prc-howto__grid .prc-howto__item:last-child {
+    border-bottom: none;
+  }
+  .prc-howto__item-title {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .prc-howto__item-desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 640px) {
+  .prc-howto__panel {
+    padding: 20px 16px;
+  }
+  .prc-howto__heading.heading {
+    font-size: 20px;
+  }
+  .prc-howto__cta {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section 4: FAQ, 2-column boxed variant
+   Gated to .prc-faq--cols-2 (the redesign template sets columns = 2), so every
+   other collection keeps the standard single-column FAQ untouched.
+   -------------------------------------------------------------------------- */
+.prc-faq-section:has(.prc-faq--cols-2) {
+  margin-top: 0;
+}
+.prc-faq.prc-faq--cols-2 {
+  max-width: 1080px;
+  padding-top: 46px;
+  padding-bottom: 8px;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+.prc-faq--cols-2 .prc-faq__title {
+  text-align: center;
+  font-size: 27px;
+  color: #16263a;
+  margin-bottom: 26px;
+}
+.prc-faq--cols-2 .prc-faq__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 26px;
+  align-items: start;
+}
+.prc-faq--cols-2 .prc-faq__item {
+  border: 1px solid #e3e8ee;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.prc-faq--cols-2 .prc-faq__summary {
+  padding: 14px 16px;
+  background: #ffffff;
+}
+.prc-faq--cols-2 .prc-faq__summary:hover {
+  background: #fafbfc;
+}
+.prc-faq--cols-2 .prc-faq__question {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #22384f;
+}
+.prc-faq--cols-2 .prc-faq__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-button-background);
+}
+.prc-faq--cols-2 .prc-faq__answer {
+  padding: 0 16px 15px;
+  max-width: none;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #56697a;
+}
+@media (max-width: 749px) {
+  .prc-faq--cols-2 .prc-faq__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section 5: Guides row
+   -------------------------------------------------------------------------- */
+.prc-guides {
+  padding-top: 36px;
+  background: var(--secondary-background);
+}
+.prc-guides__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.prc-guides__title.heading {
+  margin: 0;
+  font-size: 21px;
+  color: #16263a;
+}
+.prc-guides__view-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: #c75f23;
+  text-decoration: none;
+}
+.prc-guides__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+.prc-guides__card {
+  display: block;
+  text-decoration: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .prc-guides__card {
+    transition: opacity 0.15s ease;
+  }
+}
+.prc-guides__card:hover {
+  opacity: 0.92;
+}
+.prc-guides__img {
+  display: block;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #eef2f6;
+}
+.prc-guides__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.prc-guides__img--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(45deg, #e6ecf2 0 10px, #eef2f6 10px 20px);
+}
+.prc-guides__img-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #9fb0bf;
+}
+.prc-guides__card-title {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #22384f;
+}
+@media (max-width: 1000px) {
+  .prc-guides__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .prc-guides__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section 6: Help CTA band (dark)
+   -------------------------------------------------------------------------- */
+.prc-help-cta {
+  padding-top: 36px;
+  padding-bottom: 40px;
+  background: var(--secondary-background);
+}
+.prc-help-cta__panel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 26px 30px;
+  border-radius: 14px;
+  background: #141a21;
+  background-image: linear-gradient(110deg, #10151b, #1d2733);
+}
+.prc-help-cta__lead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1 1 420px;
+  min-width: 280px;
+}
+.prc-help-cta__icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(238, 106, 43, 0.16);
+}
+.prc-help-cta__icon svg {
+  color: #f08a55;
+}
+.prc-help-cta .prc-help-cta__heading {
+  margin: 0 0 6px;
+  font-size: 21px;
+  color: #ffffff;
+}
+.prc-help-cta__desc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #c4cdd6;
+}
+.prc-help-cta__desc p {
+  margin: 0;
+}
+.prc-help-cta__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.prc-help-cta__call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 7px;
+  background: var(--primary-button-background);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.prc-help-cta__call svg {
+  color: #ffffff;
+}
+.prc-help-cta__contact {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 7px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .prc-help-cta__call {
+    transition: filter 0.15s ease;
+  }
+  .prc-help-cta__contact {
+    transition: background-color 0.15s ease;
+  }
+}
+.prc-help-cta__call:hover {
+  filter: brightness(0.93);
+}
+.prc-help-cta__contact:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 640px) {
+  .prc-help-cta__actions {
+    width: 100%;
+  }
+  .prc-help-cta__call,
+  .prc-help-cta__contact {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Footer: why-buy trust column (site-wide redesign addition)
+   -------------------------------------------------------------------------- */
+.footer__block-item--trust .footer__trust-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 4px;
+}
+.footer__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.footer__trust-item svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: #5fbf8a;
+}
+
+/* Mobile/tablet stacked footer (<1000px): tighten the four-point rhythm so the
+   strip reads as one calm, contained trust cue. Icons top-align to the first
+   line so the longest label stays clean if it wraps. Desktop (>=1000px) is
+   left untouched. */
+@media screen and (max-width: 999px) {
+  .footer__block-item--trust .footer__trust-list {
+    gap: 7px;
+    margin-top: 6px;
+  }
+  .footer__block-item--trust .footer__trust-item {
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.3;
+  }
+  .footer__block-item--trust .footer__trust-item svg {
+    margin-top: 2px;
+  }
+}
+/* Phone (<=640px): the trust heading shares .footer__title with the nav toggle
+   bars, which get padding:19px 0 here, inflating the label into a 38px fake
+   accordion bar. Strip that padding and demote the heading to a quiet, legible
+   eyebrow so it reads as a section label, not a control. The theme already
+   draws a border-bottom on every block, so the strip stays fenced with no
+   hardcoded line. Compound selectors carry the specificity, no !important. */
+@media screen and (max-width: 640px) {
+  .footer__block-item.footer__block-item--trust {
+    padding-top: 4px;
+    padding-bottom: 16px;
+  }
+  .footer__block-item--trust .footer__title {
+    display: block;
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .footer__block-item--trust .footer__trust-list {
+    margin-top: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Collection filter sidebar (redesign). Restyles the theme's native Warehouse
+   filter card (.layout__section--secondary > .card > #desktop-filters-form) to
+   match the approved mockup: white rounded card, quiet group toggles, custom
+   orange checkboxes with inline counts. Scoped to .collection--redesign so the
+   default collection template keeps the stock sidebar. No !important.
+   -------------------------------------------------------------------------- */
+.collection--redesign .layout__section--secondary {
+  width: 250px;
+}
+
+/* Card shell: white, full hairline border, rounded, clip children */
+.collection--redesign .layout__section--secondary .card {
+  margin-bottom: 0;
+  background: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.collection--redesign #desktop-filters-form.card__section--tight {
+  padding: 0;
+}
+
+/* Card header ("Filters") */
+.collection--redesign #desktop-filters-form .card__title--small {
+  margin: 0;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eef1f5;
+  font-size: 15px;
+  font-weight: 700;
+  color: #16263a;
+}
+
+/* Active-filter chips + clear-all (render only when a filter is applied) */
+.collection--redesign .collection__active-filters {
+  padding: 12px 16px 0;
+}
+.collection--redesign .collection__clear-filter {
+  color: #c75f23;
+  font-weight: 600;
+}
+
+/* Group list gutter matches the card */
+.collection--redesign .collection__filter-group-list {
+  padding: 0 16px;
+}
+
+/* Each group fenced by a hairline; last one flush */
+.collection--redesign .collection__filter-group {
+  padding: 0;
+  border-bottom: 1px solid #eef1f5;
+}
+.collection--redesign .collection__filter-group:last-child {
+  border-bottom: none;
+}
+
+/* Group toggle */
+.collection--redesign .collection__filter-group-name {
+  padding: 13px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #22384f;
+}
+.collection--redesign .collection__filter-group-name svg {
+  color: #90a2b5;
+}
+
+/* Checkbox rows */
+.collection--redesign .collection__filter-checkbox-list {
+  padding: 2px 0 8px;
+}
+.collection--redesign .collection__filter-checkbox {
+  padding: 0;
+  gap: 9px;
+}
+.collection--redesign .collection__filter-checkbox .checkbox-wrapper {
+  margin: 0;
+}
+.collection--redesign .collection__filter-checkbox label {
+  flex: 1;
+  padding: 5px 0;
+  font-size: 13px;
+  color: #3c4d5e;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+/* Custom checkbox: 17px rounded square, brand-orange when checked */
+.collection--redesign .collection__filter-checkbox .checkbox {
+  width: 17px;
+  height: 17px;
+  margin-right: 0;
+  border: 2px solid #cfd8e3;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.collection--redesign .collection__filter-checkbox .checkbox:checked {
+  background: #ee6a2b;
+  border-color: #ee6a2b;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile filter drawer (redesign). The theme's native filter drawer reuses the
+   sidebar .collection__filter-* classes, so the desktop sidebar styling leaked
+   in and left drawer content flush to the 345px panel edges (clipped chevrons
+   and price inputs, plus a duplicate FILTERS bar). This gives the drawer a
+   comfortable width, real side padding, one clean header, larger tap targets for
+   the older audience, and an orange "View results" CTA. Scoped to the redesign
+   drawer below 1000px; the desktop sidebar is untouched. No !important.
+   -------------------------------------------------------------------------- */
+@media (max-width: 999px) {
+  .collection--redesign #mobile-collection-filters .drawer__inner {
+    max-width: min(90vw, 440px);
+  }
+  .collection--redesign #mobile-collection-filters .collection-drawer__inner {
+    padding: 0 18px;
+  }
+  /* header already reads "Filters"; drop the redundant grey FILTERS bar */
+  .collection--redesign #mobile-collection-filters .collection-drawer__section-title {
+    display: none;
+  }
+  .collection--redesign #mobile-collection-filters .collection__filter-group {
+    padding: 2px 0;
+  }
+  .collection--redesign #mobile-collection-filters .collection__filter-group-name {
+    padding: 15px 0;
+    font-size: 15px;
+  }
+  .collection--redesign #mobile-collection-filters .collection__filter-checkbox label {
+    padding: 9px 0;
+    font-size: 15px;
+  }
+  .collection--redesign #mobile-collection-filters .price-range__input-group {
+    gap: 8px;
+  }
+  .collection--redesign #mobile-collection-filters .collection-drawer__footer .button {
+    background: #ee6a2b;
+    border-color: #ee6a2b;
+    color: #fff;
+    width: 100%;
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 7px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scroll reveal (redesign). A calm fade + 12px lift as the editorial blocks
+   (How-to items, FAQ rows, Guides cards) scroll into view. The hidden pre-state
+   only applies once prc-reveal.js confirms motion is allowed (it adds
+   .prc-reveal-init), so with JS off or reduced motion the content is fully
+   visible by default. Transform and opacity only, so no layout shift.
+   --reveal-i staggers items within a group, capped so a long row never crawls.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .prc-reveal-init .prc-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  .prc-reveal-init .prc-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(min(var(--reveal-i, 0), 5) * 70ms);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Button micro-interactions (redesign). CRO feedback cues, all pure CSS
+   (transform/opacity only, GPU-composited, no JS, no page-speed cost): a
+   tactile press on every CTA so lower-confidence users get a clear "it
+   registered" cue, a small hover lift on the primary orange CTA, and a
+   directional arrow that nudges on "Learn More". Motion gated to reduced-motion.
+   -------------------------------------------------------------------------- */
+.prc-howto__cta::after {
+  content: "\00a0\2192";
+  display: inline-block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection--redesign .prc-view-details,
+  .prc-howto__cta,
+  .prc-help-cta__call,
+  .prc-help-cta__contact,
+  .collection--redesign #mobile-collection-filters .collection-drawer__footer .button {
+    transition: transform 0.12s ease, filter 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .collection--redesign .prc-view-details:active,
+  .prc-howto__cta:active,
+  .prc-help-cta__call:active,
+  .prc-help-cta__contact:active,
+  .collection--redesign #mobile-collection-filters .collection-drawer__footer .button:active {
+    transform: translateY(1px);
+  }
+  .prc-howto__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(16, 20, 23, 0.16);
+  }
+  .prc-howto__cta::after {
+    transition: transform 0.15s ease;
+  }
+  .prc-howto__cta:hover::after {
+    transform: translateX(3px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Card review stars (redesign). Renders the theme's product-rating snippet on
+   the card, only for products with at least one review. Compact star size and
+   a quiet count caption so the price stays the loudest element.
+   -------------------------------------------------------------------------- */
+.collection--redesign .prc-card-rating {
+  margin-top: 5px;
+}
+/* The stars and the "N reviews" count sit inline when the card is wide enough, and
+   drop the count onto its own left-aligned line when the card is too narrow (the 2-up
+   mobile grid). flex-wrap + a non-breaking caption keeps "7 reviews" together as one
+   unit instead of splitting "7" onto one line and "reviews" onto the next. The gap
+   handles the spacing in both states, so nothing is left indented when it wraps. This
+   adapts to the card width itself, so it holds at every narrow width, not just one
+   breakpoint. */
+.collection--redesign .prc-card-rating .rating {
+  flex-wrap: wrap;
+  column-gap: 7px;
+  row-gap: 2px;
+}
+.collection--redesign .prc-card-rating .rating__star {
+  width: 12px;
+  height: 12px;
+}
+.collection--redesign .prc-card-rating .rating__caption {
+  margin-left: 0;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #7b8a98;
+}
+
+/* --------------------------------------------------------------------------
+   Grid-to-How-to spacing (redesign). The theme gives .layout a 100px bottom
+   margin at desktop, which plus the how-to's own 30px top padding left an
+   awkward dead band under the product grid. 40px + 30px matches the rhythm of
+   the other section gaps.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1000px) {
+  .collection--redesign .layout {
+    margin-bottom: 40px;
+  }
+}
+
+/* Pagination pills (renders automatically once the collection exceeds one
+   page). Styled to the redesign: bordered pills, orange active page. */
+.collection--redesign .pagination__nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.collection--redesign .pagination__nav-item {
+  min-width: 38px;
+  padding: 8px 12px;
+  border: 1px solid #e3e8ee;
+  border-radius: 7px;
+  background: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #33455a;
+}
+.collection--redesign .pagination__nav-item.is-active {
+  background: #ee6a2b;
+  border-color: #ee6a2b;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Recently viewed (redesign template only, scoped via main:has). Aligns the
+   AJAX-loaded theme section with the redesign: same 1300px content width, the
+   same section heading style as the guides row, and bordered white cards.
+   -------------------------------------------------------------------------- */
+main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .container {
+  max-width: 1300px;
+}
+main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .section__header {
+  margin-bottom: 16px;
+  text-align: left;
+}
+main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .section__title {
+  margin: 0;
+  font-size: 21px;
+  color: #16263a;
+}
+main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .product-item {
+  background: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .product-item__info {
+  padding: 0 14px 14px;
+}
+/* the theme frames scrollable lists with a ::before border; redundant next to
+   the redesign's bordered cards */
+main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .product-list--scrollable::before {
+  border: none;
+}

@@ -48,6 +48,9 @@
     {%- assign primary_media = product.featured_media -%}
 
     <a href="{{ product.url }}" class="product-item__image-wrapper {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %}">
+      {%- if redesign_card and product.metafields.custom.bed_type.value != blank -%}
+        <span class="prc-card-badge">{{ product.metafields.custom.bed_type.value | split: ',' | first | strip }}</span>
+      {%- endif -%}
       {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,300,400,500,600,700,800', image: primary_media.preview_image -%}{%- endcapture -%}
       {%- assign image_url = primary_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
@@ -179,12 +182,19 @@
       {%- endif -%}
 
       <a href="{{ filtered_variant.url | default: product.url }}" class="product-item__title text--strong link">{{ product.title }}</a>
+      {%- comment -%}
+        The Fera and Judge.me review badges show on every normal card. The redesign card
+        has its own rating row (.prc-card-rating below), so we hide these two on redesign
+        cards only, to avoid a double rating display. Non-redesign collections are untouched.
+      {%- endcomment -%}
+      {%- unless redesign_card -%}
       <div data-fera-widget='product_collection_rating' data-fera-id='fwid_37Q8cru' data-product-id='{{ product.id }}'></div>
     <!-- Start of Judge.me code -->
       <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
         {{ product.metafields.judgeme.badge }}
       </div>
       <!-- End of Judge.me code -->
+      {%- endunless -%}
    {% comment %}
 <!-- Stamped - Begin badge -->
 <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}" data-product-type="{{ product.type }}" style="display: block;"></span>
@@ -297,6 +307,14 @@
           <span class="product-item__inventory inventory">{{ 'collection.product.sold_out' | t }}</span>
         {%- endif -%}
       {%- endif -%}
+
+      {%- if redesign_card and product.metafields.reviews.rating_count.value != blank and product.metafields.reviews.rating_count.value > 0 -%}
+        <div class="prc-card-rating">{%- render 'product-rating', product: product -%}</div>
+      {%- endif -%}
+
+      {%- if redesign_card and product.metafields.custom.best_for.value != blank -%}
+        <div class="prc-best-for">{%- render 'prc-chip-icon', icon: 'bestfor' -%}<span>Best for {{ product.metafields.custom.best_for.value }}</span></div>
+      {%- endif -%}
     </div>
 
     {%- if request.page_type == 'collection' or request.page_type == 'search' or show_add_to_cart -%}
@@ -357,9 +375,16 @@
         {%- endcapture -%}
 
         {%- if complementary_products != true -%}
-          {{- quick_buy_form -}}
+          {%- comment -%} Redesign card replaces quick-buy / quick-view with a single View Details action. {%- endcomment -%}
+          {%- unless redesign_card -%}
+            {{- quick_buy_form -}}
+          {%- endunless -%}
         {%- endif -%}
       {%- endif -%}
+    {%- endif -%}
+
+    {%- if redesign_card -%}
+      <a href="{{ product.url }}" class="prc-view-details" aria-label="View details for {{ product.title | escape }}">View Details</a>
     {%- endif -%}
   </div>
 

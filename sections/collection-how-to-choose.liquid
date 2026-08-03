@@ -1,0 +1,64 @@
+{%- comment -%}
+  Redesign: "How to Choose" section. Per-collection content comes from the JSON
+  metafield custom.how_to: { heading, intro, cta_label, cta_link, items:[{icon,
+  title, text}] }. The section stays hidden until that metafield has content, so
+  one template serves every collection (matches collection-faq).
+{%- endcomment -%}
+{%- assign howto = collection.metafields.custom.how_to.value -%}
+{%- if howto != blank and howto.items != blank -%}
+  {%- comment -%}
+    Three columns divide the list evenly for 3, 6 or 9 items. An even count that is
+    not a multiple of three (4, 8) would leave the last row with a single orphan
+    cell, so those lay out in two columns instead.
+  {%- endcomment -%}
+  {%- assign howto_cols = 3 -%}
+  {%- assign howto_mod3 = howto.items.size | modulo: 3 -%}
+  {%- assign howto_mod2 = howto.items.size | modulo: 2 -%}
+  {%- if howto_mod3 != 0 and howto_mod2 == 0 -%}
+    {%- assign howto_cols = 2 -%}
+  {%- endif -%}
+  <section class="prc-howto">
+    <div class="container">
+      <div class="prc-howto__panel">
+        <div class="prc-howto__intro">
+          {%- if howto.heading != blank -%}
+            <h2 class="prc-howto__heading heading">{{ howto.heading }}</h2>
+          {%- endif -%}
+          {%- if howto.intro != blank -%}
+            <div class="prc-howto__text rte"><p>{{ howto.intro }}</p></div>
+          {%- endif -%}
+          {%- if howto.cta_label != blank and howto.cta_link != blank -%}
+            <a class="prc-howto__cta" href="{{ howto.cta_link }}">{{ howto.cta_label }}</a>
+          {%- endif -%}
+        </div>
+
+        <div class="prc-howto__grid prc-howto__grid--{{ howto_cols }}col">
+          {%- for item in howto.items -%}
+            <div class="prc-howto__item prc-reveal" style="--reveal-i: {{ forloop.index0 }}">
+              <span class="prc-howto__icon">{%- render 'prc-chip-icon', icon: item.icon -%}</span>
+              <span class="prc-howto__item-text">
+                {%- if item.title != blank -%}<span class="prc-howto__item-title">{{ item.title }}</span>{%- endif -%}
+                {%- if item.text != blank -%}<span class="prc-howto__item-desc">{{ item.text }}</span>{%- endif -%}
+              </span>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "How to Choose",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Content is per-collection. Set the collection metafield custom.how_to (JSON) with: heading, intro, cta_label, cta_link, and items (a list of { icon, title, text }). Valid icon values: fullelectric, hilow, rotating, bariatric, safety, medsurg. The section stays hidden until that metafield has content."
+      }
+    ],
+    "presets": [
+      { "name": "How to Choose" }
+    ]
+  }
+{% endschema %}

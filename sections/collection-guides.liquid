@@ -1,0 +1,71 @@
+{%- comment -%}
+  Redesign: "Helpful Guides & Resources" row. The cards are per-collection: the
+  collection metafield custom.guides holds an ordered list of "Guide card"
+  metaobjects (image, title, url). Heading and view-all stay as section settings
+  since they are generic. The section stays hidden until the collection has at
+  least one guide card, so one template serves every collection.
+{%- endcomment -%}
+{%- assign guides = collection.metafields.custom.guides.value -%}
+{%- if guides != blank and guides.size > 0 -%}
+  <section class="prc-guides">
+    <div class="container">
+      <div class="prc-guides__head">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="prc-guides__title heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.view_all_label != blank and section.settings.view_all_link != blank -%}
+          <a class="prc-guides__view-all" href="{{ section.settings.view_all_link }}">{{ section.settings.view_all_label }} &rsaquo;</a>
+        {%- endif -%}
+      </div>
+
+      <div class="prc-guides__grid">
+        {%- for guide in guides -%}
+          {%- assign g_title = guide.title.value -%}
+          {%- assign g_url = guide.url.value | default: '#' -%}
+          {%- assign g_image = guide.image.value -%}
+          <a class="prc-guides__card prc-reveal" href="{{ g_url }}" style="--reveal-i: {{ forloop.index0 }}">
+            <span class="prc-guides__img{% unless g_image %} prc-guides__img--placeholder{% endunless %}">
+              {%- if g_image -%}
+                {{ g_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '200, 300, 400, 600', alt: g_title | escape }}
+              {%- else -%}
+                <span class="prc-guides__img-label">IMAGE</span>
+              {%- endif -%}
+            </span>
+            {%- if g_title != blank -%}
+              <span class="prc-guides__card-title">{{ g_title }}</span>
+            {%- endif -%}
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Guides row",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Helpful Guides & Resources"
+      }, {
+        "type": "text",
+        "id": "view_all_label",
+        "label": "View-all label",
+        "default": "View All Guides"
+      }, {
+        "type": "url",
+        "id": "view_all_link",
+        "label": "View-all link"
+      }, {
+        "type": "paragraph",
+        "content": "Cards are per-collection. Set the collection metafield custom.guides to a list of Guide card metaobjects (image, title, link). The section hides until the collection has at least one guide card."
+      }
+    ],
+    "presets": [
+      { "name": "Guides row" }
+    ]
+  }
+{% endschema %}

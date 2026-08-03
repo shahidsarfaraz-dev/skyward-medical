@@ -86,6 +86,7 @@
   data-section-id="{{ section.id }}"
   data-section-type="collection"
   data-section-settings='{{ section_settings }}'
+  class="{% if section.settings.enable_redesign_layout %}collection--redesign{% endif %}"
   style="background-color: white; padding-top: 30px;">
   <div class="container container--flush">
     <div class="page__sub-header" style="margin-top: 0 !important;">
@@ -226,9 +227,15 @@
                 {%- assign allow_collapse_description = true -%}
               {%- endif -%}
               {% if paginate.current_page == 1 %}
-                <div class=" {% if allow_collapse_description %} js-collection-desc promotional-banner-description {% endif %} rte">
-                  {{ collection.description }}
-                </div>
+                {%- if section.settings.enable_redesign_layout and collection.description contains '</p>' -%}
+                  {%- comment -%} Redesign hero: show only the first paragraph, no collapse or Read more. {%- endcomment -%}
+                  {%- assign redesign_desc = collection.description | split: '</p>' | first | append: '</p>' -%}
+                  <div class="rte">{{ redesign_desc }}</div>
+                {%- else -%}
+                  <div class=" {% if allow_collapse_description %} js-collection-desc promotional-banner-description {% endif %} rte">
+                    {{ collection.description }}
+                  </div>
+                {%- endif -%}
               {%- endif -%}
 
 
@@ -240,12 +247,42 @@
 
             </div>
           {%- endif -%}
+
+          {%- comment -%} Redesign: trust chips. Inert unless the layout flag is on AND chip blocks exist, so the other collection templates are unaffected. {%- endcomment -%}
+          {%- if section.settings.enable_redesign_layout and section.blocks.size > 0 -%}
+            <div class="prc-trust-chips">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'trust_chip' and block.settings.label != blank -%}
+                  {%- assign chip_tel = block.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | remove: '.' -%}
+                  {%- if block.settings.phone != blank -%}
+                    <a class="prc-trust-chip" href="tel:{{ chip_tel }}" {{ block.shopify_attributes }}>
+                      {%- render 'prc-chip-icon', icon: block.settings.icon -%}
+                      <span class="prc-trust-chip__label">{{ block.settings.label }}</span>
+                    </a>
+                  {%- elsif block.settings.url != blank -%}
+                    <a class="prc-trust-chip" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+                      {%- render 'prc-chip-icon', icon: block.settings.icon -%}
+                      <span class="prc-trust-chip__label">{{ block.settings.label }}</span>
+                    </a>
+                  {%- else -%}
+                    <span class="prc-trust-chip" {{ block.shopify_attributes }}>
+                      {%- render 'prc-chip-icon', icon: block.settings.icon -%}
+                      <span class="prc-trust-chip__label">{{ block.settings.label }}</span>
+                    </span>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
         </div>
       {%- endpaginate -%}
+      {%- comment -%} Redesign hides the sub-category family slider (not in the redesign layout). {%- endcomment -%}
+      {%- unless section.settings.enable_redesign_layout -%}
       {% render 'collection-family-slider'
         ,
  menu_handle: 'new-navigation-preview'
       %}
+      {%- endunless -%}
     </div>
     <div
       {% if has_filters %}
@@ -983,14 +1020,15 @@
                         {%- render 'product-item'
                           , product: product
                           , list: show_as_list
-                          , grid_classes: grid_classes -%}
+                          , grid_classes: grid_classes
+                          , redesign_card: section.settings.enable_redesign_layout -%}
                       {%- endfor -%}
                     </div>
 
                     {%- render 'pagination'
                       , paginate: paginate -%}
                   {%- endif -%}
-                  {% if paginate.current_page == 1 %}
+                  {% if paginate.current_page == 1 and collection.metafields.custom.seo_text_ != blank %}
                     <div class="seo-text rte">
 
                       {{ collection.metafields.custom.seo_text_ }}
@@ -1005,7 +1043,7 @@
                           {
                             "@context": "https://schema.org",
                             "@type": "FAQPage",
-                            "@id": "{{ request.origin }} {{ request.path }} #faq",
+                            "@id": "{{ request.origin }}{{ request.path }}#faq",
                             "mainEntity": [{% for block in faq_blocks offset: 1 %}{% assign q_and_a = block | split: '</h3>' %}{% assign question_raw = q_and_a[0] | split: '>' | last %}
                               {
                                 "@type": "Question",
@@ -1436,6 +1474,9 @@
     </div>
   </div>
 </section>
+{%- if section.settings.enable_redesign_layout -%}
+  <script src="{{ 'prc-reveal.js' | asset_url }}" defer></script>
+{%- endif -%}
 <script>
   document.addEventListener("DOMContentLoaded", function(){
   
@@ -1612,6 +1653,50 @@
           }
         ],
         "default": "all_closed"
+      }, {
+        "type": "header",
+        "content": "Redesign layout"
+      }, {
+        "type": "checkbox",
+        "id": "enable_redesign_layout",
+        "label": "Enable redesign layout",
+        "info": "Turns on the collection redesign (hero card, trust chips, redesigned cards, help band, sticky call bar). Leave off on standard collections.",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "trust_chip",
+        "name": "Trust chip",
+        "settings": [
+          {
+            "type": "select",
+            "id": "icon",
+            "label": "Icon",
+            "default": "expert",
+            "options": [
+              { "value": "expert", "label": "Expert help (phone)" },
+              { "value": "financing", "label": "Financing (shield check)" },
+              { "value": "shipping", "label": "Free shipping (truck)" },
+              { "value": "assembly", "label": "Professional assembly (wrench)" }
+            ]
+          }, {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Expert Help"
+          }, {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone (makes the chip tap to call)",
+            "info": "Optional. Human format, for example (855) 244-4712"
+          }, {
+            "type": "url",
+            "id": "url",
+            "label": "Link",
+            "info": "Optional. Used only when no phone is set."
+          }
+        ]
       }
     ]
   }

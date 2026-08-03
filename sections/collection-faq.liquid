@@ -29,7 +29,7 @@
 {%- endif -%}
 
 {%- if faqs != blank -%}
-  <section class="prc-faq container">
+  <section class="prc-faq container{% if section.settings.columns == '2' %} prc-faq--cols-2{% endif %}">
     {%- if section.settings.heading != blank -%}
       <h2 class="prc-faq__title heading h2">{{ section.settings.heading | escape }}</h2>
     {%- endif -%}
@@ -37,7 +37,7 @@
     <div class="prc-faq__list">
       {%- for item in faqs -%}
         {%- if item.question != blank -%}
-          <details class="prc-faq__item">
+          <details class="prc-faq__item prc-reveal" style="--reveal-i: {{ forloop.index0 }}">
             <summary class="prc-faq__summary">
               <h3 class="prc-faq__question heading h4">{{ item.question | escape }}</h3>
               <span class="prc-faq__icon" aria-hidden="true"></span>
@@ -120,6 +120,17 @@
       "label": "Output FAQ schema (JSON-LD)",
       "info": "Leave on. It auto-suppresses if a legacy FAQ already outputs schema on the page, so there is never a duplicate FAQPage.",
       "default": true
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns (desktop)",
+      "info": "Two columns uses the boxed redesign style. One column keeps the standard style.",
+      "default": "1",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ]
     }
   ],
   "presets": [

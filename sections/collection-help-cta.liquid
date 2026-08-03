@@ -1,0 +1,71 @@
+{%- comment -%}
+  Redesign: dark "need help" CTA band. One phone setting drives the tap-to-call
+  link. Added only to the collection.redesign template.
+{%- endcomment -%}
+<section class="prc-help-cta">
+  <div class="container">
+    <div class="prc-help-cta__panel">
+      <div class="prc-help-cta__lead">
+        <span class="prc-help-cta__icon">{%- render 'prc-chip-icon', icon: 'headset' -%}</span>
+        <div class="prc-help-cta__text">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="prc-help-cta__heading heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.text != blank -%}
+            <div class="prc-help-cta__desc rte">{{ section.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="prc-help-cta__actions">
+        {%- if section.settings.phone != blank -%}
+          {%- assign cta_tel = section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | remove: '.' -%}
+          <a class="prc-help-cta__call" href="tel:{{ cta_tel }}">
+            {%- render 'prc-chip-icon', icon: 'expert' -%}
+            <span>Call {{ section.settings.phone }}</span>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.contact_label != blank and section.settings.contact_link != blank -%}
+          <a class="prc-help-cta__contact" href="{{ section.settings.contact_link }}">{{ section.settings.contact_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Help CTA band",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Need Help Choosing the Right Hospital Bed?"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Hospital beds can be difficult to compare if you're buying for home care, fall risk, bariatric support, or caregiver transfers. Our team is here to help.</p>"
+      }, {
+        "type": "text",
+        "id": "phone",
+        "label": "Phone",
+        "info": "Human format, for example (855) 244-4712. The tap-to-call link is built from this.",
+        "default": "(855) 244-4712"
+      }, {
+        "type": "text",
+        "id": "contact_label",
+        "label": "Secondary button label",
+        "default": "Contact Support"
+      }, {
+        "type": "url",
+        "id": "contact_link",
+        "label": "Secondary button link"
+      }
+    ],
+    "presets": [
+      { "name": "Help CTA band" }
+    ]
+  }
+{% endschema %}
