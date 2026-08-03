@@ -333,7 +333,7 @@
             "flexabed-hi-low-adjustable-bed"
           ],
           "background_color": "#ffffff",
-          "font_color": "#131a22",
+          "font_color": "#000000",
           "agent_invert_activator_colors": true,
           "button_color": "#ff6600",
           "secondary_color": "#131a22",
