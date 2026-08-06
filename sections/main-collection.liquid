@@ -194,7 +194,7 @@
 
 
       {%- paginate collection.products by items_per_page -%}
-        <div class="collection__header-inner" style="margin-bottom: 16px;">
+        <div class="collection__header-inner{% if section.settings.enable_redesign_layout and collection.metafields.custom.hero_image != blank %} collection__header-inner--has-hero{% endif %}" style="margin-bottom: 16px;">
           <div class="collection__meta">
             {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 and collection.template_suffix == 'brand' -%}
               <div class="collection__brand-logo-wrapper hidden-lap-and-up">
@@ -273,6 +273,11 @@
                 {%- endif -%}
               {%- endfor -%}
             </div>
+          {%- endif -%}
+
+          {%- comment -%} Redesign hero image: fills the right side of the banner. Only renders when the collection has custom.hero_image set, so other collections are untouched. {%- endcomment -%}
+          {%- if section.settings.enable_redesign_layout and collection.metafields.custom.hero_image != blank -%}
+            <img class="prc-hero-img" src="{{ collection.metafields.custom.hero_image }}" alt="Caregiver assisting a senior woman reading in an adjustable hospital bed at home" width="1400" height="781" loading="eager" fetchpriority="high">
           {%- endif -%}
         </div>
       {%- endpaginate -%}

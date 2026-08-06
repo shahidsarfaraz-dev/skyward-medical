@@ -75,8 +75,8 @@ main:has(.collection--redesign) {
   margin: 0 0 16px;
 }
 .collection--redesign .promo-description-wrapper .rte {
-  font-size: 13.5px;
-  line-height: 1.55;
+  font-size: 15.5px;
+  line-height: 1.6;
   color: #4a5a6b;
   max-width: 620px;
 }
@@ -127,6 +127,56 @@ main:has(.collection--redesign) {
   }
   .collection--redesign .collection__title.heading {
     font-size: 23px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section 1b: banner hero image (custom.hero_image driven)
+   When the collection has a hero image, the banner grows taller, the text sits
+   in the left ~60%, and the image fills the right ~40% with a soft left fade so
+   it reads as part of the card, not a pasted-on rectangle. The decorative hatch
+   is dropped since the image now occupies that side.
+   -------------------------------------------------------------------------- */
+.collection--redesign .collection__header-inner--has-hero {
+  min-height: 240px;
+  padding-right: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.collection--redesign .collection__header-inner--has-hero::after {
+  display: none;
+}
+.collection--redesign .collection__header-inner--has-hero .prc-hero-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: 50% 42%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+}
+
+/* mobile / small tablet: stack the image full width below the text */
+@media (max-width: 749px) {
+  .collection--redesign .collection__header-inner--has-hero {
+    display: block;
+    min-height: 0;
+    padding: 16px 16px 14px;
+  }
+  .collection--redesign .collection__header-inner--has-hero .prc-hero-img {
+    position: static;
+    width: 100%;
+    height: 148px;
+    margin-top: 14px;
+    border-radius: 10px;
+    object-position: 50% 38%;
+    -webkit-mask-image: none;
+            mask-image: none;
   }
 }
 
