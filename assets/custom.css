@@ -161,20 +161,23 @@ main:has(.collection--redesign) {
           mask-image: linear-gradient(90deg, transparent 0, #000 22%);
 }
 
-/* mobile / small tablet: stack the image full width below the text */
+/* mobile / small tablet: image leads as a hero at the TOP, full width, text below */
 @media (max-width: 749px) {
   .collection--redesign .collection__header-inner--has-hero {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     min-height: 0;
     padding: 16px 16px 14px;
   }
   .collection--redesign .collection__header-inner--has-hero .prc-hero-img {
     position: static;
+    order: -1;
     width: 100%;
-    height: 148px;
-    margin-top: 14px;
+    height: 170px;
+    margin: 0 0 16px;
     border-radius: 10px;
-    object-position: 50% 38%;
+    object-position: 50% 42%;
     -webkit-mask-image: none;
             mask-image: none;
   }
