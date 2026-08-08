@@ -68,7 +68,7 @@
         "quick_links_show_products_count": true,
         "show_filters": true,
         "show_filter_color_swatch": true,
-        "open_group_filters_mode": "all_open",
+        "open_group_filters_mode": "all_closed",
         "enable_redesign_layout": true
       }
     },
