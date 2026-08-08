@@ -14,26 +14,51 @@
       "blocks": {
         "chip_expert": {
           "type": "trust_chip",
-          "settings": { "icon": "expert", "label": "Expert Help", "phone": "(855) 244-4712" }
+          "settings": {
+            "icon": "expert",
+            "label": "Expert Help",
+            "phone": "(855) 244-4712",
+            "url": ""
+          }
         },
         "chip_financing": {
           "type": "trust_chip",
-          "settings": { "icon": "financing", "label": "Financing Available", "url": "/pages/shop-pay-installments-skyward-medical" }
+          "settings": {
+            "icon": "financing",
+            "label": "Financing Available",
+            "phone": "",
+            "url": "/pages/shop-pay-installments-skyward-medical"
+          }
         },
         "chip_shipping": {
           "type": "trust_chip",
-          "settings": { "icon": "shipping", "label": "Free Shipping" }
+          "settings": {
+            "icon": "shipping",
+            "label": "Free Shipping",
+            "phone": "",
+            "url": ""
+          }
         },
         "chip_assembly": {
           "type": "trust_chip",
-          "settings": { "icon": "assembly", "label": "White Glove Assembly", "url": "/pages/nationwide-delivery-and-services" }
+          "settings": {
+            "icon": "assembly",
+            "label": "White Glove Assembly",
+            "phone": "",
+            "url": "/pages/nationwide-delivery-and-services"
+          }
         }
       },
-      "block_order": ["chip_expert", "chip_financing", "chip_shipping", "chip_assembly"],
+      "block_order": [
+        "chip_expert",
+        "chip_financing",
+        "chip_shipping",
+        "chip_assembly"
+      ],
       "settings": {
         "show_collection_image": false,
         "collapse_collection_description": false,
-        "collection_image_size": "small",
+        "collection_image_size": "large",
         "products_per_row": "3",
         "default_products_per_page": 24,
         "default_view_layout": "grid",
@@ -53,19 +78,36 @@
     },
     "collection_faq": {
       "type": "collection-faq",
-      "settings": { "heading": "Frequently Asked Questions", "columns": "2" }
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "emit_schema": true,
+        "columns": "2"
+      }
     },
     "guides": {
       "type": "collection-guides",
-      "settings": { "heading": "Helpful Guides & Resources", "view_all_label": "View All Guides", "view_all_link": "/blogs/news" }
-    },
-    "help_cta": {
-      "type": "collection-help-cta",
-      "settings": { "heading": "Need Help Choosing the Right Hospital Bed?", "phone": "(855) 244-4712", "contact_label": "Contact Support", "contact_link": "/pages/contact" }
+      "settings": {
+        "heading": "Helpful Guides & Resources",
+        "view_all_label": "View All Guides",
+        "view_all_link": "/blogs/news"
+      }
     },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
-      "settings": { "title": "Recently viewed", "show_quick_buy": false }
+      "settings": {
+        "title": "Recently viewed",
+        "show_quick_buy": false
+      }
+    },
+    "help_cta": {
+      "type": "collection-help-cta",
+      "settings": {
+        "heading": "Need Help Choosing the Right Hospital Bed?",
+        "text": "<p>Hospital beds can be difficult to compare if you're buying for home care, fall risk, bariatric support, or caregiver transfers. Our team is here to help.</p>",
+        "phone": "(855) 244-4712",
+        "contact_label": "Contact Support",
+        "contact_link": "/pages/contact"
+      }
     },
     "fb274d43-c848-4be7-81f7-62a831a2b444": {
       "type": "banner",
@@ -82,5 +124,13 @@
       }
     }
   },
-  "order": ["main", "how_to_choose", "collection_faq", "guides", "recently-viewed-products", "help_cta", "fb274d43-c848-4be7-81f7-62a831a2b444"]
+  "order": [
+    "main",
+    "how_to_choose",
+    "collection_faq",
+    "guides",
+    "recently-viewed-products",
+    "help_cta",
+    "fb274d43-c848-4be7-81f7-62a831a2b444"
+  ]
 }
