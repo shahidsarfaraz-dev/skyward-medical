@@ -27,16 +27,6 @@
       "type": "main-page",
       "settings": {}
     },
-    "image_with_text_overlay_NzipEq": {
-      "type": "image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "title": "Image with text overlay",
-        "content": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
-        "show_image_overlay": false,
-        "color": "#ffffff"
-      }
-    },
     "13cb0245-6d6e-43ca-8dfc-aa115e87f53f": {
       "type": "text-with-icons",
       "blocks": {
@@ -89,7 +79,6 @@
   "order": [
     "66a8e9d0-afcc-47d5-a774-7ea2fa7442cf",
     "main",
-    "image_with_text_overlay_NzipEq",
     "13cb0245-6d6e-43ca-8dfc-aa115e87f53f"
   ]
 }
