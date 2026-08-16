@@ -35,6 +35,12 @@
             "show_share_buttons": false
           }
         },
+        "text_tUf3rC": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>✓</strong> Free Shipping</p><p><strong>✓</strong> Please Allow 3-7 Weeks for Delivery</p><p><strong>✓</strong> Accessible Comfort. Therapeutic Care. Elevated Bathing.</p><p><strong>✓</strong> Manufacturer's Warranty</p>"
+          }
+        },
         "variant_selector": {
           "type": "variant_selector",
           "settings": {
@@ -51,12 +57,6 @@
           "settings": {
             "banner_display": "all",
             "banner_id": ""
-          }
-        },
-        "text_tUf3rC": {
-          "type": "text",
-          "settings": {
-            "content": "<p>✔️ <strong>Free Shipping!</strong></p><p>✔️<strong> Please Allow 5-11 Business Days for Delivery</strong></p><p>✔️<strong> Top Aqua Creek Supplier</strong></p><p>✔️<strong> 5 Year Manufacturer's Limited Warranty</strong></p>"
           }
         },
         "buy_buttons": {
@@ -83,9 +83,9 @@
       },
       "block_order": [
         "product_meta",
+        "text_tUf3rC",
         "variant_selector",
         "7ef4136f-49dc-4aa4-ba22-a97b29304c71",
-        "text_tUf3rC",
         "buy_buttons",
         "description",
         "trust_badge_with_content_U7UVKf"
