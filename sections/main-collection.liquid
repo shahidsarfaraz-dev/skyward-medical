@@ -281,13 +281,18 @@
           {%- endif -%}
         </div>
       {%- endpaginate -%}
-      {%- comment -%} Redesign hides the sub-category family slider (not in the redesign layout). {%- endcomment -%}
-      {%- unless section.settings.enable_redesign_layout -%}
+      {%- comment -%} Redesign hides the sub-category family slider (not in the redesign layout). Also stand it down where the metafield carousel is set, so they never double up. {%- endcomment -%}
+      {%- unless section.settings.enable_redesign_layout or collection.metafields.custom.sub_collections != blank -%}
       {% render 'collection-family-slider'
         ,
  menu_handle: 'new-navigation-preview'
       %}
       {%- endunless -%}
+
+      {%- comment -%} Sub-category carousel (metafield-driven). Compact one-row of sub-collection tiles between the intro and the grid; renders on any collection that has custom.sub_collections set, redesign or not. {%- endcomment -%}
+      {%- if collection.metafields.custom.sub_collections != blank -%}
+        {% render 'collection-subcategory-carousel' %}
+      {%- endif -%}
     </div>
     <div
       {% if has_filters %}
