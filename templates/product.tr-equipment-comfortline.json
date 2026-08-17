@@ -41,6 +41,12 @@
             "content": "<p><strong>✓</strong> Free Shipping</p><p><strong>✓</strong> Please Allow 3-7 Weeks for Delivery</p><p><strong>✓</strong> Accessible Comfort. Therapeutic Care. Elevated Bathing.</p><p><strong>✓</strong> Manufacturer's Warranty</p>"
           }
         },
+        "ymq_product_options_option_yeHD3r": {
+          "type": "shopify://apps/ymq-product-options/blocks/option/86b91121-1f62-4e27-9812-b70a823eb918",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
         "variant_selector": {
           "type": "variant_selector",
           "settings": {
@@ -84,6 +90,7 @@
       "block_order": [
         "product_meta",
         "text_tUf3rC",
+        "ymq_product_options_option_yeHD3r",
         "variant_selector",
         "7ef4136f-49dc-4aa4-ba22-a97b29304c71",
         "buy_buttons",
