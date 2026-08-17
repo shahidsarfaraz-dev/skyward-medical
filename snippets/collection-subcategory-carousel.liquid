@@ -1,0 +1,293 @@
+{%- comment -%}
+  Sub-category carousel (metafield-driven).
+
+  A compact one-row carousel of sub-collection tiles that sits between the
+  collection intro and the product grid. It renders ONLY when the collection has
+  custom.sub_collections set (a list of collections) AND at least one of those
+  collections has products, so it is safe to include on every collection: empty
+  means nothing outputs, not even the styles or script.
+
+  Reuses the proven family-slider pattern (scroll-snap track + prev/next arrows)
+  in a compact form styled to the Skyward redesign, with drag-to-scroll, edge
+  fades, keyboard focus states and reduced-motion support. Self-contained so it
+  works on any collection layout, redesign or not.
+
+  Optional param:
+    heading - small label above the row. Pass a blank string to hide it.
+{%- endcomment -%}
+
+{%- assign subs = collection.metafields.custom.sub_collections.value -%}
+{%- if subs != blank and subs.size > 0 -%}
+  {%- assign carousel_heading = heading | default: 'Shop by category' -%}
+  {%- comment -%} Style is per-collection: custom.subcat_carousel_style = "tiles" (image cards) or "pills" (compact text only). Defaults to tiles. {%- endcomment -%}
+  {%- assign carousel_style = collection.metafields.custom.subcat_carousel_style.value | default: 'tiles' -%}
+  {%- assign tile_count = 0 -%}
+
+  {%- capture subcat_tiles -%}
+    {%- for sub in subs -%}
+      {%- if sub != blank and sub.all_products_count > 0 -%}
+        {%- assign tile_count = tile_count | plus: 1 -%}
+        {%- if carousel_style == 'pills' -%}
+          <a href="{{ sub.url }}" class="prc-subcat-carousel__pill">{{ sub.title }}</a>
+        {%- else -%}
+          <a href="{{ sub.url }}" class="prc-subcat-carousel__tile">
+            <span class="prc-subcat-carousel__media">
+              {%- if sub.image != blank -%}
+                {{ sub.image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'prc-subcat-carousel__img', alt: sub.title, widths: '160,240,320,400' }}
+              {%- elsif sub.products.first.featured_image != blank -%}
+                {{ sub.products.first.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'prc-subcat-carousel__img', alt: sub.title, widths: '160,240,320,400' }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'prc-subcat-carousel__img prc-subcat-carousel__img--ph' }}
+              {%- endif -%}
+            </span>
+            <span class="prc-subcat-carousel__label">{{ sub.title }}</span>
+          </a>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if tile_count > 0 -%}
+    <div class="prc-subcat-carousel prc-subcat-carousel--{{ carousel_style }}" data-prc-subcat data-at="start" role="region" aria-label="{{ carousel_heading | default: 'Sub-categories' | escape }}" aria-roledescription="carousel">
+      {%- if carousel_heading != blank -%}
+        <div class="prc-subcat-carousel__head">
+          <span class="prc-subcat-carousel__heading">{{ carousel_heading }}</span>
+        </div>
+      {%- endif -%}
+
+      <div class="prc-subcat-carousel__outer">
+        <button type="button" class="prc-subcat-carousel__arrow prc-subcat-carousel__arrow--prev" aria-label="Previous categories" data-prc-subcat-prev>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M15.5 19 8.5 12l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="prc-subcat-carousel__track" data-prc-subcat-track>
+          {{ subcat_tiles }}
+        </div>
+
+        <button type="button" class="prc-subcat-carousel__arrow prc-subcat-carousel__arrow--next" aria-label="Next categories" data-prc-subcat-next>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m8.5 19 7-7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <style>
+      .prc-subcat-carousel { margin: 0 0 14px; }
+      .prc-subcat-carousel__head { margin: 0 0 8px; }
+      .prc-subcat-carousel__heading {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #16263a;
+      }
+      .prc-subcat-carousel__outer { position: relative; }
+      .prc-subcat-carousel__track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% - 60px) / 6);
+        gap: 12px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 3px 2px 14px;
+        /* edge fade, direction set by the data-at state below */
+        -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 30px), transparent 100%);
+                mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 30px), transparent 100%);
+      }
+      .prc-subcat-carousel__track::-webkit-scrollbar { display: none; }
+      .prc-subcat-carousel:not(.prc-subcat-carousel--static) .prc-subcat-carousel__track { cursor: grab; }
+      .prc-subcat-carousel__track.is-dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+        user-select: none;
+      }
+      .prc-subcat-carousel[data-at="middle"] .prc-subcat-carousel__track {
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30px, #000 calc(100% - 30px), transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 30px, #000 calc(100% - 30px), transparent 100%);
+      }
+      .prc-subcat-carousel[data-at="end"] .prc-subcat-carousel__track {
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30px, #000 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 30px, #000 100%);
+      }
+      .prc-subcat-carousel[data-at="none"] .prc-subcat-carousel__track {
+        -webkit-mask-image: none;
+                mask-image: none;
+      }
+      .prc-subcat-carousel__tile {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid #e4ebf1;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        scroll-snap-align: start;
+      }
+      .prc-subcat-carousel__tile:focus-visible {
+        outline: 2px solid #5a7186;
+        outline-offset: 2px;
+      }
+      .prc-subcat-carousel__media {
+        display: block;
+        aspect-ratio: 16 / 10;
+        background: #f4f7fb;
+        overflow: hidden;
+      }
+      .prc-subcat-carousel__img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      .prc-subcat-carousel__label {
+        padding: 8px 10px;
+        font-size: 12.5px;
+        font-weight: 600;
+        line-height: 1.3;
+        color: #16263a;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .prc-subcat-carousel__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 34px;
+        height: 34px;
+        border: 1px solid #dde5ee;
+        border-radius: 50%;
+        background: #fff;
+        color: #33455a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(22, 38, 58, 0.12);
+      }
+      .prc-subcat-carousel__arrow:hover { background: #f4f7fb; border-color: #c7d3e0; }
+      .prc-subcat-carousel__arrow:focus-visible { outline: 2px solid #5a7186; outline-offset: 2px; }
+      .prc-subcat-carousel__arrow--prev { left: -10px; }
+      .prc-subcat-carousel__arrow--next { right: -10px; }
+      .prc-subcat-carousel--static .prc-subcat-carousel__arrow { display: none; }
+      .prc-subcat-carousel__arrow.is-disabled { opacity: 0; pointer-events: none; }
+      @media (prefers-reduced-motion: no-preference) {
+        .prc-subcat-carousel__tile { transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
+        .prc-subcat-carousel__img { transition: transform 0.35s ease; }
+        .prc-subcat-carousel__arrow { transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease; }
+        .prc-subcat-carousel__tile:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(22, 38, 58, 0.1);
+          border-color: #c7d3e0;
+        }
+        .prc-subcat-carousel__tile:hover .prc-subcat-carousel__img { transform: scale(1.05); }
+        .prc-subcat-carousel__arrow:hover { transform: translateY(-50%) scale(1.05); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .prc-subcat-carousel__track { scroll-behavior: auto; }
+        .prc-subcat-carousel__tile:hover { border-color: #c7d3e0; }
+      }
+      /* image-less pill variant: one thin row of category names, no images */
+      .prc-subcat-carousel--pills .prc-subcat-carousel__track {
+        display: flex;
+        gap: 10px;
+        scroll-snap-type: none;
+        padding: 2px 2px 4px;
+      }
+      .prc-subcat-carousel--pills .prc-subcat-carousel__arrow { width: 30px; height: 30px; }
+      .prc-subcat-carousel__pill {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        border: 1px solid #dde5ee;
+        border-radius: 999px;
+        background: #fff;
+        color: #16263a;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.2;
+        white-space: nowrap;
+        text-decoration: none;
+        scroll-snap-align: start;
+      }
+      .prc-subcat-carousel__pill:hover { background: #f4f7fb; border-color: #c7d3e0; }
+      .prc-subcat-carousel__pill:focus-visible { outline: 2px solid #5a7186; outline-offset: 2px; }
+      @media (prefers-reduced-motion: no-preference) {
+        .prc-subcat-carousel__pill { transition: background-color 0.15s ease, border-color 0.15s ease; }
+      }
+
+      @media (max-width: 989px) {
+        .prc-subcat-carousel--tiles .prc-subcat-carousel__track { grid-auto-columns: calc((100% - 36px) / 4); }
+        .prc-subcat-carousel__arrow { display: none; }
+      }
+      @media (max-width: 749px) {
+        .prc-subcat-carousel__track { grid-auto-columns: 40%; gap: 10px; }
+      }
+      @media (max-width: 480px) {
+        .prc-subcat-carousel__track { grid-auto-columns: 46%; }
+      }
+    </style>
+
+    <script>
+      (function () {
+        var root = document.querySelector('[data-prc-subcat]');
+        if (!root) return;
+        var track = root.querySelector('[data-prc-subcat-track]');
+        var prev = root.querySelector('[data-prc-subcat-prev]');
+        var next = root.querySelector('[data-prc-subcat-next]');
+        if (!track) return;
+
+        function step() {
+          var item = track.firstElementChild;
+          var base = item ? item.offsetWidth : 240;
+          var styles = window.getComputedStyle(track);
+          var gap = parseInt(styles.columnGap || styles.gap || 12, 10) || 12;
+          return Math.max((base + gap) * 2, Math.round(track.clientWidth * 0.7));
+        }
+        function update() {
+          var scrollable = track.scrollWidth > track.clientWidth + 2;
+          root.classList.toggle('prc-subcat-carousel--static', !scrollable);
+          if (!scrollable) { root.setAttribute('data-at', 'none'); return; }
+          var atStart = track.scrollLeft <= 2;
+          var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+          root.setAttribute('data-at', atStart ? 'start' : (atEnd ? 'end' : 'middle'));
+          if (prev) prev.classList.toggle('is-disabled', atStart);
+          if (next) next.classList.toggle('is-disabled', atEnd);
+        }
+        if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+        if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+        track.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+
+        // drag to scroll (mouse only; touch keeps native scrolling)
+        var down = false, startX = 0, startLeft = 0, moved = 0;
+        track.addEventListener('pointerdown', function (e) {
+          if (e.pointerType !== 'mouse') return;
+          down = true; moved = 0; startX = e.clientX; startLeft = track.scrollLeft;
+          track.classList.add('is-dragging');
+        });
+        window.addEventListener('pointermove', function (e) {
+          if (!down) return;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > moved) moved = Math.abs(dx);
+          track.scrollLeft = startLeft - dx;
+        });
+        window.addEventListener('pointerup', function () {
+          if (!down) return;
+          down = false; track.classList.remove('is-dragging');
+        });
+        track.addEventListener('click', function (e) {
+          if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
+        }, true);
+
+        update();
+      })();
+    </script>
+  {%- endif -%}
+{%- endif -%}
