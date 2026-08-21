@@ -130,80 +130,6 @@
         "include_margins": true
       }
     },
-    "rich_text_CyRwJr": {
-      "type": "rich-text",
-      "settings": {
-        "text_width": "narrow",
-        "title": "Skyward Medical Publications",
-        "content": "<p><a href=\"https://skywardmedical.com/pages/latest-scoop-skyward-medical-in-the-news\" title=\"https://skywardmedical.com/pages/latest-scoop-skyward-medical-in-the-news\">Visit Newsroom&gt;</a></p>",
-        "button_text": "",
-        "button_link": "shopify://collections/all"
-      }
-    },
-    "mosaic_9zAwnb": {
-      "type": "mosaic",
-      "blocks": {
-        "item_MDBWre": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Business-Insider-logo_0d154e1d-4a53-451e-96a4-8863a36fb6ab.png",
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "",
-            "content": "",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "",
-            "link": "https://markets.businessinsider.com/news/stocks/skyward-medical-transforms-the-homecare-industry-1033429950"
-          }
-        },
-        "item_g4Ui4z": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/news11-removebg-preview_2.png",
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "",
-            "content": "",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "",
-            "link": "https://www.benzinga.com/pressreleases/24/05/39053685/skyward-medical-transforms-the-homecare-industry"
-          }
-        },
-        "item_caRNmr": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Associated-Press-logo_1c89fbb5-1385-4383-ae3e-e50b38240188.png",
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "",
-            "content": "",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "",
-            "link": "https://apnews.com/press-release/marketersmedia/medical-technology-medication-c980efe29fbeff08e8683380fbf87f1d"
-          }
-        }
-      },
-      "block_order": [
-        "item_MDBWre",
-        "item_g4Ui4z",
-        "item_caRNmr"
-      ],
-      "settings": {
-        "section_size": "small"
-      }
-    },
     "1669343322767881e2": {
       "type": "apps",
       "blocks": {
@@ -245,8 +171,6 @@
     "main",
     "custom_liquid_3mggXn",
     "17154838935e9aefce",
-    "rich_text_CyRwJr",
-    "mosaic_9zAwnb",
     "1669343322767881e2",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
     "product-recommendations"
