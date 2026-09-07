@@ -344,6 +344,11 @@
           "agent_font": "system_ui_n4",
           "agent_border_radius": 16
         }
+      },
+      "1041656249159682650": {
+        "type": "shopify://apps/google-ads-pixel-by-nabu/blocks/script-block/1bff1da5-e804-4d5d-ad9c-7c3540bdf531",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
