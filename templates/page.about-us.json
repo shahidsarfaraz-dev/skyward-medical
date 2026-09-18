@@ -29,72 +29,30 @@
       "disabled": true,
       "settings": {}
     },
-    "rich_text_rTP44g": {
-      "type": "rich-text",
+    "image_with_text_VW68mM": {
+      "type": "image-with-text",
+      "name": "Image with text",
       "settings": {
-        "text_width": "narrow",
-        "title": "",
-        "content": "<h1><strong>all things health, in one seamless </strong></h1><h1><strong>experience.</strong></h1>",
+        "image": "shopify://shop_images/FrontViewOfAWomanTransferringFromAWheelchairToTheTransferMasterSupernalHiLowAdjustableBed.png",
+        "image_position": "right",
+        "image_width": 50,
+        "title": "Helping You Move Forward, With Confidence.",
+        "content": "<p>At Skyward Medical, we believe medical and homecare products should do more than meet a need—they should make everyday life more comfortable, manageable, and independent.</p><p>We bring together thoughtfully selected mobility, medical, and wellness solutions from trusted manufacturers, making it easier to find products designed to support you or someone you care for at home.</p><p>Whether you're looking for a mobility solution, home medical equipment, or a product that makes daily routines easier, we're here to help you find the right fit.</p>",
         "button_text": "",
         "button_link": "shopify://collections/all"
       }
     },
-    "promotion_list_pTMQzn": {
-      "type": "promotion-list",
-      "blocks": {
-        "item_aqfFDJ": {
-          "type": "item",
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "stretch_image": false,
-            "background": "#2491eb",
-            "text_color": "#ffffff",
-            "title": "Curated for Your Well-Being",
-            "content": "<p>Skyward Medical is your trusted destination for health, wellness, and mobility solutions. Easily discover everything you need to support your lifestyle—all in one place, thoughtfully selected for your comfort and care.</p>",
-            "content_position": "top_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#6f42ef",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "item_m8KPx6": {
-          "type": "item",
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "stretch_image": false,
-            "background": "#ff7200",
-            "text_color": "#ffffff",
-            "title": "Effortless Shopping, Expert Care",
-            "content": "<p>We make finding the right medical and wellness products simple with expert guidance, seamless service, and a hassle-free shopping experience—so you can focus on what matters most: your health and well-being.</p>",
-            "content_position": "top_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#fc2a68",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_aqfFDJ",
-        "item_m8KPx6"
-      ],
+    "image_with_text_XNVDed": {
+      "type": "image-with-text",
+      "name": "Image with text",
       "settings": {
-        "expand_items": true,
-        "section_size": "small",
-        "stack_mobile": false
-      }
-    },
-    "slideshow_7jeyHQ": {
-      "type": "slideshow",
-      "settings": {
-        "edge_to_edge": true,
-        "section_size": "preserve_ratio",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5
+        "image": "shopify://shop_images/Front_Right_Side_Vie_Of_A_Man_Being_Assisted_By_A_Caregiver_Onto_The_Lift_Buddy_Floor_Recovery_Lift.png",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "More Than a Store. A Better Way to Shop for Homecare.",
+        "content": "<p>Finding the right medical equipment can be overwhelming. There are countless products, specifications, options, and considerations to navigate—especially when you're purchasing something important for yourself or a loved one.</p><p>That's why Skyward Medical takes a more personal approach.</p><p>Our <strong>Product Specialists</strong> are here to help you understand your options, answer questions, and make a more informed purchase with confidence. We work to make the process straightforward, helpful, and refreshingly human.</p><p><strong>No confusing sales experience. No unnecessary hassle. Just knowledgeable guidance and products selected with care.</strong></p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
       }
     },
     "rich_text_XyBkR7": {
@@ -102,16 +60,146 @@
       "settings": {
         "text_width": "narrow",
         "title": "Our Story",
-        "content": "<h3>Skyward Medical was founded to make health and wellness simple, offering high-quality mobility, medical, and wellness products that help people live more comfortably and independently. </h3><h3>By creating an online marketplace with trusted suppliers, we provide a wide range of solutions—from mobility aids to home medical equipment—without the hassle of in-person shopping. Committed to convenience, quality, and care, we empower individuals and caregivers to improve well-being, making healthcare more accessible and stress-free—one smart solution at a time.</h3>",
+        "content": "<p>Skyward Medical was founded with a simple idea: <strong>shopping for medical and homecare equipment should feel easier, more personal, and more empowering.</strong></p><p>We saw an opportunity to create a different kind of medical equipment store—one centered around the people using these products, rather than simply the products themselves.</p><p>Today, Skyward Medical offers a carefully curated selection of mobility, home medical, and wellness products from established manufacturers and trusted suppliers.</p><p>From mobility aids and patient lifts to adjustable beds, bath safety equipment, pool lifts, and other homecare solutions, our goal is to help individuals and caregivers find products that support greater comfort, confidence, and independence.</p><h2></h2>",
         "button_text": "",
         "button_link": "shopify://collections/all"
+      }
+    },
+    "rich_text_4PHyem": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Products Chosen With Purpose",
+        "content": "",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "mosaic_DgcCRn": {
+      "type": "mosaic",
+      "blocks": {
+        "item_j8zij3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/SideViewOfTheJourneySoLiteMobilityScooterShownInBlueColorRidingOnSidewalkWithElderlyWomanAndMiddleAgedWoman.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 58,
+            "background": "#f3f4f4",
+            "text_color": "#FFFFFF",
+            "title": "Lightweight Scooters",
+            "content": "",
+            "content_position": "top_right",
+            "button_background": "#FF6600",
+            "button_text_color": "#FFFFFF",
+            "button_text": "Discover",
+            "link": "https://skywardmedical.com/collections/lightweight-mobility-scooters"
+          }
+        },
+        "item_6XaXde": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/FlexabedHiLowAdjustableBedWithSideRailsFrontView.png",
+            "show_overlay": true,
+            "overlay_opacity": 58,
+            "background": "#f3f4f4",
+            "text_color": "#FFFFFF",
+            "title": "Adjustable Beds for Seniors",
+            "content": "",
+            "content_position": "top_right",
+            "button_background": "#FF6600",
+            "button_text_color": "#FFFFFF",
+            "button_text": "Learn More",
+            "link": "https://skywardmedical.com/collections/adjustable-beds-for-seniors"
+          }
+        },
+        "item_tjkUBk": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/lift-chair-for-elderly-home-living-room.png",
+            "show_overlay": true,
+            "overlay_opacity": 58,
+            "background": "#f3f4f4",
+            "text_color": "#FFFFFF",
+            "title": "Lift Chairs For Elderly",
+            "content": "",
+            "content_position": "top_right",
+            "button_background": "#FF6600",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Discover",
+            "link": "https://skywardmedical.com/collections/lift-chairs-for-elderly"
+          }
+        }
+      },
+      "block_order": [
+        "item_j8zij3",
+        "item_6XaXde",
+        "item_tjkUBk"
+      ],
+      "name": "Mosaic",
+      "settings": {
+        "section_size": "large"
+      }
+    },
+    "rich_text_nywfFU": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "",
+        "content": "<p>We don't believe in filling a store with products simply to have more products.</p><p>We focus on solutions from manufacturers with established reputations for quality, reliability, and thoughtful design. Every category we offer is intended to serve a practical purpose in helping people live more comfortably and independently.</p><p><strong>Trusted Manufacturers</strong><br/>We work with established brands and suppliers to bring you dependable solutions.</p><p><strong>Thoughtful Selection</strong><br/>Our catalog is curated around products that solve real everyday needs.</p><p><strong>Expert Guidance</strong><br/>Our Product Specialists can help you understand products, options, and specifications before you buy.</p><p><strong>Personal Service</strong><br/>You can reach a real person when you need help—not just a search bar or automated response.</p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "slideshow_bFpWpX": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9LTbQn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/KQcqKGzCeOCVcp42FpJqFT3fZthLbKa7voMvSP7ev0uMFKHsndQXyhyyEXvgRLG2Y4i2HuwtRkBBaDu5RHhgLXtWKgtDeH-2eghkCvf73j9HkJU-zozQl4kUizhALoWWdT2RiCzK_fOl5ZE8VffeDUpMTB5ThMHSoT4C3aah_vRyCXcaULh3HQf.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "Button",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_9LTbQn"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "large",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
+    "contact_form_FUH9W6": {
+      "type": "contact-form",
+      "name": "Contact form",
+      "settings": {
+        "form_heading": "Here When You Need Us",
+        "form_content": "<p>Whether you're shopping for yourself, helping a parent, caring for a loved one, or planning for what's ahead, choosing the right equipment can be an important decision.</p><p>Skyward Medical is here to make that decision a little easier.</p><p><strong>Comfort. Independence. Peace of mind.</strong></p><p>That's what we're moving toward, together.</p>",
+        "show_store_info": false,
+        "store_heading": "Find us",
+        "store_info": ""
       }
     },
     "newsletter_HpiFeL": {
       "type": "newsletter",
       "settings": {
-        "title": "Become a Member Today",
-        "content": "<p>Join our exclusive member list and be the first to receive all the latest news and product launches.</p>",
+        "title": "Stay Connected",
+        "content": "<p>Join the Skyward Medical email list for new product launches, helpful resources, and updates from our collection of mobility, medical, and wellness solutions.</p>",
         "background": "#2c3b4d",
         "text": "#ffffff"
       }
@@ -120,10 +208,14 @@
   "order": [
     "66a8e9d0-afcc-47d5-a774-7ea2fa7442cf",
     "main",
-    "rich_text_rTP44g",
-    "promotion_list_pTMQzn",
-    "slideshow_7jeyHQ",
+    "image_with_text_VW68mM",
+    "image_with_text_XNVDed",
     "rich_text_XyBkR7",
+    "rich_text_4PHyem",
+    "mosaic_DgcCRn",
+    "rich_text_nywfFU",
+    "slideshow_bFpWpX",
+    "contact_form_FUH9W6",
     "newsletter_HpiFeL"
   ]
 }
