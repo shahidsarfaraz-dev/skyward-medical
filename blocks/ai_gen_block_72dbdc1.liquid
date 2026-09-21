@@ -1,0 +1,113 @@
+{% doc %}
+  @prompt
+    Create a footer block that displays a "Follow on Shop" button so customers can follow the store on the Shop app. It should render the official Shop follow button, centered by default, with settings to control alignment and spacing above and below so it fits neatly alongside the existing footer content.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-shop-follow-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-top: {{ block.settings.spacing_top }}px;
+    margin-bottom: {{ block.settings.spacing_bottom }}px;
+    text-align: {{ block.settings.alignment }};
+  }
+
+  .ai-shop-follow-{{ ai_gen_id }} .shopify-shop-follow-button {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-shop-follow-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<shop-follow-button-{{ ai_gen_id }}
+  class="ai-shop-follow-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  {{ shop | login_button: action: 'follow' }}
+</shop-follow-button-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ShopFollowButton{{ ai_gen_id }} extends HTMLElement {
+      connectedCallback() {
+        this.setAttribute('role', 'group');
+      }
+    }
+
+    if (!customElements.get('shop-follow-button-{{ ai_gen_id }}')) {
+      customElements.define('shop-follow-button-{{ ai_gen_id }}', ShopFollowButton{{ ai_gen_id }});
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Shop follow button",
+  "settings": [
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Space above",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Space below",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop follow button"
+    }
+  ],
+  "tag": null,
+  "class": "shop-follow-block"
+}
+{% endschema %}

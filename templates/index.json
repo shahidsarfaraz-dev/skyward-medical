@@ -453,6 +453,25 @@
         "background": "#2c3b4d",
         "text": "#ffffff"
       }
+    },
+    "17900142910a912ee0": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_72dbdc1_FrdcpE": {
+          "type": "ai_gen_block_72dbdc1",
+          "settings": {
+            "alignment": "center",
+            "spacing_top": 16,
+            "spacing_bottom": 16,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_72dbdc1_FrdcpE"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -468,6 +487,7 @@
     "featured_collection_MBm7yy",
     "1703704486955aa467",
     "image_with_text_bGJQ7i",
-    "newsletter_tyC83c"
+    "newsletter_tyC83c",
+    "17900142910a912ee0"
   ]
 }
