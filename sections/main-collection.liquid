@@ -249,10 +249,13 @@
           {%- endif -%}
 
           {%- comment -%} Redesign: trust chips. Inert unless the layout flag is on AND chip blocks exist, so the other collection templates are unaffected. {%- endcomment -%}
+          {%- comment -%} Per-collection badge control: custom.hidden_badges lists badge labels to hide on this collection. Empty means show all, so every other collection is unchanged. {%- endcomment -%}
+          {%- assign hidden_badges = collection.metafields.custom.hidden_badges.value -%}
           {%- if section.settings.enable_redesign_layout and section.blocks.size > 0 -%}
             <div class="prc-trust-chips">
               {%- for block in section.blocks -%}
                 {%- if block.type == 'trust_chip' and block.settings.label != blank -%}
+                  {%- unless hidden_badges contains block.settings.label -%}
                   {%- assign chip_tel = block.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | remove: '.' -%}
                   {%- if block.settings.phone != blank -%}
                     <a class="prc-trust-chip" href="tel:{{ chip_tel }}" {{ block.shopify_attributes }}>
@@ -270,6 +273,7 @@
                       <span class="prc-trust-chip__label">{{ block.settings.label }}</span>
                     </span>
                   {%- endif -%}
+                  {%- endunless -%}
                 {%- endif -%}
               {%- endfor -%}
             </div>

@@ -8,10 +8,14 @@
       <div class="prc-help-cta__lead">
         <span class="prc-help-cta__icon">{%- render 'prc-chip-icon', icon: 'headset' -%}</span>
         <div class="prc-help-cta__text">
-          {%- if section.settings.heading != blank -%}
-            <h2 class="prc-help-cta__heading heading">{{ section.settings.heading }}</h2>
+          {%- comment -%} Per-collection override: custom.help_heading / custom.help_body replace the shared defaults. Empty keeps the default wording, so other collections are unchanged. The rich text body is output directly so Shopify renders it as HTML. {%- endcomment -%}
+          {%- assign help_heading = collection.metafields.custom.help_heading | default: section.settings.heading -%}
+          {%- if help_heading != blank -%}
+            <h2 class="prc-help-cta__heading heading">{{ help_heading }}</h2>
           {%- endif -%}
-          {%- if section.settings.text != blank -%}
+          {%- if collection.metafields.custom.help_body != blank -%}
+            <div class="prc-help-cta__desc rte"><p>{{ collection.metafields.custom.help_body | escape | newline_to_br }}</p></div>
+          {%- elsif section.settings.text != blank -%}
             <div class="prc-help-cta__desc rte">{{ section.settings.text }}</div>
           {%- endif -%}
         </div>
