@@ -228,7 +228,7 @@
         {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
           <div class="footer__aside-item footer__aside-item--payment">
 
-            <div style="text-align: right;margin-top: -36px;"><span>{{ shop | login_button: action: 'follow' }}</span></div>
+            <div style="text-align: right;margin-top: -36px;">{{ shop | login_button: action: 'follow' }}</div>
 
             <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
 
