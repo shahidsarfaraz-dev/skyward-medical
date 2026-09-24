@@ -459,6 +459,7 @@
       "blocks": {
         "ai_gen_block_72dbdc1_FrdcpE": {
           "type": "ai_gen_block_72dbdc1",
+          "disabled": true,
           "settings": {
             "alignment": "center",
             "spacing_top": 16,
