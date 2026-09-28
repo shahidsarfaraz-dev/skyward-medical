@@ -1,1 +1,41 @@
-{"sections":{"main":{"type":"main-blog-post","blocks":{"379e5b4c-ea8a-4f1f-b842-465c14017093":{"type":"featured_products","settings":{"title":"Best Selling Enclosed Mobility Scooters","product_1":"green-transporter-q-express-enclosed-mobility-scooter","product_2":"green-transporter-q-runner-express-enclosed-mobility-scooter","product_3":"pushpak-motors-pushpak-7000-three-person-electric-scooter"}}},"block_order":["379e5b4c-ea8a-4f1f-b842-465c14017093"],"settings":{"show_category":true,"show_author":true,"show_date":true,"show_share_buttons":true,"show_tags":true,"show_gravatar":true}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog-post",
+      "blocks": {
+        "379e5b4c-ea8a-4f1f-b842-465c14017093": {
+          "type": "featured_products",
+          "settings": {
+            "title": "Best Selling Enclosed Mobility Scooters",
+            "product_1": "green-transporter-q-express-enclosed-mobility-scooter",
+            "product_2": "green-transporter-q-runner-express-enclosed-mobility-scooter",
+            "product_3": "pushpak-motors-pushpak-4000-three-person-electric-scooter"
+          }
+        }
+      },
+      "block_order": [
+        "379e5b4c-ea8a-4f1f-b842-465c14017093"
+      ],
+      "settings": {
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_share_buttons": true,
+        "show_tags": true,
+        "show_gravatar": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
