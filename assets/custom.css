@@ -1134,7 +1134,6 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
   margin-left: calc(50% - 50vw);
 }
 
-
 .footer__wrapper {
   padding: 0 0 !important;
 }
