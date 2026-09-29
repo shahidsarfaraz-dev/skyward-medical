@@ -1157,7 +1157,7 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
     margin-bottom: 0px;
   }
   
-  .footer__aside container {
+  .footer__aside {
     padding-top: 0px;
   }
 
