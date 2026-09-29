@@ -127,13 +127,14 @@
 
 
       <div class="nav-footer-line"></div>
-
+  
+      <div style="text-align: right;margin-top: -36px;">
       <img class="header__logo-image" width="3659" height="1481" src="//skywardmedical.com/cdn/shop/files/sky_blue_dd34166b-0a8c-4604-8cba-9f70cbb1a3a9_160x@2x.png?v=1739866377" alt="Skyward Medical" style="max-width: 80px !important;">
-      
-      <div style="text-align: right;margin-top: -36px;">{{ shop | login_button: action: 'follow' }}</div>
+      {{ shop | login_button: action: 'follow' }}
+      </div>
 
 
-      
+
       <aside class="footer__aside" style="padding-top: 20px;">
         {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
           {%- assign country_selector = true -%}
