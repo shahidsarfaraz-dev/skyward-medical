@@ -1156,4 +1156,12 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
     padding-bottom: 20px;
     margin-bottom: 0px;
   }
+  
+  .footer__aside container {
+    padding-top: 0px;
+  }
+
+  .footer__aside-item footer__aside-item--localization {
+    display: none;
+  }
 }
