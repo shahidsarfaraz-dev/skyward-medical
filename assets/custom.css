@@ -1148,12 +1148,12 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
   justify-content: center;
   align-items: center;
   gap: 100px;
-  margin-top: 20px;
+  margin-bottom: -20px;
 }
 
 @media screen and (max-width: 640px) {
   .footer-logo {
     padding-bottom: 20px;
-    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }
