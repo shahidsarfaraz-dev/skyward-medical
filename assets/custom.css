@@ -1120,3 +1120,7 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
 main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .product-list--scrollable::before {
   border: none;
 }
+
+.nav-footer-line {
+  border-top: 1px solid #3a4553;
+}
