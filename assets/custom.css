@@ -1127,3 +1127,8 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
   width: 100vw !important;
   margin-left: calc(50% - 50vw);
 }
+
+.full_width {
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw);
+}
