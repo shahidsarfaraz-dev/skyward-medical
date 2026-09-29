@@ -1121,6 +1121,7 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
   border: none;
 }
 
+
 .nav-footer-line {
   border-top: 1px solid #3a4553;
   margin: 30px 0;
@@ -1131,4 +1132,9 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
 .full_width {
   width: 100vw !important;
   margin-left: calc(50% - 50vw);
+}
+
+
+.footer__wrapper {
+  padding: 0 0 !important;
 }
