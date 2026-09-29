@@ -2,6 +2,9 @@
   <div class="container">
     <div class="footer__wrapper">
       {%- if section.blocks.size > 0 -%}
+
+        <div class="nav-footer-line"></div>
+
         <div class="footer__block-list">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
