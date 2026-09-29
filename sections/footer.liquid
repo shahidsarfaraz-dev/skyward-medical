@@ -2,9 +2,6 @@
   <div class="container">
     <div class="footer__wrapper">
       {%- if section.blocks.size > 0 -%}
-
-        <div class="nav-footer-line"></div>
-
         <div class="footer__block-list">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -127,6 +124,8 @@
           {%- endfor -%}
         </div>
       {%- endif -%}
+
+      <div class="nav-footer-line"></div>
 
       <aside class="footer__aside" style="padding-top: 20px;">
         {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
