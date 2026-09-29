@@ -1158,10 +1158,10 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
   }
   
   .footer__aside {
-    padding-top: 0px;
+    padding-top: 0 !important;
   }
 
-  .footer__aside-item footer__aside-item--localization {
+  .footer__aside-item.footer__aside-item--localization {
     display: none;
   }
 }
