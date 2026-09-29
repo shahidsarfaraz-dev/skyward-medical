@@ -1136,6 +1136,7 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
 
 .footer__wrapper {
   padding: 0 0 !important;
+  padding-top: 50px !important;
 }
 
 .footer {
@@ -1163,4 +1164,9 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
   .footer__aside-item.footer__aside-item--localization {
     display: none;
   }
+
+  .footer__wrapper {
+    padding: 0 0 !important;
+  }
+
 }
