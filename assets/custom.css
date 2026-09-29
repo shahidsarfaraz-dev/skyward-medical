@@ -1142,3 +1142,18 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
 .footer {
   padding: 10px 0 0 !important;
 }
+
+.footer-logo {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .footer-logo {
+    padding-bottom: 20px;
+    margin-top: 0px;
+  }
+}
