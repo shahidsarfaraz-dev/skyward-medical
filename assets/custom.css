@@ -1124,4 +1124,6 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
 .nav-footer-line {
   border-top: 1px solid #3a4553;
   margin: 30px 0;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw);
 }
