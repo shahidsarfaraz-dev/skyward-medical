@@ -1138,3 +1138,7 @@ main:has(.collection--redesign) [data-section-type="recently-viewed-products"] .
 .footer__wrapper {
   padding: 0 0 !important;
 }
+
+.footer {
+  padding: 10px 0 0 !important;
+}
