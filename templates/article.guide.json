@@ -1,0 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "section--sk-guide",
+      "settings": {
+        "show_breadcrumb": true,
+        "cta_heading": "Need help choosing the right equipment?",
+        "cta_text": "Our team can help you compare options and find the right fit. Call or send a message and we will walk you through it.",
+        "cta_link": "/pages/contact",
+        "cta_label": "Contact our team"
+      }
+    }
+  },
+  "order": ["main"]
+}

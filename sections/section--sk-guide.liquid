@@ -1,0 +1,162 @@
+{%- comment -%}
+  PRC interactive-guide surface (canonical, system repo).
+  Works on BOTH owners: a Page (templates/page.guide.json) or a blog Article
+  (templates/article.guide.json). Articles keep their URL, so an old blog post
+  converts to a guide with no redirect. The long body is authored HTML/SVG stored
+  raw in the owner metafield custom.guide_body and printed with {{ ...value }}
+  (Liquid does not auto-escape, so it renders verbatim and the rich-text editor
+  never touches it). The template owns the single H1; the body uses strictly
+  nested h2/h3. Guide assets load ONLY here = zero bytes on every other URL.
+  emit_article_schema: turn OFF on themes whose own schema snippet already emits
+  an Article node for blog articles (e.g. Warehouse), so there is never a duplicate.
+{%- endcomment -%}
+
+{{ 'guide.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'guide.js' | asset_url }}" type="module" defer></script>
+
+{%- liquid
+  if article
+    assign owner = article
+  else
+    assign owner = page
+  endif
+  assign gbody = owner.metafields.custom.guide_body
+  assign gquick = owner.metafields.custom.guide_quick_answer.value
+
+  comment
+    Featured hero image: the guide_hero_image metafield wins, else the post's own
+    featured image. Absent when neither is set.
+  endcomment
+  assign hero_img = null
+  if owner.metafields.custom.guide_hero_image != blank
+    assign hero_img = owner.metafields.custom.guide_hero_image.value
+  elsif article.image != blank
+    assign hero_img = article.image
+  endif
+
+  comment
+    CTA is per-guide: owner metafields override the section defaults. Section
+    settings alone are template-global, so without this every guide on the
+    template would share one CTA.
+  endcomment
+  assign cta_heading = owner.metafields.custom.guide_cta_heading.value | default: section.settings.cta_heading
+  assign cta_text = owner.metafields.custom.guide_cta_text.value | default: section.settings.cta_text
+  assign cta_link = owner.metafields.custom.guide_cta_link.value | default: section.settings.cta_link
+  assign cta_label = owner.metafields.custom.guide_cta_label.value | default: section.settings.cta_label
+-%}
+
+<article class="guide">
+  <div class="guide__wrap">
+
+    <header class="guide__head">
+      {%- if section.settings.show_breadcrumb -%}
+        <nav class="guide__crumbs" aria-label="Breadcrumb">
+          <a href="{{ routes.root_url }}">Home</a>
+          {%- if article and blog -%}
+            <span aria-hidden="true"> / </span>
+            <a href="{{ blog.url }}">{{ blog.title | escape }}</a>
+          {%- endif -%}
+          <span aria-hidden="true"> / </span>
+          <span aria-current="page">{{ owner.title | escape }}</span>
+        </nav>
+      {%- endif -%}
+      <h1 class="guide__h1">{{ owner.title | escape }}</h1>
+      {%- if article and article.author != blank -%}
+        <p class="guide__meta">
+          <span class="guide__meta-author">{{ article.author | escape }}</span>
+          {%- if article.published_at -%}
+            <span class="guide__meta-sep" aria-hidden="true">&middot;</span>
+            <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%B %-d, %Y' }}</time>
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+    </header>
+
+    {%- if hero_img != blank -%}
+      <div class="guide__hero">
+        <img src="{{ hero_img | image_url: width: 1400 }}"
+             srcset="{{ hero_img | image_url: width: 700 }} 700w, {{ hero_img | image_url: width: 1100 }} 1100w, {{ hero_img | image_url: width: 1400 }} 1400w"
+             sizes="(min-width: 72rem) 72rem, 100vw"
+             alt="{{ hero_img.alt | default: owner.title | escape }}"
+             width="1400" height="788" loading="eager" fetchpriority="high">
+      </div>
+    {%- endif -%}
+
+    <div class="guide__grid">
+      <nav class="guide__toc" data-guide-toc aria-label="On this page" hidden>
+        <p class="guide__toc-title">On this page</p>
+      </nav>
+
+      <div class="guide__body">
+        {%- comment -%} Quick Answer leads the prose, rendered only when custom.guide_quick_answer has content, fully absent when empty. {%- endcomment -%}
+        {%- if gquick != blank -%}
+          <aside class="guide__quick" aria-label="Quick answer">
+            <p class="guide__quick-title">Quick answer</p>
+            <div class="guide__quick-body">{{ gquick | escape | newline_to_br }}</div>
+          </aside>
+        {%- endif -%}
+        {%- if gbody != blank -%}
+          {{ gbody.value }}
+        {%- else -%}
+          <p>This guide has no content yet. Add the guide HTML to the metafield <code>custom.guide_body</code>.</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} Up to 3 other posts in this blog that share a tag with this one. Paginated so it scans the whole blog, not just the newest page, since a related post is often older. Absent when none match. {%- endcomment -%}
+    {%- if article and blog and article.tags.size > 0 -%}
+      {%- assign related_shown = 0 -%}
+      {%- assign related_cards = '' -%}
+      {%- paginate blog.articles by 250 -%}
+        {%- for post in blog.articles -%}
+          {%- if related_shown >= 3 -%}{%- break -%}{%- endif -%}
+          {%- unless post.id == article.id -%}
+            {%- assign is_related = false -%}
+            {%- for t in article.tags -%}
+              {%- if post.tags contains t -%}{%- assign is_related = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+            {%- if is_related -%}
+              {%- capture one_card -%}<a class="guide__related-card" href="{{ post.url }}">{%- if post.image -%}<img src="{{ post.image | image_url: width: 480 }}" alt="{{ post.image.alt | default: post.title | escape }}" width="480" height="270" loading="lazy">{%- endif -%}<span class="guide__related-body"><span class="guide__related-card-title">{{ post.title | escape }}</span></span></a>{%- endcapture -%}
+              {%- assign related_cards = related_cards | append: one_card -%}
+              {%- assign related_shown = related_shown | plus: 1 -%}
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endpaginate -%}
+      {%- if related_shown > 0 -%}
+        <section class="guide__related" aria-label="Related guides">
+          <h2 class="guide__related-title">Related guides</h2>
+          <div class="guide__related-grid">{{ related_cards }}</div>
+        </section>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if cta_heading != blank -%}
+      <aside class="guide__cta">
+        <h2>{{ cta_heading | escape }}</h2>
+        {%- if cta_text != blank -%}<p>{{ cta_text | escape }}</p>{%- endif -%}
+        {%- if cta_link != blank and cta_label != blank -%}
+          <a class="guide__btn" href="{{ cta_link }}">{{ cta_label | escape }}</a>
+        {%- endif -%}
+      </aside>
+    {%- endif -%}
+
+  </div>
+</article>
+
+{%- comment -%} No Article/BlogPosting JSON-LD here: Skyward's schema.liquid already emits a BlogPosting for every article globally, so emitting one here would duplicate it. {%- endcomment -%}
+
+{% schema %}
+{
+  "name": "PRC Guide",
+  "settings": [
+    { "type": "checkbox", "id": "show_breadcrumb", "label": "Show breadcrumb", "default": true },
+    { "type": "header", "content": "Closing CTA (guide metafields override these)" },
+    { "type": "text", "id": "cta_heading", "label": "CTA heading" },
+    { "type": "text", "id": "cta_text", "label": "CTA text" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "text", "id": "cta_label", "label": "CTA button label" }
+  ],
+  "presets": [ { "name": "PRC Guide" } ]
+}
+{% endschema %}
