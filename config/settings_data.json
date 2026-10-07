@@ -349,6 +349,19 @@
         "type": "shopify://apps/google-ads-pixel-by-nabu/blocks/script-block/1bff1da5-e804-4d5d-ad9c-7c3540bdf531",
         "disabled": false,
         "settings": {}
+      },
+      "17848331911275895266": {
+        "type": "shopify://apps/revenuehunt-product-quiz-maker/blocks/v2-automatic-popup/672f3d48-fd3b-4227-8778-c6e58c4f8a98",
+        "disabled": false,
+        "settings": {
+          "popup_timeout": 10,
+          "quiz_width": "90",
+          "quiz_height": "80",
+          "quiz_z_index": 9999,
+          "popup_close_color": "#777777",
+          "quiz_exit_intent": false,
+          "quiz_id": "d9LpIk"
+        }
       }
     }
   },
