@@ -352,11 +352,11 @@
       },
       "17848331911275895266": {
         "type": "shopify://apps/revenuehunt-product-quiz-maker/blocks/v2-automatic-popup/672f3d48-fd3b-4227-8778-c6e58c4f8a98",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "popup_timeout": 10,
-          "quiz_width": "90",
-          "quiz_height": "80",
+          "quiz_width": "80",
+          "quiz_height": "70",
           "quiz_z_index": 9999,
           "popup_close_color": "#777777",
           "quiz_exit_intent": false,
