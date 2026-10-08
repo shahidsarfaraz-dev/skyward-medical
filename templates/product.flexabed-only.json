@@ -168,23 +168,6 @@
     },
     "1791391932512745e1": {
       "type": "apps",
-      "blocks": {
-        "revenuehunt_product_quiz_maker_v2_automatic_popup_block_tN93ay": {
-          "type": "shopify://apps/revenuehunt-product-quiz-maker/blocks/v2-automatic-popup-block/672f3d48-fd3b-4227-8778-c6e58c4f8a98",
-          "settings": {
-            "popup_timeout": 15,
-            "quiz_width": "70",
-            "quiz_height": "80",
-            "quiz_z_index": 9999,
-            "popup_close_color": "#777777",
-            "quiz_exit_intent": false,
-            "quiz_id": "d9LpIk"
-          }
-        }
-      },
-      "block_order": [
-        "revenuehunt_product_quiz_maker_v2_automatic_popup_block_tN93ay"
-      ],
       "settings": {
         "include_margins": true
       }
