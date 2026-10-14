@@ -119,14 +119,6 @@
         "include_margins": true
       }
     },
-    "1d2d26bc-0af6-407a-916b-b128b3047c0c": {
-      "type": "custom-liquid",
-      "settings": {
-        "title": "",
-        "include_margins": true,
-        "liquid": "<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n</div>"
-      }
-    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -146,7 +138,6 @@
     "main",
     "custom_liquid_9WigV4",
     "1669343322767881e2",
-    "1d2d26bc-0af6-407a-916b-b128b3047c0c",
     "product-recommendations",
     "170370457993485f67"
   ]
