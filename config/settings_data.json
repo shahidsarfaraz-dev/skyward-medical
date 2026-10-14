@@ -138,7 +138,7 @@
         "settings": {
           "enable_sticky_header": false,
           "logo": "shopify://shop_images/sky_blue_dd34166b-0a8c-4604-8cba-9f70cbb1a3a9.png",
-          "logo_max_width": 160,
+          "logo_max_width": 150,
           "mobile_logo_max_width": 90,
           "show_locale_selector": true,
           "show_country_selector": false,
@@ -146,7 +146,7 @@
           "navigation_mobile_menu": "",
           "desktop_navigation_layout": "inline",
           "desktop_navigation_open_trigger": "hover",
-          "desktop_header_contact_info": "<p>(855) 244-4712 </p><p>Mon-Sat | 9AM-5PM CST</p>",
+          "desktop_header_contact_info": "<p>(855) 244-4712&nbsp;</p><p>Mon-Sat | 9AM-5PM CST</p>",
           "show_navigation_social_media": false,
           "navigation_phone_number": "(855) 244-4712",
           "navigation_phone_timeDate": "Mon-Sat 9:00am-5:00pm",
