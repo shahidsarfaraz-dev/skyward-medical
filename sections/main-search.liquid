@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 {%- comment -%}We start by creating a lot of useful variables !{%- endcomment -%}
 
 {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
@@ -117,13 +125,13 @@
                                   <ul class="collection__filter-linklist" role="list">
                                     {%- for sub_link in link.links -%}
                                       <li>
-                                        <a href="{{ sub_link.url }}" class="collection__filter-link link link--primary">{{ sub_link.title }} {% if sub_link.type == 'collection_link' %}({{ sub_link.object.products_count }}){% endif %}</a>
+                                        <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary">{{ sub_link.title }} {% if sub_link.type == 'collection_link' %}({{ sub_link.object.products_count }}){% endif %}</a>
                                       </li>
                                     {%- endfor -%}
                                   </ul>
                                 </div>
                               {%- else -%}
-                                <a href="{{ link.url }}" class="collection__filter-link link link--primary">{{ link.title }} {% if link.type == 'collection_link' %}({{ link.object.products_count }}){% endif %}</a>
+                                <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary">{{ link.title }} {% if link.type == 'collection_link' %}({{ link.object.products_count }}){% endif %}</a>
                               {%- endif -%}
                             </li>
                           {%- endfor -%}
@@ -573,20 +581,20 @@
                                       <ul class="collection__filter-linklist" role="list">
                                         {%- for sub_sub_link in sub_link.links -%}
                                           <li>
-                                            <a href="{{ sub_sub_link.url }}" class="collection__filter-link link link--primary {% if sub_sub_link.active %}is-active{% endif %}">{{ sub_sub_link.title }} {% if sub_sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_sub_link.object.products_count }}){% endif %}</a>
+                                            <a href="{{ sub_sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if sub_sub_link.active %}is-active{% endif %}">{{ sub_sub_link.title }} {% if sub_sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_sub_link.object.products_count }}){% endif %}</a>
                                           </li>
                                         {%- endfor -%}
                                       </ul>
                                     </div>
                                   {%- else -%}
-                                    <a href="{{ sub_link.url }}" class="collection__filter-link link link--primary {% if sub_link.active %}is-active{% endif %}">{{ sub_link.title }} {% if sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_link.object.products_count }}){% endif %}</a>
+                                    <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if sub_link.active %}is-active{% endif %}">{{ sub_link.title }} {% if sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_link.object.products_count }}){% endif %}</a>
                                   {%- endif -%}
                                 </li>
                               {%- endfor -%}
                             </ul>
                           </div>
                         {%- else -%}
-                          <a href="{{ link.url }}" class="collection__filter-link link link--primary {% if link.active or link.child_active %}is-active{% endif %}">{{ link.title }} {% if link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ link.object.products_count }}){% endif %}</a>
+                          <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if link.active or link.child_active %}is-active{% endif %}">{{ link.title }} {% if link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ link.object.products_count }}){% endif %}</a>
                         {%- endif -%}
                       </li>
                     {%- endfor -%}

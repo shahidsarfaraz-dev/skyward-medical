@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 {%- assign mega_menus = section.blocks | map: 'settings' | map: 'menu_item' -%}
 
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
@@ -16,7 +24,7 @@
                   {{- link.title -}} {%- render 'icon', icon: 'arrow-right' -%}
                 </button>
               {%- else -%}
-                <a href="{{ link.url }}" class="mobile-menu__nav-link" data-type="menuitem">{{ link.title }}</a>
+                <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-link" data-type="menuitem">{{ link.title }}</a>
               {%- endif -%}
             </li>
           {%- endfor -%}
@@ -92,7 +100,7 @@
 
                   <div class="mobile-menu__nav-list-item">
                     {%- if sub_link.levels == 0 -%}
-                      <a href="{{ sub_link.url }}" class="mobile-menu__nav-list-toggle text--strong">{{ sub_link.title }}</a>
+                      <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-list-toggle text--strong">{{ sub_link.title }}</a>
                     {%- else -%}
                       <button class="mobile-menu__nav-list-toggle text--strong" aria-controls="{{ mobile_list_id }}" aria-expanded="false" data-action="toggle-collapsible" data-close-siblings="false">
                         {{- sub_link.title -}} {% render 'icon', icon: 'arrow-bottom' %}
@@ -103,7 +111,7 @@
                           <ul class="mobile-menu__nav" data-type="menu" role="list">
                             {%- for sub_sub_link in sub_link.links -%}
                               <li class="mobile-menu__nav-item">
-                                <a href="{{ sub_sub_link.url }}" class="mobile-menu__nav-link" data-type="menuitem">{{ sub_sub_link.title }}</a>
+                                <a href="{{ sub_sub_link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-link" data-type="menuitem">{{ sub_sub_link.title }}</a>
                               </li>
                             {%- endfor -%}
                           </ul>
@@ -290,7 +298,7 @@
             {%- else -%}
               <ul class="mobile-menu__nav" data-type="menu" role="list">
                 <li class="mobile-menu__nav-item">
-                  <a href="{{ link.url }}" class="mobile-menu__nav-link text--strong">{{ link.title }}</a>
+                  <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-link text--strong">{{ link.title }}</a>
                 </li>
 
                 {%- for sub_link in link.links -%}
@@ -302,7 +310,7 @@
                         {{- sub_link.title -}} {%- render 'icon', icon: 'arrow-right' -%}
                       </button>
                     {%- else -%}
-                      <a href="{{ sub_link.url }}" class="mobile-menu__nav-link" data-type="menuitem">{{ sub_link.title }}</a>
+                      <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-link" data-type="menuitem">{{ sub_link.title }}</a>
                     {%- endif -%}
                   </li>
                 {%- endfor -%}
@@ -332,12 +340,12 @@
                 <div class="mobile-menu__section">
                   <ul class="mobile-menu__nav" data-type="menu" role="list">
                     <li class="mobile-menu__nav-item">
-                      <a href="{{ sub_link.url }}" class="mobile-menu__nav-link text--strong">{{ sub_link.title }}</a>
+                      <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-link text--strong">{{ sub_link.title }}</a>
                     </li>
 
                     {%- for sub_sub_link in sub_link.links -%}
                       <li class="mobile-menu__nav-item">
-                        <a href="{{ sub_sub_link.url }}" class="mobile-menu__nav-link" data-type="menuitem">{{ sub_sub_link.title }}</a>
+                        <a href="{{ sub_sub_link.url | replace_first: menu_from, menu_to }}" class="mobile-menu__nav-link" data-type="menuitem">{{ sub_sub_link.title }}</a>
                       </li>
                     {%- endfor -%}
                   </ul>

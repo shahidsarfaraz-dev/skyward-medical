@@ -26,7 +26,7 @@
           {%- assign cta_tel = section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | remove: '.' -%}
           <a class="prc-help-cta__call" href="tel:{{ cta_tel }}">
             {%- render 'prc-chip-icon', icon: 'expert' -%}
-            <span>Call {{ section.settings.phone }}</span>
+            <span>{{ 'prc.collection.call_html' | t: phone: section.settings.phone }}</span>
           </a>
         {%- endif -%}
         {%- if section.settings.contact_label != blank and section.settings.contact_link != blank -%}

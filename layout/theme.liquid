@@ -44,12 +44,14 @@
     {% endif %}
     {% if (template contains "collection" and collection.handle == "all") or
     (template contains "collection" and collection.handle == "new") or
-    (canonical_url == "https://skywardmedical.com/collections") %}
+    (canonical_url == "https://skywardmedical.com/collections") or
+    (canonical_url == "https://skywardmedical.com/es/collections") %}
     <meta name="robots" content="noindex, follow">
     {% endif %}
 
     {% comment %} disturbed urls start xxxxxxxxxxxxxxxxxxxxxxxxxxxx {% endcomment %}
     {% assign url = request.path %}
+    {%- unless routes.root_url == '/' -%}{% assign url = url | remove_first: routes.root_url %}{%- endunless -%}
 
     {% assign noindex = false %}
 
@@ -93,7 +95,7 @@
     <meta name="robots" content="noindex, nofollow">
     {%- endif -%}
 
-    {% if request.path == '/account/login' %}
+    {% if url == '/account/login' %}
       <meta name="robots" content="noindex, nofollow">
     {% endif %}
 

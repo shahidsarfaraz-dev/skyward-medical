@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 {%- if section.settings.desktop_navigation_layout == 'condensed' -%}
   {%- assign is_condensed = true -%}
 {%- else -%}
@@ -45,13 +53,13 @@
         {%- capture mega_menu_columns -%}
           {%- for link in mega_menu.links -%}
             <div class="mega-menu__column">
-              <a href="{{ link.url }}" class="mega-menu__title heading">{{ link.title }}</a>
+              <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="mega-menu__title heading">{{ link.title }}</a>
 
               {%- if link.links.size > 0 -%}
                 <ul class="mega-menu__linklist" role="list">
                   {%- for sub_link in link.links -%}
                     <li class="mega-menu__item">
-                      <a href="{{ sub_link.url }}" class="mega-menu__link link">{{ sub_link.title }}</a>
+                      <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="mega-menu__link link">{{ sub_link.title }}</a>
                     </li>
                   {%- endfor -%}
                 </ul>

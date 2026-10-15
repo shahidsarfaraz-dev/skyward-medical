@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 <footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer" role="contentinfo">
   <div class="container">
     <div class="footer__wrapper">
@@ -36,7 +44,7 @@
                         <ul class="footer__linklist list--unstyled" role="list">
                           {%- for link in menu.links -%}
                             <li>
-                              <a href="{{ link.url }}" class="footer__link-item link">{{ link.title }}</a>
+                              <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="footer__link-item link">{{ link.title }}</a>
                             </li>
                           {%- endfor -%}
                         </ul>
@@ -60,7 +68,7 @@
                           <ul class="footer__linklist list--unstyled" role="list">
                             {%- for link in menu.links -%}
                               <li>
-                                <a href="{{ link.url }}" class="footer__link-item link">{{ link.title }}</a>
+                                <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="footer__link-item link">{{ link.title }}</a>
                               </li>
                             {%- endfor -%}
                           </ul>
@@ -82,7 +90,7 @@
                           <ul class="footer__linklist list--unstyled" role="list">
                             {%- for link in menu2.links -%}
                               <li>
-                                <a href="{{ link.url }}" class="footer__link-item link">{{ link.title }}</a>
+                                <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="footer__link-item link">{{ link.title }}</a>
                               </li>
                             {%- endfor -%}
                           </ul>

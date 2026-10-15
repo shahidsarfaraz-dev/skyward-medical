@@ -1,299 +1,283 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "meta": {
-      "tags": "Etiquetada \"{{ tags }}\"",
+      "tags": "Etiquetado como \"{{ tags }}\"",
       "page": "Página {{ page }}"
     },
-
     "accessibility": {
-      "skip_to_content": "Ir directamente al contenido",
+      "skip_to_content": "Saltar al contenido",
       "close": "Cerrar",
       "next": "Siguiente",
       "previous": "Anterior",
-      "new_window": "Abre en una nueva ventana.",
+      "new_window": "Se abre en una ventana nueva.",
       "star_reviews_info": "{{ rating_value }} de {{ rating_max }} estrellas"
     },
-
     "password": {
-      "enter_password": "Ingresar la contraseña",
+      "enter_password": "Ingresar con contraseña",
       "password_input": "Contraseña",
       "password_submit": "Entrar",
-      "newsletter_input": "Tu correo electrónico",
-      "newsletter_submit": "Notificarme",
-      "newsletter_success": "Gracias por suscribirte!",
-      "powered_by_html": "Tienda impulsada por {{shopify_link}}",
-      "login_title": "Eres el dueño de la tienda ?",
-      "login_link": "Conectarte",
-      "follow_us": "Síguenos"
+      "newsletter_input": "Su correo electrónico",
+      "newsletter_submit": "Avísenme",
+      "newsletter_success": "¡Gracias por suscribirse!",
+      "powered_by_html": " ",
+      "login_title": "¿Es usted el propietario de la tienda?",
+      "login_link": "Inicie sesión aquí",
+      "follow_us": "Síganos"
     },
-
     "pagination": {
       "previous_page": "Anterior",
       "next_page": "Siguiente",
-      "go_to_page": "Navegar a la página {{page}}",
-      "page_count": "Página {{current_page}} / {{pages}}"
+      "go_to_page": "Ir a la página {{page}}",
+      "page_count": "Página {{current_page}} de {{pages}}"
     },
-
     "breadcrumb": {
-      "title": "Navegación",
+      "title": "Ruta de navegación",
       "home": "Inicio",
       "account": "Mi cuenta"
     },
-
     "social": {
-      "follow_label": "Síguenos en {{social_media}}",
+      "follow_label": "Síganos en {{social_media}}",
       "facebook_share": "Compartir en Facebook",
-      "pinterest_pin": "Pin en Pinterest",
-      "twitter_tweet": "Tweet en Twitter",
-      "email_share": "Compartir por email"
+      "pinterest_pin": "Guardar en Pinterest",
+      "twitter_tweet": "Publicar en Twitter",
+      "email_share": "Compartir por correo electrónico"
     },
-
     "popup": {
-      "success": "! Te has registrado a la newsletter !",
-      "email_placeholder": "Tu email",
-      "subscribe": "Suscribir"
+      "success": "¡Ya está suscrito a nuestro boletín!",
+      "email_placeholder": "Su correo electrónico",
+      "subscribe": "Suscribirse"
     }
   },
-
   "header": {
     "general": {
       "country": "País/región",
       "language": "Idioma",
       "account": "Mi cuenta",
-      "login": "Iniciar sesión",
-      "welcome": "Hola {{first_name}}",
+      "login": "Iniciar sesión / Crear cuenta",
+      "welcome": "Hola, {{first_name}}",
       "cart": "Carrito"
     },
-
     "navigation": {
       "menu": "Menú",
       "open_menu": "Abrir menú",
       "back": "Atrás",
-      "need_help": "Necesitas ayuda?",
-      "follow_us": "Siguenos"
+      "need_help": "¿Tiene preguntas? Llámenos (atención en inglés)",
+      "follow_us": "Síganos"
     },
-
     "search": {
-      "open_search": "Abrir buscador",
+      "open_search": "Abrir búsqueda",
       "close_search": "Cerrar",
-      "clear": "Limpiar",
+      "clear": "Borrar",
       "input_placeholder": "Buscar...",
-      "all_categories": "Todas las categorias",
-      "no_results": "Ningún resultado encontrado",
+      "all_categories": "Todas las categorías",
+      "no_results": "No se encontraron resultados",
       "submit": "Buscar",
       "view_products": "Ver todos los productos",
-      "view_results": "Ver todos los resultads",
+      "view_results": "Ver todos los resultados",
       "products": "Productos",
-      "blog_posts": "Artículos",
+      "blog_posts": "Artículos del blog",
       "pages": "Páginas",
-      "blog_posts_and_pages": "Páginas & Artículos"
+      "blog_posts_and_pages": "Páginas y artículos del blog"
     }
   },
-
   "footer": {
     "general": {
       "country": "País/región",
       "language": "Idioma",
-      "follow_us": "Síguenos",
+      "follow_us": "Síganos",
       "we_accept": "Aceptamos"
     },
-
     "newsletter": {
-      "success": "¡ Te has registrado a la newsletter !",
-      "input": "Tu email",
-      "submit": "Suscribir"
+      "success": "¡Ya está suscrito a nuestro boletín!",
+      "input": "Su correo electrónico",
+      "submit": "Suscribirse"
     },
-
     "cookie_bar": {
-      "accept": "Acceptar",
-      "decline": "Declinar"
+      "accept": "Aceptar",
+      "decline": "Rechazar"
     }
   },
-
   "search": {
     "general": {
       "title": "Buscar",
-      "title_with_terms": "Resultados para \"{{terms}}\"",
+      "title_with_terms": "Resultados de búsqueda para \"{{terms}}\"",
       "products_with_terms": "Productos para \"{{terms}}\"",
-      "articles_with_terms": "Artículos para \"{{terms}}\"",
+      "articles_with_terms": "Artículos del blog para \"{{terms}}\"",
       "pages_with_terms": "Páginas para \"{{terms}}\"",
-      "pages_and_articles_with_terms": "Páginas y artículos para \"{{terms}}\"",
-      "content": "Usa la barra de búsqueda para encontrar productos:",
+      "pages_and_articles_with_terms": "Páginas y artículos del blog para \"{{terms}}\"",
+      "content": "Use la barra de búsqueda a continuación para encontrar productos:",
       "input_placeholder": "Buscar...",
-      "no_results_with_terms": "No se ha encontrado ningún resultado para \"{{terms}}\"",
-      "go_back_home": "o haz clic aquí para volver al página de inicio",
+      "no_results_with_terms": "No se encontraron resultados para \"{{terms}}\"",
+      "go_back_home": "o haga clic aquí para volver a la página de inicio",
       "results_count": {
-        "zero": "0 resultado",
+        "zero": "0 resultados",
         "one": "1 resultado",
         "other": "{{count}} resultados"
       },
       "showing_count": {
-        "zero": "Ningún resultado",
+        "zero": "No hay resultados",
         "one": "Mostrando {{offset}} - {{page_size}} de {{count}} resultado",
         "other": "Mostrando {{offset}} - {{page_size}} de {{count}} resultados"
       }
     }
   },
-
   "404": {
     "general": {
       "title": "Página no encontrada",
-      "content": "No se ha encontrado la página que estás buscando.",
-      "search": "Buscando en tienda...",
-      "continue_shopping": "Haz clic aquí para seguir comprando"
+      "content": "No pudimos encontrar la página que busca.",
+      "search": "Buscar en la tienda...",
+      "continue_shopping": "Haga clic aquí para seguir comprando"
     }
   },
-
   "home_page": {
     "onboarding": {
       "vendor_title": "Nombre de la marca",
       "product_title": "Nombre del producto",
       "product_sku": "SKU-1234",
-      "product_description": "Se puede usar una descripción del producto para mostrar las características y ventajas de su producto. Puede consultar el blog ecommerce de Shopify en busca de inspiración y consejos para comercializar adecuadamente sus productos.",
+      "product_description": "La descripción de un producto sirve para destacar sus características y ventajas. Puede consultar el blog de comercio electrónico de Shopify para encontrar inspiración y consejos sobre cómo promocionar bien sus productos.",
       "collection_title": "Nombre de la colección",
-      "article_title": "Nombre del artículo",
-      "article_author": "Escrito por",
+      "article_title": "Título del artículo",
+      "article_author": "Escrito por usted",
       "article_category": "Categoría",
-      "article_excerpt": "Aún no se ha publicado ningún artículo en tu tienda. Se puede usar un blog artículo hablar sobre lanzamientos de nuevos productos, sugerencias u otras noticias que desee compartir con sus clientes. Puede consultar el artículo de comercio electrónico de Shopify en busca de inspiración y consejos para su propia tienda y blog.",
-      "instagram_likes": "28 likes",
-      "instagram_caption": "Este es un ejemplo de título."
+      "article_excerpt": "Su tienda aún no ha publicado ningún artículo en el blog. Un blog sirve para hablar de lanzamientos de productos nuevos, consejos u otras novedades que quiera compartir con sus clientes. Puede consultar el blog de comercio electrónico de Shopify para encontrar inspiración y consejos para su propia tienda y blog.",
+      "instagram_likes": "28 me gusta",
+      "instagram_caption": "Este es un ejemplo de descripción."
     },
-
     "newsletter": {
-      "success": "¡ Te has registrado a la newsletter !",
-      "input": "Tu email",
+      "success": "¡Ya está suscrito a nuestro boletín!",
+      "input": "Su correo electrónico",
       "submit": "Suscribirse"
     }
   },
-
   "collection": {
     "general": {
       "all_collections": "Todas las colecciones",
       "all_products": "Todos los productos",
-      "view_more": "Ver mas",
+      "view_more": "Ver más",
       "view_less": "Ver menos",
       "brands": "Marcas",
-      "empty": "Esta colección esta vacía",
-      "empty_button": "Volver a la página principal",
-      "no_results": "Tus criterios no coinciden con ningún producto.",
+      "empty": "Esta colección está vacía",
+      "empty_button": "Ir a la página de inicio",
+      "no_results": "Ningún producto coincide con sus criterios.",
       "view_products": "Ver productos",
       "display": "Mostrar",
       "products_count": {
-        "zero": "{{count}} producto",
+        "zero": "{{count}} productos",
         "one": "{{count}} producto",
         "other": "{{count}} productos"
       },
       "results_count": {
-        "zero": "{{count}} resultado",
+        "zero": "{{count}} resultados",
         "one": "{{count}} resultado",
         "other": "{{count}} resultados"
       },
       "showing_count": {
-        "zero": "Ningún producto",
+        "zero": "No hay productos",
         "one": "Mostrando {{offset}} - {{page_size}} de {{count}} producto",
         "other": "Mostrando {{offset}} - {{page_size}} de {{count}} productos"
       },
       "page_size": "{{page_size}} por página"
     },
-
     "filter": {
-      "title": "Filtro",
-      "price_filter_from": "De",
-      "price_filter_to": "A",
+      "title": "Filtrar",
+      "price_filter_from": "Desde",
+      "price_filter_to": "Hasta",
       "show_filter": "Mostrar filtros",
-      "select_category": "Seleccionar una categoría",
+      "select_category": "Seleccione una categoría",
       "all": "Filtros",
-      "clear_all": "Limpiar todo",
-      "clear": "Limpiar",
+      "clear_all": "Borrar todo",
+      "clear": "Borrar",
       "view_results": "Ver resultados"
     },
-
     "sorting": {
       "title": "Ordenar por"
     },
-
     "layout": {
-      "title": "Ver",
-      "grid": "Mostrar productos como cuadrícula",
-      "list": "Mostrar productos como lista"
+      "title": "Vista",
+      "grid": "Ver productos en cuadrícula",
+      "list": "Ver productos en lista"
     },
-
     "product": {
       "from_price_html": "Desde {{price_min}}",
-      "add_to_cart": "Añadir al carrito",
+      "add_to_cart": "Agregar al carrito",
       "pre_order": "Reservar",
       "quick_view": "Vista rápida",
-      "choose_options": "Escoger opción",
+      "choose_options": "Elegir opciones",
       "sold_out": "Agotado",
       "in_stock": "Disponible",
-      "oversell_stock": "Pronto en stock",
-      "discount_html": "Ahorrar {{savings}}",
+      "oversell_stock": "Disponible pronto",
+      "discount_html": "Ahorre {{savings}}",
       "low_stock_with_quantity_count": {
         "one": "Solo queda {{count}} unidad",
         "other": "Solo quedan {{count}} unidades"
       },
       "in_stock_with_quantity_count": {
-        "one": "Disponible, {{count}} unidad",
-        "other": "Disponibles, {{count}} unidades"
+        "one": "Disponible: {{count}} unidad",
+        "other": "Disponible: {{count}} unidades"
       }
     }
   },
-
   "customer": {
     "general": {
       "my_account": "Mi cuenta",
       "orders": "Mis pedidos",
       "addresses": "Mis direcciones",
       "logout": "Cerrar sesión",
-      "no_orders": "Ningún pedido",
-      "no_orders_button": "Haz tu primer pedido"
+      "no_orders": "Aún no tiene pedidos",
+      "no_orders_button": "Haga su primer pedido"
     },
-
     "login": {
-      "login": "Conectarme a mi cuenta",
-      "description": "Ingresar tu e-mail y contraseña:",
-      "email": "Email",
+      "login": "Iniciar sesión en mi cuenta",
+      "description": "Ingrese su correo electrónico y contraseña:",
+      "email": "Correo electrónico",
       "password": "Contraseña",
-      "submit": "Entrar",
-      "new_customer": "¿ Nuevo cliente ?",
-      "create_your_account": "Crear cuenta",
-      "lost_password": "¿ Contraseña olvidada ?",
+      "submit": "Iniciar sesión",
+      "new_customer": "¿Es cliente nuevo?",
+      "create_your_account": "Cree su cuenta",
+      "lost_password": "¿Olvidó su contraseña?",
       "recover_password": "Recuperar contraseña"
     },
-
     "order": {
       "order": "Pedido",
       "order_number": "Pedido {{order_number}}",
       "back_to_orders": "Volver a los pedidos",
       "date": "Fecha",
-      "payment_status": "Estado de pago",
-      "fulfillment_status": "Estado de la preparación",
-      "back_to_account": "Volver à la cuenta",
-      "cancelled_at": "Pedido cancelado el {{date}}. Razón: {{reason}}.",
-      "fulfillment_with_url_and_number_html": "Todos los productos han sido enviados. Sigue el envío con el número {{tracking_number}} o haciendo <a href=\"{{tracking_url}}\" target=\"_blank\">clic aquí</a>.",
-      "fulfillment_with_url_html": "Todos los productos han sido enviados. Sigue el envío haciendo <a href=\"{{tracking_url}}\" target=\"_blank\">clic aquí</a>.",
-      "fulfillment_with_number_html": "Todos los productos han sido enviados. Sigue tu pedido con le número {{tracking_number}}.",
-      "fulfillment_html": "Todos tus productos han sido enviados.",
-      "line_fulfillment_with_url_and_number_html": "Este producto ha sido enviado. Sigue el envio con el número {{tracking_number}} o haciendo <a href=\"{{tracking_url}}\" target=\"_blank\">clic aquí</a>.",
-      "line_fulfillment_with_url_html": "Este producto ha sido enviado. Sigue el envío haciendo <a href=\"{{tracking_url}}\" target=\"_blank\">clic aquí</a>.",
-      "line_fulfillment_with_number_html": "Este producto ha sido enviado. Sigue tu pedido con le número {{tracking_number}}.",
-      "line_fulfillment_html": "Este producto ha sido enviado.",
+      "payment_status": "Estado del pago",
+      "fulfillment_status": "Estado del envío",
+      "back_to_account": "Volver a la cuenta",
+      "cancelled_at": "Pedido cancelado el {{date}}. Motivo: {{reason}}.",
+      "fulfillment_with_url_and_number_html": "Todos los productos ya se enviaron. Rastree el envío con el número {{tracking_number}} o <a href=\"{{tracking_url}}\" target=\"_blank\">haciendo clic aquí</a>.",
+      "fulfillment_with_url_html": "Todos los productos ya se enviaron. Rastree el envío <a href=\"{{tracking_url}}\" target=\"_blank\">haciendo clic aquí</a>.",
+      "fulfillment_with_number_html": "Todos los productos ya se enviaron. Rastree el envío con el número {{tracking_number}}.",
+      "fulfillment_html": "Todos los productos ya se enviaron.",
+      "line_fulfillment_with_url_and_number_html": "Este producto ya se envió. Rastree el envío con el número {{tracking_number}} o <a href=\"{{tracking_url}}\" target=\"_blank\">haciendo clic aquí</a>.",
+      "line_fulfillment_with_url_html": "Este producto ya se envió. Rastree el envío <a href=\"{{tracking_url}}\" target=\"_blank\">haciendo clic aquí</a>.",
+      "line_fulfillment_with_number_html": "Este producto ya se envió. Rastree el envío con el número {{tracking_number}}.",
+      "line_fulfillment_html": "Este producto ya se envió.",
       "product": "Producto",
       "quantity": "Cantidad",
-      "refunded_amount": "Refunded amount",
+      "refunded_amount": "Monto reembolsado",
       "total": "Total",
       "subtotal": "Subtotal",
       "discount": "Descuento",
-      "shipping": "Enviando",
-      "total_duties": "Deberes",
+      "shipping": "Envío",
+      "total_duties": "Aranceles",
       "tax_included": "Impuestos incluidos",
       "tax_excluded": "Impuestos no incluidos",
       "shipping_address": "Dirección de envío",
       "billing_address": "Dirección de facturación",
-      "no_billing_address": "No se requirió una dirección de facturación para este pedido.",
-      "no_shipping_address": "No se requirió una dirección de envío para este pedido."
+      "no_billing_address": "Este pedido no requería dirección de facturación.",
+      "no_shipping_address": "Este pedido no requería dirección de envío."
     },
-
     "activate_account": {
       "activate_account": "Activar cuenta",
       "description": "Ingrese una contraseña para crear su cuenta:",
@@ -302,238 +286,356 @@
       "submit": "Activar",
       "decline": "Rechazar"
     },
-
     "recover_password": {
       "recover_password": "Recuperar contraseña",
-      "description": "Introduce tu email:",
-      "email": "Email",
+      "description": "Ingrese su correo electrónico:",
+      "email": "Correo electrónico",
       "submit": "Recuperar",
-      "success": "Te hemos enviado un correo electrónico con instrucciones para restablecer tu contraseña.",
-      "remembered_your_password": "Recordar tu contraseña?",
-      "back_to_login": "Volver para iniciar sesión "
+      "success": "Le enviamos un correo electrónico con instrucciones para restablecer su contraseña.",
+      "remembered_your_password": "¿Recordó su contraseña?",
+      "back_to_login": "Volver a iniciar sesión"
     },
-
     "reset_password": {
-      "reset_password": "Restablecer la contraseña",
-      "description": "Introduzca una nueva contraseña:",
+      "reset_password": "Restablecer contraseña",
+      "description": "Ingrese una contraseña nueva:",
       "password": "Contraseña",
       "password_confirmation": "Confirmar contraseña",
       "submit": "Restablecer contraseña"
     },
-
     "addresses": {
-      "no_addresses": "Aún no hay direcciones",
-      "no_addresses_button": "Añade tu primera dirección",
-      "default_address": "Dirección por defecto",
+      "no_addresses": "Aún no tiene direcciones",
+      "no_addresses_button": "Agregue su primera dirección",
+      "default_address": "Dirección predeterminada",
       "address_number": "Dirección {{number}}",
-      "edit": "Modificar",
-      "delete": "Borrar",
-      "add_address": "Añadir una nueva dirección",
-      "edit_address": "Modificar dirección",
-      "form_subtitle": "Por favor complete la información a continuación:",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "add_address": "Agregar una dirección nueva",
+      "edit_address": "Editar dirección",
+      "form_subtitle": "Complete la siguiente información:",
       "first_name": "Nombre",
-      "last_name": "Apellidos",
+      "last_name": "Apellido",
       "company": "Empresa",
-      "address1": "Dirección 1",
-      "address2": "Dirección 2",
-      "city": "Cuidad",
+      "address1": "Dirección, línea 1",
+      "address2": "Dirección, línea 2",
+      "city": "Ciudad",
       "country": "País",
-      "province": "Provincia",
+      "province": "Estado/provincia",
       "zip": "Código postal",
       "phone": "Teléfono",
-      "set_default": "Establecer como dirección principal"
+      "set_default": "Establecer como dirección predeterminada"
     },
-
     "register": {
       "create_account": "Crear mi cuenta",
-      "description": "Por favor complete la información a continuación:",
+      "description": "Complete la siguiente información:",
       "first_name": "Nombre",
-      "last_name": "Apellidos",
-      "email": "Email",
+      "last_name": "Apellido",
+      "email": "Correo electrónico",
       "password": "Contraseña",
       "submit": "Crear mi cuenta",
-      "already_have_account": "¿ Ya tienes una cuenta ?",
-      "login": "Entrar aquí"
+      "already_have_account": "¿Ya tiene una cuenta?",
+      "login": "Inicie sesión aquí"
     }
   },
-
   "cart": {
     "general": {
       "title": "Mi carrito",
-      "empty": "Tu carrito esta vacío",
-      "empty_button": "Compra nuestros productos",
+      "empty": "Su carrito está vacío",
+      "empty_button": "Ver nuestros productos",
       "search": "Buscar...",
       "view_cart": "Ver carrito",
-      "note_title": "Instrucciones de pedido",
-      "edit_note": "Modificar",
+      "note_title": "Instrucciones para el pedido",
+      "edit_note": "Editar",
       "save_note": "Guardar",
-      "secure_payments": "Pago 100% seguro",
-      "free_shipping": "¡ Te regalamos los gastos de envío !",
-      "free_shipping_remaining_html": "¡ Gasta {{remaining_amount}} más y obtén envío gratis !",
-      "amount_saved_html": "¡ Has ahorrado {{amount_saved}} !",
-      "free": "¡ Gratis !",
-      "taxes_and_shipping_at_checkout": "Impuestos y gastos de envío calculados en la caja",
-      "taxes_and_shipping_policy_at_checkout_html": "Impuestos y <a href=\"{{ link }}\">gastos de envío<\/a> calculados en la caja",
-      "taxes_included_but_shipping_at_checkout": "Impuestos incluidos. Gastos de envío calculados en la caja",
-      "taxes_included_and_shipping_policy_html": "Impuestos incluidos. <a href=\"{{ link }}\">Gastos de envío<\/a> calculados en la caja",
+      "secure_payments": "Pagos 100% seguros",
+      "free_shipping": "¡Su pedido califica para envío gratis!",
+      "free_shipping_remaining_html": "¡Agregue {{remaining_amount}} más y obtenga envío gratis!",
+      "amount_saved_html": "¡Ahorró {{amount_saved}}!",
+      "free": " ",
+      "taxes_and_shipping_at_checkout": " ",
+      "taxes_and_shipping_policy_at_checkout_html": " ",
+      "taxes_included_but_shipping_at_checkout": " ",
+      "taxes_included_and_shipping_policy_html": " ",
       "total": "Total",
-      "checkout": "Caja"
+      "checkout": "Finalizar compra"
     },
-
     "items": {
       "decrease_quantity": "Disminuir la cantidad en 1",
       "increase_quantity": "Aumentar la cantidad en 1",
-      "no_more_stock": "No queda stock",
-      "remove": "Quitar"
+      "no_more_stock": "No hay más unidades disponibles",
+      "remove": "Eliminar"
     },
-
     "gift_wrap": {
       "price_html": "Solo {{price}}"
     },
-
     "shipping_estimator": {
-      "title": "Gasto estimado de envío",
+      "title": "Calcular envío",
       "country": "País",
-      "province": "Provincia",
+      "province": "Estado/provincia",
       "zip_code": "Código postal",
-      "estimate": "Estimación",
-      "no_results_title": "No se pudo encontrar envío para su dirección.",
-      "one_result_title": "Hay una tarifa de envío para su dirección :",
-      "multiple_results_title": "Hay {{count}} tarifas de envío para su dirección :",
-      "errors": "Hay algunos errores :"
+      "estimate": "Calcular",
+      "no_results_title": "No encontramos opciones de envío para su dirección.",
+      "one_result_title": "Hay una tarifa de envío para su dirección:",
+      "multiple_results_title": "Hay {{count}} tarifas de envío para su dirección:",
+      "errors": "Hay algunos errores:"
     }
   },
-
   "product": {
     "general": {
       "previous_product": "Anterior",
       "next_product": "Siguiente",
       "description": "Descripción",
       "sku": "SKU: ",
-      "share": "Comparte este producto",
+      "share": "Compartir este producto",
       "reviews": "Reseñas",
-      "regular_price": "Precio habitual",
-      "sale_price": "Precio de venta",
-      "view_in_space": "Ver en tu espacio",
-      "zoom": "Pasa el cursor sobre la imagen para ampliarla.",
-      "zoom_mobile": "Clic en la imagen para aumentar",
-      "view_more": "Ver mas",
+      "regular_price": "Precio regular",
+      "sale_price": "Precio de oferta",
+      "zoom": "Pase el cursor sobre la imagen para ampliarla",
+      "zoom_mobile": "Toque la imagen para ampliarla",
+      "view_in_space": "Ver en su espacio",
+      "view_more": "Ver más",
       "view_less": "Ver menos",
       "payment": "Métodos de pago",
       "security": "Seguridad",
-      "payment_notice": "Su información de pago se procesa de forma segura. No almacenamos los detalles de la tarjeta de crédito ni tenemos acceso a la información de su tarjeta de crédito.",
-      "estimate_shipping": "Gastos estimados de envío",
+      "payment_notice": "Su información de pago se procesa de forma segura. No guardamos los datos de su tarjeta de crédito ni tenemos acceso a ellos.",
+      "estimate_shipping": "Calcular envío",
       "refund_policy": "Política de reembolso",
       "include_taxes": "Impuestos incluidos",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">Gastos de envío<\/a> calculados en la caja",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">Envío calculado</a> al finalizar la compra",
       "reviews_count": {
-        "zero": "{{ count }} reseña",
+        "zero": "Sin reseñas",
         "one": "{{ count }} reseña",
         "other": "{{ count }} reseñas"
       }
     },
-
     "labels": {
       "sold_out": "Agotado"
     },
-
     "form": {
       "variant": "Variante",
       "price": "Precio",
-      "inventory": "Stock",
+      "inventory": "Existencias",
       "quantity": "Cantidad",
       "in_stock": "Disponible",
-      "oversell_stock": "Pronto en stock",
-      "incoming_stock": "Reaprovisionamiento en {{ next_incoming_date }}",
+      "oversell_stock": "Disponible pronto",
+      "incoming_stock": "Disponible de nuevo el {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Solo queda {{count}} unidad",
         "other": "Solo quedan {{count}} unidades"
       },
       "in_stock_with_quantity_count": {
-        "one": "Disponible ({{count}} unidad), lista para ser enviada",
-        "other": "Disponibles ({{count}} unidades), listas para ser enviadas"
+        "one": "Disponible ({{count}} unidad), listo para enviar",
+        "other": "Disponible ({{count}} unidades), listo para enviar"
       },
-      "add_to_cart": "Añadir al carrito",
+      "add_to_cart": "Agregar al carrito",
       "sold_out": "Agotado",
       "pre_order": "Reservar",
       "unavailable": "No disponible",
-      "contact_us": "Contactanos",
-      "added": "El producto ha sido añadido al carrito",
-      "added_short": "Añadido !"
+      "contact_us": "Contáctenos",
+      "added": "El producto se agregó a su carrito",
+      "added_short": "¡Agregado!"
     }
   },
-
   "store_availability": {
     "general": {
       "view_store_info": "Ver información de la tienda",
-      "check_other_stores": "Verificar disponibilidad en otras tiendas",
-      "pick_up_available": "Retiro disponible",
-      "pick_up_currently_unavailable": "Retiro no disponible actualmente",
-      "pick_up_available_at": "Retiro disponible en {{ location_name }}",
-      "pick_up_unavailable_at": "Retiro no disponible actualmente en {{ location_name }}"
+      "check_other_stores": "Consultar disponibilidad en otras tiendas",
+      "pick_up_available": "Disponible para recoger",
+      "pick_up_currently_unavailable": "Por el momento no está disponible para recoger",
+      "pick_up_available_at": "Disponible para recoger en {{ location_name }}",
+      "pick_up_unavailable_at": "Por el momento no está disponible para recoger en {{ location_name }}"
     }
   },
-
   "gift_card": {
     "issued": {
-      "subtext": "¡ Aquí está tu tarjeta de regalo !",
-      "disabled": "Su tarjeta de regalo está deshabilitada.",
-      "expired": "Su tarjeta de regalo caducó el {{expiry}}.",
-      "expires_on": "Caduca: {{expiry}}",
-      "redeem": "Use este código al momento de pagar para canjear su tarjeta de regalo:",
-      "remaining_amount": "{{amount}} restante",
-      "shop_link": "Empieza a comprar",
+      "subtext": "¡Aquí está su tarjeta de regalo!",
+      "disabled": "Su tarjeta de regalo está desactivada.",
+      "expired": "Su tarjeta de regalo venció el {{expiry}}.",
+      "expires_on": "Vence: {{expiry}}",
+      "redeem": "Use este código al finalizar la compra para canjear su tarjeta de regalo:",
+      "remaining_amount": "Saldo disponible: {{amount}}",
+      "shop_link": "Comenzar a comprar",
       "print": "Imprimir",
-      "add_to_apple_wallet": "Añadir a Apple Wallet"
+      "add_to_apple_wallet": "Agregar a Apple Wallet"
     }
   },
-
   "blog": {
     "general": {
-      "empty": "Este blog no tiene artículos.",
+      "empty": "Este blog no tiene artículos",
       "empty_button": "Ir a la página de inicio",
       "categories": "Categorías",
-      "all_tag": "Todas"
+      "all_tag": "Todos"
     },
-
     "article": {
-      "tags": "Tags :",
+      "tags": "Etiquetas:",
       "written_by": "{{author}}",
       "share": "Compartir",
       "previous_article": "Artículo anterior",
       "next_article": "Artículo siguiente",
       "comments_count": {
-        "zero": "{{count}} comentario",
+        "zero": "{{count}} comentarios",
         "one": "{{count}} comentario",
         "other": "{{count}} comentarios"
       }
     },
-
     "comments": {
-      "leave_comment": "Deja un comentario",
+      "leave_comment": "Deje un comentario",
       "name": "Nombre",
-      "email": "Email",
-      "content": "Contenido",
-      "approval_notice": "Todos los comentarios son moderados antes de ser publicados",
+      "email": "Correo electrónico",
+      "content": "Comentario",
+      "approval_notice": "Todos los comentarios se revisan antes de publicarse",
       "submit": "Publicar comentario",
-      "success": "Tu comentario ha sido publicado.",
-      "success_moderated": "¡ Tu comentario ha sido enviado. Será visible una vez que el dueño de la tienda lo haya aceptado !"
+      "success": "Su comentario se publicó.",
+      "success_moderated": "Su comentario se envió. Será visible cuando el propietario de la tienda lo apruebe."
     }
   },
-
   "contact": {
     "form": {
-      "name": "Tu nombre",
-      "email": "Tu email",
-      "message": "Tu mensaje",
-      "submit": "Enviar mesaje",
-      "successfully_sent": "Tu mensaje ha sido enviado con éxito."
+      "name": "Su nombre",
+      "email": "Su correo electrónico",
+      "message": "Su mensaje",
+      "submit": "Enviar mensaje",
+      "successfully_sent": "Su mensaje se envió correctamente."
     }
   },
-
   "date_formats": {
-    "month_day_year": "%d %B %Y",
-    "short_month_day_year": "%d/%B/%Y",
-    "month_day_year_time": "%d %B %Y, %I:%M"
+    "month_day_year": "%d de %B de %Y",
+    "short_month_day_year": "%d %b %Y",
+    "month_day_year_time": "%d de %B de %Y a las %H:%M"
+  },
+  "shopify": {
+    "links": {
+      "powered_by_shopify": " "
+    },
+    "checkout": {
+      "order_summary": {
+        "estimated_taxes_label": "Impuesto sobre las ventas",
+        "information_estimated_taxes_label": "Impuesto sobre las ventas",
+        "enter_shipping_address": " ",
+        "shipping_label": " Envío",
+        "shipping_policy_link": " ",
+        "calculating": " ",
+        "free_total_label": " ",
+        "vat_label_html": " ",
+        "estimated_taxes_finalization_tooltip_content": "Impuesto sobre las ventas calculado para Texas"
+      },
+      "shipping": {
+        "title": " ",
+        "free_rate_label": " "
+      },
+      "shop_policies": {
+        "shipping_policy": " "
+      },
+      "payment_summary": {
+        "free_label": " "
+      },
+      "delivery_options": {
+        "free_total_label": " "
+      }
+    }
+  },
+  "customer_accounts": {
+    "order_details": {
+      "shipping": {
+        "free": " "
+      }
+    }
+  },
+  "prc": {
+    "landing": {
+      "kicker": "Suministro de equipos para organizaciones de cuidado",
+      "heading": "Camas médicas especializadas y equipos para organizaciones sin fines de lucro y centros de cuidado residencial",
+      "call_html": "Llame al {{ phone }} (atención en inglés)",
+      "lead_html": "<p>Suministramos camas, superficies terapéuticas y grúas para pacientes a organizaciones sin fines de lucro, hogares grupales y comunidades de cuidado a largo plazo, con el respaldo de un especialista asignado y acceso a fabricantes líderes.</p>",
+      "request_quote": "Solicitar una cotización",
+      "hero_alt": "Una cama ajustable ultrabaja en un dormitorio para cuidado en el hogar",
+      "hero_tag": "Compre directo. Sin facturación al seguro.",
+      "specialist": "Especialista de producto asignado",
+      "manufacturers": "Acceso a fabricantes líderes",
+      "pricing": "Precios para varias camas y varias ubicaciones",
+      "tax": "Asistencia con compras exentas de impuestos",
+      "supply_h": "Equipos para cada nivel de cuidado",
+      "supply_p": "Ya sea que atienda a niños, adultos o personas mayores, suministramos equipos para diversas necesidades de cuidado clínico y residencial.",
+      "safety_h": "Camas de seguridad especializadas",
+      "safety_p": "Para residentes con discapacidades del desarrollo, problemas de conducta, autismo o trastornos convulsivos que necesitan un entorno seguro para dormir.",
+      "safety_go": "Ver camas de seguridad",
+      "hilow_h": "Camas de altura ajustable (hi-low)",
+      "hilow_p": "Mejore la ergonomía de los cuidadores, reduzca el riesgo de caídas y haga que los traslados sean más seguros y fáciles.",
+      "hilow_go": "Ver camas de altura ajustable",
+      "home_h": "Camas para cuidado a largo plazo y cuidado en el hogar",
+      "home_p": "Camas confiables para el uso diario en comunidades residenciales y centros de cuidado a largo plazo.",
+      "home_go": "Ver camas para cuidado en el hogar",
+      "matt_h": "Colchones terapéuticos",
+      "matt_p": "Superficies de redistribución de presión, presión alterna y baja pérdida de aire que brindan comodidad y ayudan a reducir el riesgo de lesiones por presión.",
+      "matt_go": "Ver colchones",
+      "lift_h": "Grúas para pacientes",
+      "lift_p": "Grúas de uso pesado diseñadas para mayores capacidades de peso sin comprometer la seguridad ni la comodidad.",
+      "lift_go": "Ver grúas para pacientes",
+      "talk_h": "¿No está seguro de qué le conviene?",
+      "talk_p": "Cuéntenos sobre sus residentes y su espacio, y un especialista le recomendará el equipo adecuado.",
+      "talk_go": "Hable con un especialista (atención en inglés)",
+      "why_h": "Por qué las organizaciones se asocian con Skyward Medical",
+      "why_p": "Trabajamos con una amplia gama de fabricantes de confianza; por eso recomendamos equipos según las necesidades de sus residentes, el flujo de trabajo de sus cuidadores y su presupuesto, no según cuotas de venta.",
+      "program_h": "Nuestro programa de socios para cuidado residencial",
+      "multi_manuf": "Acceso a varios fabricantes líderes",
+      "personal": "Recomendaciones de productos personalizadas",
+      "pricing_large": "Precios para varias camas y varias ubicaciones en proyectos más grandes",
+      "simple_h": "Compras simplificadas",
+      "simple_p": "Pensado para organizaciones, no para la facturación al seguro. Trabajamos directamente con organizaciones sin fines de lucro, proveedores de cuidado residencial, escuelas, centros de salud y agencias gubernamentales. No facturamos a Medicare, Medicaid ni a seguros privados, y muchas organizaciones prefieren comprar directamente porque significa:",
+      "faster": "Pedidos más rápidos sin demoras por aprobación del seguro",
+      "wider": "Una mayor selección de equipos especializados",
+      "wholesale": "Precios al por mayor",
+      "quantity": "Descuentos por cantidad en proyectos más grandes",
+      "proj_h": "Equipos para cada proyecto",
+      "single_h": "Reemplazo individual",
+      "single_p": "Reemplace una cama desgastada o dañada por el equipo adecuado para las necesidades de su residente.",
+      "new_h": "Nueva residencia",
+      "new_p": "Equipe un nuevo hogar grupal o centro residencial con camas, colchones y equipos de movilidad.",
+      "multi_h": "Proyectos en varias ubicaciones",
+      "multi_p": "Coordine compras para varios hogares o centros con precios y recomendaciones personalizados.",
+      "serve_h": "A quiénes servimos",
+      "serve_p": "Apoyamos con orgullo a organizaciones como estas.",
+      "s1": "Hogares grupales residenciales",
+      "s2": "Proveedores de servicios para personas con discapacidades del desarrollo",
+      "s3": "Centros pediátricos de cuidado residencial",
+      "s4": "Organizaciones de vida comunitaria",
+      "s5": "Organizaciones religiosas sin fines de lucro",
+      "s6": "Comunidades de vida asistida",
+      "s7": "Centros de cuidado a largo plazo",
+      "s8": "Proveedores de enfermería especializada",
+      "s9": "Centros de rehabilitación",
+      "s10": "Organizaciones de cuidados de hospicio",
+      "commit_alt": "Un cuidador ayudando a un residente",
+      "commit_q": "Nuestro objetivo no es simplemente vender equipos. Es ser un socio de confianza a largo plazo para su organización.",
+      "commit_p": "Cada decisión de compra afecta a las personas a las que usted atiende. Nos comprometemos a ofrecer recomendaciones honestas, un servicio confiable y equipos de alta calidad que ayudan a crear entornos de vida más seguros y cómodos para residentes y cuidadores.",
+      "cta_h": "¿Desea comenzar la conversación?",
+      "cta_p": "Envíenos algunos detalles y un especialista preparará una cotización y recomendaciones para su organización.",
+      "c1": "Su organización",
+      "c2": "Número de residentes o camas que necesita",
+      "c3": "Equipos que está considerando",
+      "c4": "Número de ubicaciones"
+    },
+    "guide": {
+      "breadcrumb": "Ruta de navegación",
+      "home": "Inicio",
+      "toc": "En esta página",
+      "quick": "Respuesta rápida",
+      "related": "Guías relacionadas"
+    },
+    "collection": {
+      "shop_by_category": "Comprar por categoría",
+      "prev_categories": "Categorías anteriores",
+      "next_categories": "Categorías siguientes",
+      "read_more": "Leer más",
+      "read_less": "Leer menos",
+      "hero_alt": "Cuidadora ayudando a una mujer mayor que lee en una cama de hospital ajustable en casa",
+      "call_html": "Llame al {{ phone }} (atención en inglés)",
+      "image_label": "IMAGEN"
+    },
+    "product": {
+      "best_for_html": "Ideal para {{ value }}",
+      "view_details_for": "Ver detalles de {{ title }}",
+      "view_details": "Ver detalles",
+      "free_shipping": "ENVÍO GRATIS"
+    }
   }
 }

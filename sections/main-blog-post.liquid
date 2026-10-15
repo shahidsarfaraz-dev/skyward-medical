@@ -5,7 +5,7 @@
 
       {%- capture page_meta -%}
         {%- if section.settings.show_category and article.tags.size > 0 -%}
-          <span class="page__meta-item page__meta-item--category"><a href="/blogs/{{ blog.handle }}/tagged/{{ article.tags.first | handle }}" class="link">{{ article.tags.first }}</a></span>
+          <span class="page__meta-item page__meta-item--category"><a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="link">{{ article.tags.first }}</a></span>
         {%- endif -%}
 
         {%- if section.settings.show_author -%}
@@ -102,7 +102,7 @@
                   <span class="article__tag-label">{{ 'blog.article.tags' | t }}&nbsp;</span>
 
                   {%- for tag in article.tags -%}
-                    <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handle }}" class="link link--accented {% if settings.underline_links %}link--underline{% endif %}">{{ tag | capitalize }}</a>{%- unless forloop.last -%},&nbsp;{%- endunless -%}
+                    <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="link link--accented {% if settings.underline_links %}link--underline{% endif %}">{{ tag | capitalize }}</a>{%- unless forloop.last -%},&nbsp;{%- endunless -%}
                   {%- endfor -%}
                 </div>
               {%- endif -%}

@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 {%- comment -%}
 IMPLEMENTATION NOTE ABOUT MEGA MENUS: in Warehouse, on desktop, we have two different menu styles: one style where the first level is always
 visible, and a second style where the menu is displayed after hitting the "Menu" button.
@@ -50,10 +58,10 @@ always visible.
 
       <li class="nav-dropdown__item {% if is_mega_menu %}has-mega-menu{% endif %}">
         {%- if link.links.size == 0 -%}
-          <a href="{{ link.url }}" class="nav-dropdown__link link" data-type="menuitem">{{ link.title }}</a>
+          <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="nav-dropdown__link link" data-type="menuitem">{{ link.title }}</a>
         {%- else -%}
           {%- capture index_nested -%}{{ index }}-{% increment nav_dropdown %}{%- endcapture -%}
-          <a href="{{ link.url }}" class="nav-dropdown__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index_nested }}" aria-haspopup="true">{{- link.title -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
+          <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="nav-dropdown__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index_nested }}" aria-haspopup="true">{{- link.title -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
 
           {%- if is_mega_menu -%}
             {%- render 'mega-menu', is_floating: is_floating, mega_menu: link, index: index_nested -%}
@@ -64,18 +72,18 @@ always visible.
               {%- for sub_link in link.links -%}
                 <li class="nav-dropdown__item">
                   {%- if sub_link.links.size == 0 -%}
-                    <a href="{{ sub_link.url }}" class="nav-dropdown__link link" data-type="menuitem">{{ sub_link.title }}</a>
+                    <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="nav-dropdown__link link" data-type="menuitem">{{ sub_link.title }}</a>
                   {%- else -%}
                     {%- capture index_nested_nested -%}{{ index_nested }}-{% increment nav_dropdown_nested %}{%- endcapture -%}
 
-                    <a href="{{ sub_link.url }}" class="nav-dropdown__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index_nested_nested }}" aria-haspopup="true">{{- sub_link.title -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
+                    <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="nav-dropdown__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index_nested_nested }}" aria-haspopup="true">{{- sub_link.title -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
 
                     <ul id="{{ index_nested_nested }}" class="nav-dropdown {% if is_floating %}nav-dropdown--floating{% endif %}" data-type="menu" aria-hidden="true" role="list">
                       {%- render 'icon', icon: 'nav-triangle-left' -%}
 
                       {%- for sub_sub_link in sub_link.links -%}
                         <li class="nav-dropdown__item">
-                          <a href="{{ sub_sub_link.url }}" class="nav-dropdown__link link" data-type="menuitem">{{ sub_sub_link.title }}</a>
+                          <a href="{{ sub_sub_link.url | replace_first: menu_from, menu_to }}" class="nav-dropdown__link link" data-type="menuitem">{{ sub_sub_link.title }}</a>
                         </li>
                       {%- endfor -%}
                     </ul>

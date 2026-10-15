@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 {%- comment -%}We start by creating a lot of useful variables !{%- endcomment -%}
 {% style %}
   .inner_lower_main h2 {
@@ -113,7 +121,7 @@
 
                 {% unless level1.url == '#' %}
                   <li class="breadcrumb__item">
-                    <a class="breadcrumb__link link" href="{{ level1.url }}">
+                    <a class="breadcrumb__link link" href="{{ level1.url | replace_first: menu_from, menu_to }}">
                       {{ level1.title }}
                     </a>
                     {%- render 'icon'
@@ -139,7 +147,7 @@
 
                   {% unless level1.url == '#' %}
                     <li class="breadcrumb__item">
-                      <a class="breadcrumb__link link" href="{{ level1.url }}">
+                      <a class="breadcrumb__link link" href="{{ level1.url | replace_first: menu_from, menu_to }}">
                         {{ level1.title }}
                       </a>
                       {%- render 'icon'
@@ -148,7 +156,7 @@
                   {% endunless %}
 
                   <li class="breadcrumb__item">
-                    <a class="breadcrumb__link link" href="{{ level2.url }}">
+                    <a class="breadcrumb__link link" href="{{ level2.url | replace_first: menu_from, menu_to }}">
                       {{ level2.title }}
                     </a>
                     {%- render 'icon'
@@ -241,7 +249,7 @@
 
               {%- if allow_collapse_description -%}
                 <button class="promo-read-more-btn js-read-more" type="button">
-                  Read more
+                  {{ 'prc.collection.read_more' | t }}
                 </button>
               {%- endif -%}
 
@@ -281,7 +289,7 @@
 
           {%- comment -%} Redesign hero image: fills the right side of the banner. Only renders when the collection has custom.hero_image set, so other collections are untouched. {%- endcomment -%}
           {%- if section.settings.enable_redesign_layout and collection.metafields.custom.hero_image != blank -%}
-            <img class="prc-hero-img" src="{{ collection.metafields.custom.hero_image }}" alt="Caregiver assisting a senior woman reading in an adjustable hospital bed at home" width="1400" height="781" loading="eager" fetchpriority="high">
+            <img class="prc-hero-img" src="{{ collection.metafields.custom.hero_image }}" alt="{{ 'prc.collection.hero_alt' | t | escape }}" width="1400" height="781" loading="eager" fetchpriority="high">
           {%- endif -%}
         </div>
       {%- endpaginate -%}
@@ -370,7 +378,7 @@
                                     <ul class="collection__filter-linklist" role="list">
                                       {%- for sub_sub_link in sub_link.links -%}
                                         <li>
-                                          <a href="{{ sub_sub_link.url }}" class="collection__filter-link link link--primary {% if sub_sub_link.active %}is-active{% endif %}">{{ sub_sub_link.title }}
+                                          <a href="{{ sub_sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if sub_sub_link.active %}is-active{% endif %}">{{ sub_sub_link.title }}
                                             {% if sub_sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_sub_link.object.products_count }}){% endif %}
                                           </a>
                                         </li>
@@ -378,7 +386,7 @@
                                     </ul>
                                   </div>
                                 {%- else -%}
-                                  <a href="{{ sub_link.url }}" class="collection__filter-link link link--primary {% if sub_link.active %}is-active{% endif %}">{{ sub_link.title }}
+                                  <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if sub_link.active %}is-active{% endif %}">{{ sub_link.title }}
                                     {% if sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_link.object.products_count }}){% endif %}
                                   </a>
                                 {%- endif -%}
@@ -387,7 +395,7 @@
                           </ul>
                         </div>
                       {%- else -%}
-                        <a href="{{ link.url }}" class="collection__filter-link link link--primary {% if link.active %}is-active{% endif %}">{{ link.title }}
+                        <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if link.active %}is-active{% endif %}">{{ link.title }}
                           {% if link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ link.object.products_count }}){% endif %}
                         </a>
                       {%- endif -%}
@@ -1240,7 +1248,7 @@
                                       <ul class="collection__filter-linklist" role="list">
                                         {%- for sub_sub_link in sub_link.links -%}
                                           <li>
-                                            <a href="{{ sub_sub_link.url }}" class="collection__filter-link link link--primary {% if sub_sub_link.active %}is-active{% endif %}">{{ sub_sub_link.title }}
+                                            <a href="{{ sub_sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if sub_sub_link.active %}is-active{% endif %}">{{ sub_sub_link.title }}
                                               {% if sub_sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_sub_link.object.products_count }}){% endif %}
                                             </a>
                                           </li>
@@ -1248,7 +1256,7 @@
                                       </ul>
                                     </div>
                                   {%- else -%}
-                                    <a href="{{ sub_link.url }}" class="collection__filter-link link link--primary {% if sub_link.active %}is-active{% endif %}">{{ sub_link.title }}
+                                    <a href="{{ sub_link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if sub_link.active %}is-active{% endif %}">{{ sub_link.title }}
                                       {% if sub_link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ sub_link.object.products_count }}){% endif %}
                                     </a>
                                   {%- endif -%}
@@ -1257,7 +1265,7 @@
                             </ul>
                           </div>
                         {%- else -%}
-                          <a href="{{ link.url }}" class="collection__filter-link link link--primary {% if link.active or link.child_active %}is-active{% endif %}">{{ link.title }}
+                          <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="collection__filter-link link link--primary {% if link.active or link.child_active %}is-active{% endif %}">{{ link.title }}
                             {% if link.type == 'collection_link' and section.settings.quick_links_show_products_count %}({{ link.object.products_count }}){% endif %}
                           </a>
                         {%- endif -%}
@@ -1512,9 +1520,9 @@
     desc.classList.toggle("expanded");
   
     if(desc.classList.contains("expanded")){
-      btn.textContent = "Read less";
+      btn.textContent = {{ 'prc.collection.read_less' | t | json }};
     } else {
-      btn.textContent = "Read more";
+      btn.textContent = {{ 'prc.collection.read_more' | t | json }};
     }
   
   });

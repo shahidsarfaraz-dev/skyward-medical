@@ -28,7 +28,7 @@
               {%- if g_image -%}
                 {{ g_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '200, 300, 400, 600', alt: g_title | escape }}
               {%- else -%}
-                <span class="prc-guides__img-label">IMAGE</span>
+                <span class="prc-guides__img-label">{{ 'prc.collection.image_label' | t }}</span>
               {%- endif -%}
             </span>
             {%- if g_title != blank -%}

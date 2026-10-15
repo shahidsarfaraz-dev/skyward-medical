@@ -50,8 +50,8 @@
 
     <header class="guide__head">
       {%- if section.settings.show_breadcrumb -%}
-        <nav class="guide__crumbs" aria-label="Breadcrumb">
-          <a href="{{ routes.root_url }}">Home</a>
+        <nav class="guide__crumbs" aria-label="{{ 'prc.guide.breadcrumb' | t | escape }}">
+          <a href="{{ routes.root_url }}">{{ 'prc.guide.home' | t }}</a>
           {%- if article and blog -%}
             <span aria-hidden="true"> / </span>
             <a href="{{ blog.url }}">{{ blog.title | escape }}</a>
@@ -66,7 +66,7 @@
           <span class="guide__meta-author">{{ article.author | escape }}</span>
           {%- if article.published_at -%}
             <span class="guide__meta-sep" aria-hidden="true">&middot;</span>
-            <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%B %-d, %Y' }}</time>
+            <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
           {%- endif -%}
         </p>
       {%- endif -%}
@@ -83,15 +83,15 @@
     {%- endif -%}
 
     <div class="guide__grid">
-      <nav class="guide__toc" data-guide-toc aria-label="On this page" hidden>
-        <p class="guide__toc-title">On this page</p>
+      <nav class="guide__toc" data-guide-toc aria-label="{{ 'prc.guide.toc' | t | escape }}" hidden>
+        <p class="guide__toc-title">{{ 'prc.guide.toc' | t }}</p>
       </nav>
 
       <div class="guide__body">
         {%- comment -%} Quick Answer leads the prose, rendered only when custom.guide_quick_answer has content, fully absent when empty. {%- endcomment -%}
         {%- if gquick != blank -%}
-          <aside class="guide__quick" aria-label="Quick answer">
-            <p class="guide__quick-title">Quick answer</p>
+          <aside class="guide__quick" aria-label="{{ 'prc.guide.quick' | t | escape }}">
+            <p class="guide__quick-title">{{ 'prc.guide.quick' | t }}</p>
             <div class="guide__quick-body">{{ gquick | escape | newline_to_br }}</div>
           </aside>
         {%- endif -%}
@@ -124,8 +124,8 @@
         {%- endfor -%}
       {%- endpaginate -%}
       {%- if related_shown > 0 -%}
-        <section class="guide__related" aria-label="Related guides">
-          <h2 class="guide__related-title">Related guides</h2>
+        <section class="guide__related" aria-label="{{ 'prc.guide.related' | t | escape }}">
+          <h2 class="guide__related-title">{{ 'prc.guide.related' | t }}</h2>
           <div class="guide__related-grid">{{ related_cards }}</div>
         </section>
       {%- endif -%}

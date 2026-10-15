@@ -10,7 +10,11 @@
 {%- liquid
   assign phone = section.settings.phone | default: '(855) 244-4712'
   assign tel = phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | remove: '.'
-  assign quote_link = section.settings.quote_link | default: '/pages/contact'
+  assign contact_url = routes.root_url | append: '/pages/contact' | replace: '//', '/'
+  assign quote_link = section.settings.quote_link | default: contact_url
+  assign kicker_default = 'prc.landing.kicker' | t
+  assign heading_default = 'prc.landing.heading' | t
+  assign call_label = 'prc.landing.call_html' | t: phone: phone
   assign hero_fallback = 'https://cdn.shopify.com/s/files/1/0588/8016/3978/files/FrontViewOfTheAccoraFlorBedUltraLowAdjustableBedInAHomecareSetting_3811bf82-3473-41ed-987e-97ff99af8473.jpg?v=1786481202'
   assign commit_fallback = 'https://cdn.shopify.com/s/files/1/0588/8016/3978/files/Non_Profit_Page_Image.webp?v=1786481472'
 -%}
@@ -22,18 +26,18 @@
     <section class="sklp-hero">
       <div class="sklp-hero__grid">
         <div class="sklp-hero__text">
-          <span class="sklp-kicker">{{ section.settings.kicker | default: 'Equipment supply for care organizations' | escape }}</span>
-          <h1 class="sklp-hero__title">{{ section.settings.heading | default: 'Specialty medical beds and equipment for nonprofit and residential care' | escape }}</h1>
+          <span class="sklp-kicker">{{ section.settings.kicker | default: kicker_default | escape }}</span>
+          <h1 class="sklp-hero__title">{{ section.settings.heading | default: heading_default | escape }}</h1>
           <div class="sklp-hero__lead">
             {%- if section.settings.subtext != blank -%}
               {{ section.settings.subtext }}
             {%- else -%}
-              <p>We supply nonprofit organizations, group homes, and long-term care communities with beds, therapeutic surfaces, and lifts, backed by a dedicated specialist and access to leading manufacturers.</p>
+              {{ 'prc.landing.lead_html' | t }}
             {%- endif -%}
           </div>
           <div class="sklp-hero__actions">
-            <a class="sklp-btn sklp-btn--primary" href="{{ quote_link }}">Request a quote{% render 'sklp-arrow' %}</a>
-            <a class="sklp-btn sklp-btn--ghost" href="tel:{{ tel }}">Call {{ phone }}</a>
+            <a class="sklp-btn sklp-btn--primary" href="{{ quote_link }}">{{ 'prc.landing.request_quote' | t }}{% render 'sklp-arrow' %}</a>
+            <a class="sklp-btn sklp-btn--ghost" href="tel:{{ tel }}">{{ call_label }}</a>
           </div>
         </div>
         <div class="sklp-hero__figure">
@@ -41,23 +45,23 @@
             <img src="{{ section.settings.hero_image | image_url: width: 1100 }}"
                  srcset="{{ section.settings.hero_image | image_url: width: 640 }} 640w, {{ section.settings.hero_image | image_url: width: 900 }} 900w, {{ section.settings.hero_image | image_url: width: 1100 }} 1100w"
                  sizes="(min-width: 60rem) 46vw, 100vw"
-                 alt="An ultra low adjustable bed in a homecare bedroom" width="1100" height="825" loading="eager" fetchpriority="high">
+                 alt="{{ 'prc.landing.hero_alt' | t | escape }}" width="1100" height="825" loading="eager" fetchpriority="high">
           {%- else -%}
             <img src="{{ hero_fallback }}&width=1100"
                  srcset="{{ hero_fallback }}&width=640 640w, {{ hero_fallback }}&width=900 900w, {{ hero_fallback }}&width=1100 1100w"
                  sizes="(min-width: 60rem) 46vw, 100vw"
-                 alt="An ultra low adjustable bed in a homecare bedroom" width="1100" height="825" loading="eager" fetchpriority="high">
+                 alt="{{ 'prc.landing.hero_alt' | t | escape }}" width="1100" height="825" loading="eager" fetchpriority="high">
           {%- endif -%}
-          <span class="sklp-hero__tag"><span class="sklp-dot"></span>Buy direct. No insurance billing.</span>
+          <span class="sklp-hero__tag"><span class="sklp-dot"></span>{{ 'prc.landing.hero_tag' | t }}</span>
         </div>
       </div>
 
       <div class="sklp-strip sklp-reveal">
         <ul class="sklp-strip__row">
-          <li class="sklp-strip__item">{% render 'sklp-check' %}Dedicated product specialist</li>
-          <li class="sklp-strip__item">{% render 'sklp-check' %}Access to leading manufacturers</li>
-          <li class="sklp-strip__item">{% render 'sklp-check' %}Multi-bed and multi-location pricing</li>
-          <li class="sklp-strip__item">{% render 'sklp-check' %}Tax-exempt purchasing assistance</li>
+          <li class="sklp-strip__item">{% render 'sklp-check' %}{{ 'prc.landing.specialist' | t }}</li>
+          <li class="sklp-strip__item">{% render 'sklp-check' %}{{ 'prc.landing.manufacturers' | t }}</li>
+          <li class="sklp-strip__item">{% render 'sklp-check' %}{{ 'prc.landing.pricing' | t }}</li>
+          <li class="sklp-strip__item">{% render 'sklp-check' %}{{ 'prc.landing.tax' | t }}</li>
         </ul>
       </div>
     </section>
@@ -65,56 +69,56 @@
     {%- comment -%} 2. What we supply {%- endcomment -%}
     <section class="sklp-move">
       <header class="sklp-head sklp-reveal">
-        <h2>Equipment for every level of care</h2>
-        <p>Whether you support children, adults, or seniors, we supply equipment for a range of clinical and residential care needs.</p>
+        <h2>{{ 'prc.landing.supply_h' | t }}</h2>
+        <p>{{ 'prc.landing.supply_p' | t }}</p>
       </header>
       <div class="sklp-supply">
-        <a class="sklp-item sklp-reveal" data-d="1" href="/collections/pediatric-safety-beds">
+        <a class="sklp-item sklp-reveal" data-d="1" href="{{ routes.collections_url }}/pediatric-safety-beds">
           <span class="sklp-item__ic">{% render 'sklp-icon', icon: 'safety' %}</span>
           <span>
-            <h3>Specialty safety beds</h3>
-            <p>For residents with developmental disabilities, behavioral challenges, autism, or seizure disorders who need a secure sleeping environment.</p>
-            <span class="sklp-item__go">Browse safety beds</span>
+            <h3>{{ 'prc.landing.safety_h' | t }}</h3>
+            <p>{{ 'prc.landing.safety_p' | t }}</p>
+            <span class="sklp-item__go">{{ 'prc.landing.safety_go' | t }}</span>
           </span>
         </a>
-        <a class="sklp-item sklp-reveal" data-d="2" href="/collections/hi-low-beds">
+        <a class="sklp-item sklp-reveal" data-d="2" href="{{ routes.collections_url }}/hi-low-beds">
           <span class="sklp-item__ic">{% render 'sklp-icon', icon: 'hilow' %}</span>
           <span>
-            <h3>Hi-low adjustable beds</h3>
-            <p>Improve caregiver ergonomics, reduce fall risk, and make transfers safer and easier.</p>
-            <span class="sklp-item__go">Browse hi-low beds</span>
+            <h3>{{ 'prc.landing.hilow_h' | t }}</h3>
+            <p>{{ 'prc.landing.hilow_p' | t }}</p>
+            <span class="sklp-item__go">{{ 'prc.landing.hilow_go' | t }}</span>
           </span>
         </a>
-        <a class="sklp-item sklp-reveal" data-d="1" href="/collections/hospital-beds">
+        <a class="sklp-item sklp-reveal" data-d="1" href="{{ routes.collections_url }}/hospital-beds">
           <span class="sklp-item__ic">{% render 'sklp-icon', icon: 'homecare' %}</span>
           <span>
-            <h3>Long-term care and homecare beds</h3>
-            <p>Reliable beds for daily use in residential communities and long-term care settings.</p>
-            <span class="sklp-item__go">Browse homecare beds</span>
+            <h3>{{ 'prc.landing.home_h' | t }}</h3>
+            <p>{{ 'prc.landing.home_p' | t }}</p>
+            <span class="sklp-item__go">{{ 'prc.landing.home_go' | t }}</span>
           </span>
         </a>
-        <a class="sklp-item sklp-reveal" data-d="2" href="/collections/pressure-redistribution-mattresses">
+        <a class="sklp-item sklp-reveal" data-d="2" href="{{ routes.collections_url }}/pressure-redistribution-mattresses">
           <span class="sklp-item__ic">{% render 'sklp-icon', icon: 'mattress' %}</span>
           <span>
-            <h3>Therapeutic mattresses</h3>
-            <p>Pressure redistribution, alternating pressure, and low air loss surfaces that support comfort and help reduce the risk of pressure injuries.</p>
-            <span class="sklp-item__go">Browse mattresses</span>
+            <h3>{{ 'prc.landing.matt_h' | t }}</h3>
+            <p>{{ 'prc.landing.matt_p' | t }}</p>
+            <span class="sklp-item__go">{{ 'prc.landing.matt_go' | t }}</span>
           </span>
         </a>
-        <a class="sklp-item sklp-reveal" data-d="1" href="/collections/lift-for-elderly">
+        <a class="sklp-item sklp-reveal" data-d="1" href="{{ routes.collections_url }}/lift-for-elderly">
           <span class="sklp-item__ic">{% render 'sklp-icon', icon: 'lift' %}</span>
           <span>
-            <h3>Patient lifts</h3>
-            <p>Heavy-duty lifts built for higher weight capacities without compromising safety or comfort.</p>
-            <span class="sklp-item__go">Browse patient lifts</span>
+            <h3>{{ 'prc.landing.lift_h' | t }}</h3>
+            <p>{{ 'prc.landing.lift_p' | t }}</p>
+            <span class="sklp-item__go">{{ 'prc.landing.lift_go' | t }}</span>
           </span>
         </a>
         <a class="sklp-item sklp-item--talk sklp-reveal" data-d="2" href="{{ quote_link }}">
           <span class="sklp-item__ic">{% render 'sklp-icon', icon: 'chat' %}</span>
           <span>
-            <h3>Not sure what fits?</h3>
-            <p>Tell us about your residents and your space, and a specialist will recommend the right equipment.</p>
-            <span class="sklp-item__go sklp-item__go--accent">Talk to a specialist</span>
+            <h3>{{ 'prc.landing.talk_h' | t }}</h3>
+            <p>{{ 'prc.landing.talk_p' | t }}</p>
+            <span class="sklp-item__go sklp-item__go--accent">{{ 'prc.landing.talk_go' | t }}</span>
           </span>
         </a>
       </div>
@@ -123,28 +127,28 @@
     {%- comment -%} 3. Why partner: light + navy panels {%- endcomment -%}
     <section class="sklp-move">
       <header class="sklp-head sklp-reveal">
-        <h2>Why organizations partner with Skyward Medical</h2>
-        <p>We work with a wide range of trusted manufacturers, so we recommend equipment based on your residents' needs, your caregivers' workflow, and your budget, not sales quotas.</p>
+        <h2>{{ 'prc.landing.why_h' | t }}</h2>
+        <p>{{ 'prc.landing.why_p' | t }}</p>
       </header>
       <div class="sklp-why">
         <div class="sklp-panel sklp-panel--light sklp-reveal" data-d="1">
-          <h3>Our residential care partner program</h3>
+          <h3>{{ 'prc.landing.program_h' | t }}</h3>
           <ul class="sklp-list">
-            <li>{% render 'sklp-check' %}<span>Dedicated product specialist</span></li>
-            <li>{% render 'sklp-check' %}<span>Access to multiple leading manufacturers</span></li>
-            <li>{% render 'sklp-check' %}<span>Personalized product recommendations</span></li>
-            <li>{% render 'sklp-check' %}<span>Multi-bed and multi-location pricing for larger projects</span></li>
-            <li>{% render 'sklp-check' %}<span>Tax-exempt purchasing assistance</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.specialist' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.multi_manuf' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.personal' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.pricing_large' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.tax' | t }}</span></li>
           </ul>
         </div>
         <div class="sklp-panel sklp-panel--navy sklp-reveal" data-d="2">
-          <h3>Purchasing made simple</h3>
-          <p>Built for organizations, not insurance billing. We work directly with nonprofits, residential care providers, schools, healthcare facilities, and government agencies. We do not bill Medicare, Medicaid, or private insurance, and many organizations prefer buying directly because it means:</p>
+          <h3>{{ 'prc.landing.simple_h' | t }}</h3>
+          <p>{{ 'prc.landing.simple_p' | t }}</p>
           <ul class="sklp-list">
-            <li>{% render 'sklp-check' %}<span>Faster ordering without insurance approval delays</span></li>
-            <li>{% render 'sklp-check' %}<span>A wider selection of specialty equipment</span></li>
-            <li>{% render 'sklp-check' %}<span>Wholesale pricing</span></li>
-            <li>{% render 'sklp-check' %}<span>Quantity discounts on larger projects</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.faster' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.wider' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.wholesale' | t }}</span></li>
+            <li>{% render 'sklp-check' %}<span>{{ 'prc.landing.quantity' | t }}</span></li>
           </ul>
         </div>
       </div>
@@ -153,20 +157,20 @@
     {%- comment -%} 4. Projects: hairline columns {%- endcomment -%}
     <section class="sklp-move">
       <header class="sklp-head sklp-reveal">
-        <h2>Equipment for every project</h2>
+        <h2>{{ 'prc.landing.proj_h' | t }}</h2>
       </header>
       <div class="sklp-proj sklp-reveal">
         <div class="sklp-proj__col">
-          <h3><span class="sklp-dot"></span>Single replacement</h3>
-          <p>Replace an aging or damaged bed with the right equipment for your resident's needs.</p>
+          <h3><span class="sklp-dot"></span>{{ 'prc.landing.single_h' | t }}</h3>
+          <p>{{ 'prc.landing.single_p' | t }}</p>
         </div>
         <div class="sklp-proj__col">
-          <h3><span class="sklp-dot"></span>New residence</h3>
-          <p>Outfit a new group home or residential facility with beds, mattresses, and mobility equipment.</p>
+          <h3><span class="sklp-dot"></span>{{ 'prc.landing.new_h' | t }}</h3>
+          <p>{{ 'prc.landing.new_p' | t }}</p>
         </div>
         <div class="sklp-proj__col">
-          <h3><span class="sklp-dot"></span>Multi-location projects</h3>
-          <p>Coordinate purchases across multiple homes or facilities with customized pricing and recommendations.</p>
+          <h3><span class="sklp-dot"></span>{{ 'prc.landing.multi_h' | t }}</h3>
+          <p>{{ 'prc.landing.multi_p' | t }}</p>
         </div>
       </div>
     </section>
@@ -174,20 +178,20 @@
     {%- comment -%} 5. Who we serve: navy band {%- endcomment -%}
     <section class="sklp-serveband sklp-reveal">
       <header class="sklp-head">
-        <h2>Who we serve</h2>
-        <p>We proudly support organizations such as these.</p>
+        <h2>{{ 'prc.landing.serve_h' | t }}</h2>
+        <p>{{ 'prc.landing.serve_p' | t }}</p>
       </header>
       <ul class="sklp-serve">
-        <li>Residential group homes</li>
-        <li>Developmental disability service providers</li>
-        <li>Pediatric residential care facilities</li>
-        <li>Community living organizations</li>
-        <li>Faith-based nonprofit organizations</li>
-        <li>Assisted living communities</li>
-        <li>Long-term care facilities</li>
-        <li>Skilled nursing providers</li>
-        <li>Rehabilitation centers</li>
-        <li>Hospice organizations</li>
+        <li>{{ 'prc.landing.s1' | t }}</li>
+        <li>{{ 'prc.landing.s2' | t }}</li>
+        <li>{{ 'prc.landing.s3' | t }}</li>
+        <li>{{ 'prc.landing.s4' | t }}</li>
+        <li>{{ 'prc.landing.s5' | t }}</li>
+        <li>{{ 'prc.landing.s6' | t }}</li>
+        <li>{{ 'prc.landing.s7' | t }}</li>
+        <li>{{ 'prc.landing.s8' | t }}</li>
+        <li>{{ 'prc.landing.s9' | t }}</li>
+        <li>{{ 'prc.landing.s10' | t }}</li>
       </ul>
     </section>
 
@@ -199,18 +203,18 @@
             <img src="{{ section.settings.commitment_image | image_url: width: 900 }}"
                  srcset="{{ section.settings.commitment_image | image_url: width: 560 }} 560w, {{ section.settings.commitment_image | image_url: width: 900 }} 900w"
                  sizes="(min-width: 60rem) 40vw, 100vw"
-                 alt="A caregiver supporting a resident" width="900" height="600" loading="lazy">
+                 alt="{{ 'prc.landing.commit_alt' | t | escape }}" width="900" height="600" loading="lazy">
           {%- else -%}
             <img src="{{ commit_fallback }}&width=900"
                  srcset="{{ commit_fallback }}&width=560 560w, {{ commit_fallback }}&width=900 900w"
                  sizes="(min-width: 60rem) 40vw, 100vw"
-                 alt="A caregiver supporting a resident" width="900" height="600" loading="lazy">
+                 alt="{{ 'prc.landing.commit_alt' | t | escape }}" width="900" height="600" loading="lazy">
           {%- endif -%}
         </div>
         <div class="sklp-commit__text sklp-reveal" data-d="2">
-          <p class="sklp-commit__q">Our goal is not simply to sell equipment. It is to be a trusted long-term partner for your organization.</p>
+          <p class="sklp-commit__q">{{ 'prc.landing.commit_q' | t }}</p>
           <div class="sklp-commit__body">
-            <p>Every purchasing decision affects the people you serve. We are committed to honest recommendations, dependable service, and high-quality equipment that helps create safer, more comfortable living environments for residents and caregivers.</p>
+            <p>{{ 'prc.landing.commit_p' | t }}</p>
           </div>
         </div>
       </div>
@@ -218,17 +222,17 @@
 
     {%- comment -%} 7. Contact CTA {%- endcomment -%}
     <section class="sklp-cta sklp-reveal">
-      <h2>Ready to start the conversation?</h2>
-      <p class="sklp-cta__lead">Send us a few details and a specialist will put together a quote and recommendations for your organization.</p>
+      <h2>{{ 'prc.landing.cta_h' | t }}</h2>
+      <p class="sklp-cta__lead">{{ 'prc.landing.cta_p' | t }}</p>
       <ul class="sklp-cta__points">
-        <li>Your organization</li>
-        <li>Residents or beds needed</li>
-        <li>Equipment you are considering</li>
-        <li>Number of locations</li>
+        <li>{{ 'prc.landing.c1' | t }}</li>
+        <li>{{ 'prc.landing.c2' | t }}</li>
+        <li>{{ 'prc.landing.c3' | t }}</li>
+        <li>{{ 'prc.landing.c4' | t }}</li>
       </ul>
       <div class="sklp-cta__actions">
-        <a class="sklp-btn sklp-btn--primary" href="{{ quote_link }}">Request a quote{% render 'sklp-arrow' %}</a>
-        <a class="sklp-btn sklp-btn--onDark" href="tel:{{ tel }}">Call {{ phone }}</a>
+        <a class="sklp-btn sklp-btn--primary" href="{{ quote_link }}">{{ 'prc.landing.request_quote' | t }}{% render 'sklp-arrow' %}</a>
+        <a class="sklp-btn sklp-btn--onDark" href="tel:{{ tel }}">{{ call_label }}</a>
       </div>
     </section>
 

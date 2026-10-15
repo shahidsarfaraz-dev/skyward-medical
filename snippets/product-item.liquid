@@ -313,7 +313,7 @@
       {%- endif -%}
 
       {%- if redesign_card and product.metafields.custom.best_for.value != blank -%}
-        <div class="prc-best-for">{%- render 'prc-chip-icon', icon: 'bestfor' -%}<span>Best for {{ product.metafields.custom.best_for.value }}</span></div>
+        <div class="prc-best-for">{%- render 'prc-chip-icon', icon: 'bestfor' -%}<span>{{ 'prc.product.best_for_html' | t: value: product.metafields.custom.best_for.value }}</span></div>
       {%- endif -%}
     </div>
 
@@ -384,7 +384,7 @@
     {%- endif -%}
 
     {%- if redesign_card -%}
-      <a href="{{ product.url }}" class="prc-view-details" aria-label="View details for {{ product.title | escape }}">View Details</a>
+      <a href="{{ product.url }}" class="prc-view-details" aria-label="{{ 'prc.product.view_details_for' | t: title: product.title | escape }}">{{ 'prc.product.view_details' | t }}</a>
     {%- endif -%}
   </div>
 

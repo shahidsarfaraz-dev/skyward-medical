@@ -240,7 +240,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
     "@type": "BreadcrumbList",
     "@id": "{{ shop_url }}{{ article.url }}#breadcrumb",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop_url | json }} },
+      { "@type": "ListItem", "position": 1, "name": {{ 'prc.guide.home' | t | json }}, "item": {{ shop_url | json }} },
       { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ shop_url | append: blog.url | json }} },
       { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ shop_url | append: article.url | json }} }
     ]
@@ -270,7 +270,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
     "@type": "BreadcrumbList",
     "@id": "{{ shop_url }}{{ page.url }}#breadcrumb",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop_url | json }} },
+      { "@type": "ListItem", "position": 1, "name": {{ 'prc.guide.home' | t | json }}, "item": {{ shop_url | json }} },
       { "@type": "ListItem", "position": 2, "name": {{ page.title | json }}, "item": {{ shop_url | append: page.url | json }} }
     ]
   }
@@ -296,7 +296,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
     "@type": "BreadcrumbList",
     "@id": "{{ shop_url }}{{ blog.url }}#breadcrumb",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop_url | json }} },
+      { "@type": "ListItem", "position": 1, "name": {{ 'prc.guide.home' | t | json }}, "item": {{ shop_url | json }} },
       { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ shop_url | append: blog.url | json }} }
     ]
   }
@@ -333,7 +333,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": {{ 'prc.guide.home' | t | json }},
           "item": "{{ shop_url }}"
         }
         {%- if primary_collection -%}

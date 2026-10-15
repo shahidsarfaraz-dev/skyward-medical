@@ -37,10 +37,10 @@
                   </header>
 
                   <div class="value-picker__choice-list">
-                    <a href="/blogs/{{ blog.handle }}" class="value-picker__choice-item {% if current_tags == blank %}is-selected{% endif %}">{{ 'blog.general.all_tag' | t }} {% render 'icon', icon: 'check-2' %}</a>
+                    <a href="{{ blog.url }}" class="value-picker__choice-item {% if current_tags == blank %}is-selected{% endif %}">{{ 'blog.general.all_tag' | t }} {% render 'icon', icon: 'check-2' %}</a>
 
                     {%- for tag in blog.all_tags -%}
-                      <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handle }}" class="value-picker__choice-item {% if current_tags contains tag %}is-selected{% endif %}">{{ tag }} {% render 'icon', icon: 'check-2' %}</a>
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="value-picker__choice-item {% if current_tags contains tag %}is-selected{% endif %}">{{ tag }} {% render 'icon', icon: 'check-2' %}</a>
                     {%- endfor -%}
                   </div>
                 </div>

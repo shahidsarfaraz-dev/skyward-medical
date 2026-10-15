@@ -1,3 +1,11 @@
+{%- comment -%} Absolute own-domain menu links keep the shopper on the current language. {%- endcomment -%}
+{%- liquid
+  assign menu_from = 'https://skywardmedical.com/'
+  assign menu_to = menu_from
+  unless request.locale.primary
+    assign menu_to = routes.root_url | append: '/'
+  endunless
+-%}
 {%- capture section_settings -%}
 {
   "navigationLayout": {{ section.settings.desktop_navigation_layout | json }},
@@ -176,7 +184,7 @@
                   <ul class="search-bar__menu-linklist list--unstyled" role="list">
                     {%- for link in search_menu.links -%}
                       <li>
-                        <a href="{{ link.url }}" class="search-bar__menu-link">{{ link.title }}</a>
+                        <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="search-bar__menu-link">{{ link.title }}</a>
                       </li>
                     {%- endfor -%}
                   </ul>
@@ -401,11 +409,11 @@
             {%- for link in navigation_menu.links -%}
               <li class="nav-bar__item">
                 {%- if link.links.size == 0 -%}
-                  <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
+                  <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
                 {%- else -%}
                   {%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
 
-                  <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index }}" aria-haspopup="true">
+                  <a href="{{ link.url | replace_first: menu_from, menu_to }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index }}" aria-haspopup="true">
                     {{- link.title -}}
                     {%- render 'icon', icon: 'arrow-bottom' -%}
                     {%- render 'icon', icon: 'nav-triangle' -%}
