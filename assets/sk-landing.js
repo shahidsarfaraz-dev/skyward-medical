@@ -4,9 +4,8 @@
   'use strict';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function init(scope) {
-    var root = (scope || document).querySelector('.sklp');
-    if (!root || root.dataset.sklpInit) return;
+  function initRoot(root) {
+    if (root.dataset.sklpInit) return;
     root.dataset.sklpInit = '1';
 
     // Signature moment: run the hero load sequence on the next frame.
@@ -26,6 +25,12 @@
       }
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
     for (var k = 0; k < reveals.length; k++) { io.observe(reveals[k]); }
+  }
+
+  // Every landing section on the page, not just the first.
+  function init(scope) {
+    var roots = (scope || document).querySelectorAll('.sklp');
+    for (var r = 0; r < roots.length; r++) { initRoot(roots[r]); }
   }
 
   init(document);

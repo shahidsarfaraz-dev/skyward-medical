@@ -636,6 +636,19 @@
       "view_details_for": "Ver detalles de {{ title }}",
       "view_details": "Ver detalles",
       "free_shipping": "ENVÍO GRATIS"
+    },
+    "about": {
+      "shop_now": "Ver productos",
+      "form_title": "Envíenos un mensaje",
+      "form_ok": "Gracias por escribirnos. Un especialista de producto le responderá pronto.",
+      "name": "Nombre",
+      "optional": "(opcional)",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "send": "Enviar mensaje",
+      "news_ok": "Gracias por suscribirse.",
+      "news_placeholder": "Su correo electrónico",
+      "subscribe": "Suscribirse"
     }
   }
 }

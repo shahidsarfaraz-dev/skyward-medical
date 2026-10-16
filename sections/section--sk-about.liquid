@@ -1,0 +1,214 @@
+{%- comment -%} About page in the landing-page system (sk-landing.css/js). Every text and image is a setting or block so it stays editable in the theme editor. {%- endcomment -%}
+
+{{ 'sk-landing.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sk-landing.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign s = section.settings
+  assign phone = s.phone | default: '(855) 244-4712'
+  assign shop_now = 'prc.about.shop_now' | t
+  assign form_title = 'prc.about.form_title' | t
+  assign tel = phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | remove: '.'
+  assign hero_alt = s.hero_alt | default: s.hero_image.alt | default: s.heading
+  assign personal_alt = s.personal_alt | default: s.personal_image.alt | default: s.personal_title
+-%}
+
+<div class="sklp sklp--about">
+  <script>document.currentScript.parentNode.classList.add('sklp--js')</script>
+  <div class="sklp__wrap">
+
+    <section class="sklp-hero">
+      <div class="sklp-hero__grid{% if s.hero_image == blank %} sklp-hero__grid--solo{% endif %}">
+        <div class="sklp-hero__text">
+          {%- if s.kicker != blank -%}<span class="sklp-kicker">{{ s.kicker | escape }}</span>{%- endif -%}
+          <h1 class="sklp-hero__title">{{ s.heading | default: page.title | escape }}</h1>
+          {%- if s.lead != blank -%}<div class="sklp-hero__lead">{{ s.lead }}</div>{%- endif -%}
+          <div class="sklp-hero__actions">
+            {%- if s.primary_label != blank -%}<a class="sklp-btn sklp-btn--primary" href="{{ s.primary_link | default: routes.all_products_collection_url }}">{{ s.primary_label | escape }}{% render 'sklp-arrow' %}</a>{%- endif -%}
+            <a class="sklp-btn sklp-btn--ghost" href="tel:{{ tel }}">{{ 'prc.landing.call_html' | t: phone: phone }}</a>
+          </div>
+        </div>
+        {%- if s.hero_image != blank -%}
+          <div class="sklp-hero__figure">
+            {{ s.hero_image | image_url: width: 1100 | image_tag: widths: '640, 900, 1100', sizes: '(min-width: 60rem) 46vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: hero_alt }}
+            {%- if s.hero_tag != blank -%}<span class="sklp-hero__tag"><span class="sklp-dot"></span>{{ s.hero_tag | escape }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </section>
+
+    {%- assign pillars = section.blocks | where: 'type', 'pillar' -%}
+    {%- if pillars.size > 0 -%}
+      <section class="sklp-move">
+        {%- if s.pillars_title != blank -%}
+          <header class="sklp-head sklp-reveal"><h2>{{ s.pillars_title | escape }}</h2>{%- if s.pillars_text != blank -%}<p>{{ s.pillars_text | escape }}</p>{%- endif -%}</header>
+        {%- endif -%}
+        <div class="sklp-supply sklp-supply--4">
+          {%- for b in pillars -%}
+            <div class="sklp-item sklp-item--static sklp-reveal" data-d="{{ forloop.index0 | modulo: 2 | plus: 1 }}" {{ b.shopify_attributes }}>
+              <span class="sklp-item__ic">{% render 'sklp-icon', icon: b.settings.icon %}</span>
+              <div>{%- if b.settings.title != blank -%}<h3>{{ b.settings.title | escape }}</h3>{%- endif -%}{%- if b.settings.text != blank -%}<p>{{ b.settings.text | escape }}</p>{%- endif -%}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endif -%}
+
+    {%- if s.personal_title != blank -%}
+      <section class="sklp-move">
+        <div class="sklp-commit{% if s.personal_image == blank %} sklp-commit--solo{% endif %}">
+          {%- if s.personal_image != blank -%}
+            <div class="sklp-commit__fig sklp-reveal" data-d="1">
+              {{ s.personal_image | image_url: width: 900 | image_tag: widths: '560, 900', sizes: '(min-width: 60rem) 40vw, 100vw', loading: 'lazy', alt: personal_alt }}
+            </div>
+          {%- endif -%}
+          <div class="sklp-commit__text sklp-reveal" data-d="2">
+            <h2 class="sklp-commit__h">{{ s.personal_title | escape }}</h2>
+            {%- if s.personal_text != blank -%}<div class="sklp-commit__body">{{ s.personal_text }}</div>{%- endif -%}
+            {%- if s.personal_quote != blank -%}<p class="sklp-commit__q sklp-commit__q--small">{{ s.personal_quote | escape }}</p>{%- endif -%}
+          </div>
+        </div>
+      </section>
+    {%- endif -%}
+
+    {%- if s.story_title != blank -%}
+      <section class="sklp-serveband sklp-reveal">
+        <div class="sklp-story">
+          <header class="sklp-head"><h2>{{ s.story_title | escape }}</h2></header>
+          {%- if s.story_text != blank -%}<div class="sklp-story__body">{{ s.story_text }}</div>{%- endif -%}
+        </div>
+        {%- if s.story_list != blank -%}
+          <ul class="sklp-serve">
+            {%- assign items = s.story_list | newline_to_br | split: '<br />' -%}
+            {%- for it in items -%}{%- assign it = it | strip -%}{%- if it != blank -%}<li>{{ it | escape }}</li>{%- endif -%}{%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </section>
+    {%- endif -%}
+
+    {%- assign cats = section.blocks | where: 'type', 'category' -%}
+    {%- if cats.size > 0 -%}
+      <section class="sklp-move">
+        {%- if s.products_title != blank or s.products_text != blank -%}
+        <header class="sklp-head sklp-reveal">
+          {%- if s.products_title != blank -%}<h2>{{ s.products_title | escape }}</h2>{%- endif -%}
+          {%- if s.products_text != blank -%}<div class="sklp-head__rte">{{ s.products_text }}</div>{%- endif -%}
+        </header>
+        {%- endif -%}
+        <div class="sklp-cats sklp-cats--{{ cats.size }}">
+          {%- for b in cats -%}
+            {%- if b.settings.title == blank -%}{%- continue -%}{%- endif -%}
+            <a class="sklp-cat sklp-reveal" data-d="{{ forloop.index }}" href="{{ b.settings.link | default: routes.all_products_collection_url }}" {{ b.shopify_attributes }}>
+              {%- if b.settings.image != blank -%}
+                <span class="sklp-cat__img"><img src="{{ b.settings.image | image_url: width: 700 }}" srcset="{{ b.settings.image | image_url: width: 300 }} 300w, {{ b.settings.image | image_url: width: 400 }} 400w, {{ b.settings.image | image_url: width: 500 }} 500w, {{ b.settings.image | image_url: width: 700 }} 700w" sizes="(min-width: 76rem) 380px, (min-width: 40rem) calc((100vw - 84px) / 3), 100vw" width="{{ b.settings.image.width }}" height="{{ b.settings.image.height }}" loading="lazy" alt=""></span>
+              {%- endif -%}
+              <span class="sklp-cat__body"><span class="sklp-cat__title">{{ b.settings.title | escape }}</span><span class="sklp-item__go">{{ b.settings.cta | default: shop_now | escape }}</span></span>
+            </a>
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endif -%}
+
+    <section class="sklp-cta sklp-cta--split sklp-reveal">
+      <div class="sklp-cta__intro">
+        {%- if s.cta_title != blank -%}<h2>{{ s.cta_title | escape }}</h2>{%- endif -%}
+        {%- if s.cta_text != blank -%}<div class="sklp-cta__lead">{{ s.cta_text }}</div>{%- endif -%}
+        <div class="sklp-cta__actions">
+          <a class="sklp-btn sklp-btn--onDark" href="tel:{{ tel }}"><span class="sklp-dot" aria-hidden="true"></span>{{ 'prc.landing.call_html' | t: phone: phone }}</a>
+        </div>
+      </div>
+      <div class="sklp-formcard" id="about-contact">
+        <h3 class="sklp-formcard__title">{{ s.form_title | default: form_title | escape }}</h3>
+        {%- form 'contact', id: 'AboutContactForm', class: 'sklp-form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="sklp-form__ok" role="status" tabindex="-1" autofocus>{{ 'prc.about.form_ok' | t }}</p>
+          {%- endif -%}
+          {%- if form.errors -%}<div class="sklp-form__err" role="alert" tabindex="-1" autofocus>{{ form.errors | default_errors }}</div>{%- endif -%}
+          <div class="sklp-form__row">
+            <label class="sklp-field"><span>{{ 'prc.about.name' | t }} <span class="sklp-field__opt">{{ 'prc.about.optional' | t }}</span></span><input type="text" name="contact[name]" autocomplete="name" value="{{ form.name }}"></label>
+            <label class="sklp-field"><span>{{ 'prc.about.email' | t }}</span><input type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}"></label>
+          </div>
+          <label class="sklp-field"><span>{{ 'prc.about.message' | t }}</span><textarea name="contact[body]" rows="4" required>{{ form.body }}</textarea></label>
+          <button type="submit" class="sklp-btn sklp-btn--primary sklp-form__submit">{{ 'prc.about.send' | t }}{% render 'sklp-arrow' %}</button>
+        {%- endform -%}
+      </div>
+    </section>
+
+    {%- if s.news_title != blank -%}
+      <section class="sklp-news sklp-reveal">
+        <div class="sklp-news__text">
+          <h2>{{ s.news_title | escape }}</h2>
+          {%- if s.news_text != blank -%}<p>{{ s.news_text | escape }}</p>{%- endif -%}
+        </div>
+        {%- form 'customer', id: 'AboutNewsletter', class: 'sklp-news__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          {%- if form.posted_successfully? -%}
+            <p class="sklp-form__ok sklp-form__ok--light" role="status" tabindex="-1" autofocus>{{ 'prc.about.news_ok' | t }}</p>
+          {%- else -%}
+            <label class="sklp-visually-hidden" for="AboutNewsletterEmail">{{ 'prc.about.email' | t }}</label>
+            <input id="AboutNewsletterEmail" type="email" name="contact[email]" autocomplete="email" placeholder="{{ 'prc.about.news_placeholder' | t | escape }}" required value="{{ form.email }}"{% if form.errors %} aria-invalid="true" aria-describedby="AboutNewsletterError"{% endif %}>
+            <button type="submit" class="sklp-btn sklp-btn--primary">{{ 'prc.about.subscribe' | t }}</button>
+          {%- endif -%}
+          {%- if form.errors -%}<div class="sklp-form__err" id="AboutNewsletterError" role="alert" tabindex="-1" autofocus>{{ form.errors | default_errors }}</div>{%- endif -%}
+        {%- endform -%}
+      </section>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About landing",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "kicker", "label": "Kicker" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Helping you move forward, with confidence" },
+    { "type": "richtext", "id": "lead", "label": "Intro text" },
+    { "type": "text", "id": "primary_label", "label": "Button label", "default": "Shop all products" },
+    { "type": "url", "id": "primary_link", "label": "Button link" },
+    { "type": "image_picker", "id": "hero_image", "label": "Image" },
+    { "type": "text", "id": "hero_alt", "label": "Image alt text", "info": "Describe the photo in a few words for screen readers and Google." },
+    { "type": "text", "id": "hero_tag", "label": "Image tag" },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "(855) 244-4712" },
+    { "type": "header", "content": "What you can count on (add Pillar blocks)" },
+    { "type": "text", "id": "pillars_title", "label": "Heading" },
+    { "type": "text", "id": "pillars_text", "label": "Text" },
+    { "type": "header", "content": "Image and text" },
+    { "type": "text", "id": "personal_title", "label": "Heading" },
+    { "type": "richtext", "id": "personal_text", "label": "Text" },
+    { "type": "text", "id": "personal_quote", "label": "Highlight line" },
+    { "type": "image_picker", "id": "personal_image", "label": "Image" },
+    { "type": "text", "id": "personal_alt", "label": "Image alt text" },
+    { "type": "header", "content": "Our story" },
+    { "type": "text", "id": "story_title", "label": "Heading" },
+    { "type": "richtext", "id": "story_text", "label": "Text" },
+    { "type": "textarea", "id": "story_list", "label": "List", "info": "One item per line." },
+    { "type": "header", "content": "Products (add Category blocks)" },
+    { "type": "text", "id": "products_title", "label": "Heading" },
+    { "type": "richtext", "id": "products_text", "label": "Text" },
+    { "type": "header", "content": "Closing call to action" },
+    { "type": "text", "id": "cta_title", "label": "Heading" },
+    { "type": "richtext", "id": "cta_text", "label": "Text" },
+    { "type": "text", "id": "form_title", "label": "Form heading", "default": "Send us a message" },
+    { "type": "header", "content": "Email signup" },
+    { "type": "text", "id": "news_title", "label": "Heading" },
+    { "type": "text", "id": "news_text", "label": "Text" }
+  ],
+  "blocks": [
+    { "type": "pillar", "name": "Pillar", "settings": [
+      { "type": "select", "id": "icon", "label": "Icon", "default": "safety", "options": [
+        { "value": "safety", "label": "Shield" }, { "value": "curate", "label": "Checklist" },
+        { "value": "chat", "label": "Chat" }, { "value": "person", "label": "Person" },
+        { "value": "homecare", "label": "Home" }, { "value": "lift", "label": "Lift" } ] },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" } ] },
+    { "type": "category", "name": "Category", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "url", "id": "link", "label": "Link" },
+      { "type": "text", "id": "cta", "label": "Link text", "default": "Shop now" } ] }
+  ],
+  "presets": [ { "name": "About landing" } ]
+}
+{% endschema %}

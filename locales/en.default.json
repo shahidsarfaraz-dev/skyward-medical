@@ -636,6 +636,19 @@
       "view_details_for": "View details for {{ title }}",
       "view_details": "View Details",
       "free_shipping": "FREE SHIPPING"
+    },
+    "about": {
+      "shop_now": "Shop now",
+      "form_title": "Send us a message",
+      "form_ok": "Thanks for reaching out. A Product Specialist will get back to you soon.",
+      "name": "Name",
+      "optional": "(optional)",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send message",
+      "news_ok": "Thanks for subscribing.",
+      "news_placeholder": "Your email",
+      "subscribe": "Subscribe"
     }
   }
 }
