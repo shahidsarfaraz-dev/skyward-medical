@@ -378,3 +378,8 @@
 @property --sklp-gx { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
 @property --sklp-gy { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
 @keyframes sklp-glow { from { --sklp-gx: 0%; --sklp-gy: 0%; } to { --sklp-gx: 30%; --sklp-gy: 40%; } }
+
+/* About uses the store's Add to Cart orange; hover mirrors the theme's 80% tint. */
+.sklp.sklp--about { --accent-ink: #ff6600; --accent-hover: #ff8533; }
+.sklp.sklp--about .sklp-btn--primary { box-shadow: 0 10px 22px -12px rgba(255,102,0,.9); }
+.sklp.sklp--about .sklp-field input:focus, .sklp.sklp--about .sklp-field textarea:focus, .sklp.sklp--about .sklp-news__form input[type="email"]:focus { box-shadow: 0 0 0 3px rgba(255,102,0,.2); }
