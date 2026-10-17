@@ -24,7 +24,8 @@
             {% assign new_option_set_ids = new_option_set_ids | append: ymq_template_options_new | append: "," %}
         {% endif %}
     {% endfor %}
-    {% if new_option_set_ids != '' and new_option_set_ids | slice: -1 == ',' %}
+    {% assign new_option_set_ids_last = new_option_set_ids | slice: -1 %}
+    {% if new_option_set_ids != '' and new_option_set_ids_last == ',' %}
         {% assign trimmed_length = new_option_set_ids.size | minus: 1 %}
         {% assign new_option_set_ids = new_option_set_ids | slice: 0, trimmed_length %}
     {% endif %}
@@ -59,6 +60,7 @@
                             "id": {{ variant.id | json }},
                             "title": {{ variant.title | json }},
                             "price": {{ variant.price | json }},
+                            "sku": {{ variant.sku | json }},
                             "featured_image": {{ variant.featured_image | json }},
                             "compare_at_price": {{ variant.compare_at_price | json }},
                             "available": {{ variant.available | json }},
@@ -70,7 +72,11 @@
                             "quantity_rule": {{ variant.quantity_rule | json }},
                             "unit_price": {{ variant.unit_price | json }},
                             "base_measure": {{ variant.unit_price_measurement.reference_value | json }},
-                            "quantity_value": {{ variant.unit_price_measurement.quantity_value | json }}
+                            "quantity_value": {{ variant.unit_price_measurement.quantity_value | json }},
+                            "weight": {{ variant.weight | json }},
+                            "weight_in_unit": {{ variant.weight_in_unit | json }},
+                            "weight_unit": {{ variant.weight_unit | json }},
+                            "taxable": {{ variant.taxable | json }}
                         }
                         {% unless forloop.last %},{% endunless %}
                     {% endfor %}
@@ -93,7 +99,9 @@
                                         "name": {{ product_option_value.name | json }},
                                         "product_url": {{ product_option_value.product_url | json }},
                                         "selected": {{ product_option_value.selected | json }},
-                                        "swatch": {{ product_option_value.swatch | json }}
+                                        "swatch": {{ product_option_value.swatch | json }},
+                                        "featured_image": {{ product_option_value.variant.featured_image | json }},
+                                        "available": {{ product_option_value.variant.available | json }}
                                     }
                                     {% unless forloop.last %},{% endunless %}
                                 {% endfor %}
@@ -130,25 +138,41 @@
                 {% endif %}
 
                 {% if item.metafields.ymq_option.ymq_status %}
-                    "ymq_status": {{ item.metafields.ymq_option.ymq_status }},
+                    {% assign aaa = item.metafields.ymq_option.ymq_status | json %}
+                    {% if aaa == '{"error":"json not allowed for this object"}' %}
+                        {% assign aaa = item.metafields.ymq_option.ymq_status  %}
+                    {% endif %}
+                    "ymq_status": {{ aaa }},
                 {% else %}
                     "ymq_status": {},
                 {% endif %}
 
                 {% if item.metafields.ymq_option.ymq_variantjson %}
-                    "ymq_variantjson": {{ item.metafields.ymq_option.ymq_variantjson }},
+                    {% assign aaa = item.metafields.ymq_option.ymq_variantjson | json %}
+                    {% if aaa == '{"error":"json not allowed for this object"}' %}
+                        {% assign aaa = item.metafields.ymq_option.ymq_variantjson  %}
+                    {% endif %}
+                    "ymq_variantjson": {{ aaa }},
                 {% else %}
                     "ymq_variantjson": {},
                 {% endif %}
 
                 {% if item.metafields.ymq_option.data %}
-                    "ymq_option_data": {{ item.metafields.ymq_option.data }},
+                    {% assign aaa = item.metafields.ymq_option.data | json %}
+                    {% if aaa == '{"error":"json not allowed for this object"}' %}
+                        {% assign aaa = item.metafields.ymq_option.data  %}
+                    {% endif %}
+                    "ymq_option_data": {{ aaa }},
                 {% else %}
                     "ymq_option_data": {},
                 {% endif %}
 
                 {% if item.metafields.ymq_option.condition %}
-                    "ymq_option_condition": {{ item.metafields.ymq_option.condition }}
+                    {% assign aaa = item.metafields.ymq_option.condition | json %}
+                    {% if aaa == '{"error":"json not allowed for this object"}' %}
+                        {% assign aaa = item.metafields.ymq_option.condition  %}
+                    {% endif %}
+                    "ymq_option_condition": {{ aaa }}
                 {% else %}
                     "ymq_option_condition": {}
                 {% endif %}
