@@ -426,7 +426,7 @@
         "one": "In stock ({{count}} unit), ready to be shipped",
         "other": "In stock ({{count}} units), ready to be shipped"
       },
-      "add_to_cart": "Add to cart",
+      "add_to_cart": "Add to Cart",
       "sold_out": "Sold out",
       "pre_order": "Pre-order",
       "unavailable": "Unavailable",
