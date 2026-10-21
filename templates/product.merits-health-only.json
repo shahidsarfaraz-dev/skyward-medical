@@ -142,6 +142,20 @@
     },
     "170370457993485f67": {
       "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_rDC7XJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_rDC7XJ"
+      ],
       "settings": {
         "include_margins": true
       }
@@ -153,8 +167,8 @@
     "custom_liquid_9WigV4",
     "1715483660158cc418",
     "1669343322767881e2",
+    "170370457993485f67",
     "1d2d26bc-0af6-407a-916b-b128b3047c0c",
-    "product-recommendations",
-    "170370457993485f67"
+    "product-recommendations"
   ]
 }
