@@ -102,8 +102,32 @@
     {% comment %} disturbed urls end xxxxxxxxxxxxxxxxxxxxxxxxxxxx {% endcomment %}
 
 
+    {%- comment -%} Untranslated pages, posts and policies point /es/ at the English URL and drop the es hreflang. {%- endcomment -%}
+    {%- liquid
+      assign es_ready = true
+      case request.page_type
+        when 'article'
+          assign es_ready = article.metafields.prc.es_ready.value
+        when 'blog'
+          assign es_ready = blog.metafields.prc.es_ready.value
+        when 'page'
+          assign es_ready = page.metafields.prc.es_ready.value
+        when 'policy'
+          assign es_ready = false
+      endcase
+      assign es_alt_tag = ''
+      if es_ready != true
+        assign en_path = canonical_url | remove_first: request.origin
+        if request.locale.iso_code == 'es'
+          assign en_path = en_path | remove_first: '/es'
+        endif
+        assign es_alt_tag = '<link rel="alternate" hreflang="es" href="' | append: request.origin | append: '/es' | append: en_path | append: '">'
+      endif
+    -%}
     {% if product.metafields.global.canonical != blank %}
     <link rel="canonical" href="{{ product.metafields.global.canonical }}">
+    {% elsif es_ready != true and request.locale.iso_code == 'es' %}
+    <link rel="canonical" href="{{ request.origin }}{{ en_path }}">
     {% else %}
     <link rel="canonical" href="{{ canonical_url }}">
     {% endif %}
@@ -131,6 +155,7 @@
 {% capture content_for_header_fixed %}
 {{ content_for_header }}
 {% endcapture %}
+{%- if es_alt_tag != blank -%}{% assign content_for_header_fixed = content_for_header_fixed | remove: es_alt_tag %}{%- endif -%}
 {% if product.metafields.seo.hidden == 1 or collection.metafields.seo.hidden == 1 %}
   {{ content_for_header_fixed | remove: '<meta name="robots" content="noindex,nofollow">' }}
 {% else %}
