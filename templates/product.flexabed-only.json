@@ -98,7 +98,7 @@
         "trust_badge_with_content_U7UVKf"
       ],
       "settings": {
-        "image_size": "large",
+        "image_size": "medium",
         "enable_video_looping": false,
         "enable_image_zoom": false,
         "zoom_effect": "outside",
