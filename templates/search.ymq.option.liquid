@@ -24,7 +24,7 @@
             {% assign new_option_set_ids = new_option_set_ids | append: ymq_template_options_new | append: "," %}
         {% endif %}
     {% endfor %}
-    {% if new_option_set_ids != '' and new_option_set_ids | slice: -1 == ',' %}
+    {% if new_option_set_ids != '' and new_option_set_ids %}
         {% assign trimmed_length = new_option_set_ids.size | minus: 1 %}
         {% assign new_option_set_ids = new_option_set_ids | slice: 0, trimmed_length %}
     {% endif %}
@@ -157,4 +157,14 @@
         {% endfor %}
     ]
     {% endpaginate %}
-{% endif %}
+{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if new_option_set_ids != '' and new_option_set_ids | slice: -1 == ','
+    %}"
+  to: "{% if new_option_set_ids != '' and new_option_set_ids %}"
+  position: 1115..1171
+{%- endcomment -%}
