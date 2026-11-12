@@ -33,18 +33,28 @@
     {%- endif -%}
 
     <!-- Added by 607 Media: Handle 'noindex' and canonical tags dynamically -->
-    {% if current_tags %}
+    {%- comment -%}One robots tag for all noindex, follow cases; collection page 2 and later are crawled for products but not indexed.{%- endcomment -%}
+    {%- liquid
+      assign paged_collection = false
+      if request.page_type == 'collection' and current_page > 1
+        assign paged_collection = true
+      endif
+      assign noindex_follow = paged_collection
+      if current_tags
+        assign noindex_follow = true
+      endif
+      if template contains 'collection'
+        if collection.handle == 'vendors' or collection.handle == 'types' or collection.handle == 'all' or collection.handle == 'new'
+          assign noindex_follow = true
+        endif
+      endif
+      if canonical_url == 'https://skywardmedical.com/collections' or canonical_url == 'https://skywardmedical.com/es/collections'
+        assign noindex_follow = true
+      endif
+    -%}
+    {%- if noindex_follow -%}
     <meta name="robots" content="noindex, follow">
-    {% endif %}
-    {% if template contains "collection" and collection.handle == "vendors" %}
-    <meta name="robots" content="noindex, follow">
-    {% endif %}
-    {% if template contains "collection" and collection.handle == "types" %}
-    <meta name="robots" content="noindex, follow">
-    {% endif %}
-    {% if template contains "collection" and collection.handle == "all" or template contains "collection" and collection.handle == "new" or canonical_url == "https://skywardmedical.com/collections" or canonical_url == "https://skywardmedical.com/es/collections" %}
-    <meta name="robots" content="noindex, follow">
-    {% endif %}
+    {%- endif -%}
 
     {% comment %} disturbed urls start xxxxxxxxxxxxxxxxxxxxxxxxxxxx {% endcomment %}
     {% assign url = request.path %}
@@ -125,6 +135,8 @@
     <link rel="canonical" href="{{ product.metafields.global.canonical }}">
     {% elsif es_ready != true and request.locale.iso_code == 'es' %}
     <link rel="canonical" href="{{ request.origin }}{{ en_path }}">
+    {% elsif paged_collection %}
+    <link rel="canonical" href="{{ canonical_url | split: '?' | first }}">
     {% else %}
     <link rel="canonical" href="{{ canonical_url }}">
     {% endif %}
@@ -153,6 +165,8 @@
 {{ content_for_header }}
 {% endcapture %}
 {%- if es_alt_tag != blank -%}{% assign content_for_header_fixed = content_for_header_fixed | remove: es_alt_tag %}{%- endif -%}
+{%- comment -%}Shopify's rel=prev on page 2 points at ?page=1, a duplicate of page 1.{%- endcomment -%}
+{%- if paged_collection and current_page == 2 -%}{% assign content_for_header_fixed = content_for_header_fixed | replace: '?page=1">', '">' | replace: '?page=1&amp;', '?' | replace: '?page=1&', '?' %}{%- endif -%}
 {% if product.metafields.seo.hidden == 1 or collection.metafields.seo.hidden == 1 %}
   {{ content_for_header_fixed | remove: '<meta name="robots" content="noindex,nofollow">' }}
 {% else %}

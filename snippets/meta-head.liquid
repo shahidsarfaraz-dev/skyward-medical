@@ -1,5 +1,6 @@
 {%- assign cfh = content_for_header -%}
 {%- if es_alt_tag != blank -%}{% assign cfh = cfh | remove: es_alt_tag %}{%- endif -%}
+{%- if paged_collection and current_page == 2 -%}{% assign cfh = cfh | replace: '?page=1">', '">' | replace: '?page=1&amp;', '?' | replace: '?page=1&', '?' %}{%- endif -%}
 {% assign domcontentloadeda = "document.addEventListener('DOMContentLoaded'" %}
 {% assign startasyncLoadinga= "document.addEventListener('StartAsyncLoading'" %} 
 {% assign domcontentloaded = 'e.addEventListener("DOMContentLoaded"' %}
