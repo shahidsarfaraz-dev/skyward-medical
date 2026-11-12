@@ -44,10 +44,16 @@
 
   {%- assign filtered_variant = '' -%}
 
+  {%- comment -%}Recommendation links carry Shopify's ?pr_ tracking; link the clean URL so Google only finds the canonical page.{%- endcomment -%}
+  {%- assign product_url = product.url -%}
+  {%- if product_url contains '?pr_' or product_url contains '&pr_' -%}
+    {%- assign product_url = product_url | split: '?' | first -%}
+  {%- endif -%}
+
   {%- if product.media.size > 0 -%}
     {%- assign primary_media = product.featured_media -%}
 
-    <a href="{{ product.url }}" class="product-item__image-wrapper {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %}">
+    <a href="{{ product_url }}" class="product-item__image-wrapper {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %}">
       {%- if redesign_card and product.metafields.custom.bed_type.value != blank -%}
         <span class="prc-card-badge">{{ product.metafields.custom.bed_type.value | split: ',' | first | strip }}</span>
       {%- endif -%}
@@ -181,7 +187,7 @@
         {{ vendor }}
       {%- endif -%}
 
-      <a href="{{ filtered_variant.url | default: product.url }}" class="product-item__title text--strong link">{{ product.title }}</a>
+      <a href="{{ filtered_variant.url | default: product_url }}" class="product-item__title text--strong link">{{ product.title }}</a>
       {%- comment -%}
         The Fera and Judge.me review badges show on every normal card. The redesign card
         has its own rating row (.prc-card-rating below), so we hide these two on redesign
@@ -240,7 +246,7 @@
                   <label class="color-swatch__item" for="{{ color_id }}" style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: downcased_value %}" title="{{ value | escape }}">
                     <span class="visually-hidden">{{ value }}</span>
                   </label>
-                  <a href="{{ product.url }}" class="color-swatch__item-link">+{{ option.values.size | minus: forloop.index0 }}</a>
+                  <a href="{{ product_url }}" class="color-swatch__item-link">+{{ option.values.size | minus: forloop.index0 }}</a>
                 </div>
               {%- endfor -%}
             {%- endif -%}
@@ -261,7 +267,7 @@
       {%- endif -%}
       {% comment %}
       {%- if settings.show_reviews_badge -%}
-        <a class="product-item__reviews-badge link" href="{{ product.url }}#product-reviews">
+        <a class="product-item__reviews-badge link" href="{{ product_url }}#product-reviews">
           {%- render 'product-rating', product: product -%}
         </a>
       {%- endif -%}
@@ -358,7 +364,7 @@
                   {%- endif -%}
                 </button>
               {%- else -%}
-                <a href="{{ product.url }}" class="{{ quick_buy_classes }}">{{ 'collection.product.choose_options' | t }}</a>
+                <a href="{{ product_url }}" class="{{ quick_buy_classes }}">{{ 'collection.product.choose_options' | t }}</a>
               {%- endif -%}
             {%- else -%}
               <button class="{{ quick_buy_classes | replace: 'button--primary', 'button--disabled' }}" disabled>{{ 'collection.product.sold_out' | t }}</button>
@@ -370,7 +376,7 @@
               {%- assign quick_view_classes = 'product-item__action-button product-item__action-button--list-view-only button button--small button--ternary hidden-phone' -%}
             {%- endif -%}
 
-            <button type="button" class="{{ quick_view_classes }}" data-action="open-modal" data-secondary-action="open-quick-view" aria-controls="modal-quick-view-{{ section.id }}" data-product-url="{{ product.url }}">{{ 'collection.product.quick_view' | t }}</button>
+            <button type="button" class="{{ quick_view_classes }}" data-action="open-modal" data-secondary-action="open-quick-view" aria-controls="modal-quick-view-{{ section.id }}" data-product-url="{{ product_url }}">{{ 'collection.product.quick_view' | t }}</button>
           {%- endform -%}
         {%- endcapture -%}
 
@@ -384,7 +390,7 @@
     {%- endif -%}
 
     {%- if redesign_card -%}
-      <a href="{{ product.url }}" class="prc-view-details" aria-label="{{ 'prc.product.view_details_for' | t: title: product.title | escape }}">{{ 'prc.product.view_details' | t }}</a>
+      <a href="{{ product_url }}" class="prc-view-details" aria-label="{{ 'prc.product.view_details_for' | t: title: product.title | escape }}">{{ 'prc.product.view_details' | t }}</a>
     {%- endif -%}
   </div>
 
