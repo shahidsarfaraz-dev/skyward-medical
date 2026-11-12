@@ -362,6 +362,11 @@
           "quiz_exit_intent": false,
           "quiz_id": "d9LpIk"
         }
+      },
+      "10789087546470998795": {
+        "type": "shopify://apps/cps-extended-warranty/blocks/cps-warranty/01a18831-7251-77eb-9d11-829ec823897c",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
