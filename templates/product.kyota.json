@@ -80,6 +80,7 @@
         },
         "trust_badge_with_content_U7UVKf": {
           "type": "trustBadge_with_content",
+          "disabled": true,
           "settings": {
             "trustBadge_richtext": "",
             "trustBadge_faq_title": "",
