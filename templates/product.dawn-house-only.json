@@ -77,14 +77,6 @@
           "settings": {
             "display_mode": "show_all"
           }
-        },
-        "trust_badge_with_content_U7UVKf": {
-          "type": "trustBadge_with_content",
-          "settings": {
-            "trustBadge_richtext": "",
-            "trustBadge_faq_title": "",
-            "trustBadge_faq": "<p>☑ type content</p>"
-          }
         }
       },
       "block_order": [
@@ -94,8 +86,7 @@
         "variant_selector",
         "buy_buttons",
         "7ef4136f-49dc-4aa4-ba22-a97b29304c71",
-        "description",
-        "trust_badge_with_content_U7UVKf"
+        "description"
       ],
       "settings": {
         "image_size": "medium",
