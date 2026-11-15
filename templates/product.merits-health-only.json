@@ -80,6 +80,7 @@
         },
         "trust_badge_with_content_U7UVKf": {
           "type": "trustBadge_with_content",
+          "disabled": true,
           "settings": {
             "trustBadge_richtext": "",
             "trustBadge_faq_title": "",
@@ -125,21 +126,6 @@
         "include_margins": true
       }
     },
-    "1d2d26bc-0af6-407a-916b-b128b3047c0c": {
-      "type": "custom-liquid",
-      "settings": {
-        "title": "",
-        "include_margins": true,
-        "liquid": "<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n</div>"
-      }
-    },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "heading": "You may also like",
-        "show_quick_buy": false
-      }
-    },
     "170370457993485f67": {
       "type": "apps",
       "blocks": {
@@ -158,6 +144,21 @@
       ],
       "settings": {
         "include_margins": true
+      }
+    },
+    "1d2d26bc-0af6-407a-916b-b128b3047c0c": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div class=\"product-bottom rte\">\n{{ product.metafields.custom.product_seo_text }}\n</div>"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "show_quick_buy": false
       }
     }
   },
